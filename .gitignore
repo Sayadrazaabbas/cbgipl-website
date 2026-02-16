@@ -25,6 +25,7 @@ dist-ssr
 
 # Helper scripts & working dirs
 *.py
+*.pdf
 __pycache__
 image_catalog.txt
 team_mapping.txt
