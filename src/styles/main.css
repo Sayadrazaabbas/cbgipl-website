@@ -1627,7 +1627,7 @@ select {
   font-family: var(--font-heading);
   font-size: 1.1rem;
   color: var(--white);
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 .footer-links-group ul {
@@ -1646,6 +1646,52 @@ select {
 .footer-links-group a:hover {
   color: var(--gold);
   padding-left: 4px;
+}
+
+.footer-main {
+  display: grid;
+  grid-template-columns: 1.5fr 1.2fr 1fr 1fr 1.2fr;
+  gap: 40px;
+  padding-bottom: 64px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-brand p {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.95rem;
+  margin: 20px 0 24px;
+}
+
+.footer-social {
+  display: flex;
+  gap: 12px;
+}
+
+.footer-contact h4 {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  color: var(--white);
+  margin-bottom: 24px;
+}
+
+.footer-contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.footer-contact-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+}
+
+.footer-contact-list li svg {
+  width: 18px;
+  height: 18px;
+  color: var(--gold);
 }
 
 .footer-bottom {
