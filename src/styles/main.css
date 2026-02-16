@@ -562,12 +562,32 @@ select {
 }
 
 .hero-stat {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-align: left;
+}
+
+.stat-icon-wrapper {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(212, 189, 155, 0.1);
+  border: 1px solid rgba(212, 189, 155, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+}
+
+.stat-icon-wrapper svg {
+  width: 24px;
+  height: 24px;
 }
 
 .stat-number {
   font-family: var(--font-heading);
-  font-size: 2.5rem;
+  font-size: 1.8rem;
   font-weight: 700;
   color: var(--white);
   line-height: 1;
@@ -575,7 +595,7 @@ select {
 
 .stat-suffix {
   font-family: var(--font-heading);
-  font-size: 2rem;
+  font-size: 1.4rem;
   color: var(--gold);
 }
 
@@ -918,24 +938,38 @@ select {
 }
 
 .project-meta {
-  display: flex;
-  gap: 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
   padding-top: 16px;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.meta-icon {
+  width: 16px;
+  height: 16px;
+  color: var(--gold);
+  opacity: 0.8;
+}
+
 .meta-label {
   display: block;
-  font-size: 0.72rem;
+  font-size: 0.65rem;
   color: rgba(255, 255, 255, 0.35);
   text-transform: uppercase;
   letter-spacing: 1px;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 }
 
 .meta-value {
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: var(--white);
 }
 
@@ -1045,27 +1079,26 @@ select {
 }
 
 .service-features {
+  margin-top: 24px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 12px;
 }
 
 .service-features li {
-  font-size: 0.82rem;
-  color: rgba(255, 255, 255, 0.4);
-  padding-left: 20px;
-  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
 }
 
-.service-features li::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 8px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  border: 2px solid var(--gold);
+.service-features li svg {
+  width: 18px;
+  height: 18px;
+  color: var(--gold);
+  flex-shrink: 0;
+  margin-top: 2px;
 }
 
 /* ── ROADMAP SECTION ── */
@@ -1077,7 +1110,25 @@ select {
   max-width: 800px;
   margin: 0 auto;
   position: relative;
-  padding: 20px 0;
+  padding: 40px 0;
+}
+
+.roadmap-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  box-shadow: 0 0 20px rgba(212, 189, 155, 0.3);
+}
+
+.roadmap-icon svg {
+  width: 24px;
+  height: 24px;
 }
 
 .timeline-line {
