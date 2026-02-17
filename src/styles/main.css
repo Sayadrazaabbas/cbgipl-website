@@ -549,6 +549,11 @@ select {
   margin-bottom: 32px;
 }
 
+.section-light .section-tag {
+  color: var(--gold-dark);
+  background: rgba(176, 154, 118, 0.1);
+}
+
 .badge-dot {
   width: 8px;
   height: 8px;
@@ -775,21 +780,17 @@ select {
   align-items: center;
 }
 
-.story-content h3 {
-  font-family: var(--font-heading);
-  font-size: 2rem;
-  color: var(--white);
-  margin-bottom: 24px;
+.section-light .story-content h3 {
+  color: var(--text-dark);
 }
 
-.story-content p {
-  margin-bottom: 16px;
-  color: rgba(255, 255, 255, 0.55);
-  line-height: 1.8;
+.section-light .story-content p,
+.section-light .story-item p {
+  color: var(--text-muted);
 }
 
-.story-content strong {
-  color: var(--gold);
+.section-light .story-content strong {
+  color: var(--gold-dark);
 }
 
 .story-image {
@@ -821,15 +822,18 @@ select {
   text-transform: uppercase;
 }
 
-.story-float-card {
-  position: absolute;
-  bottom: -20px;
-  right: -20px;
-  padding: 24px 32px;
-  background: rgba(0, 38, 46, 0.95);
-  border: 1px solid rgba(0, 180, 220, 0.15);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
-  text-align: center;
+.section-light .story-float-card {
+  background: var(--white);
+  border: 1px solid rgba(0, 38, 46, 0.1);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.section-light .story-float-card .float-number {
+  color: var(--text-dark);
+}
+
+.section-light .story-float-card .float-label {
+  color: var(--text-muted);
 }
 
 .story-item {
