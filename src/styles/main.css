@@ -287,7 +287,15 @@ select {
   pointer-events: none;
 }
 
+#three-container {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
 .preloader-inner {
+  position: relative;
+  z-index: 2;
   text-align: center;
 }
 

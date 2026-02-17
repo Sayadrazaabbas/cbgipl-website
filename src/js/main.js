@@ -4,6 +4,8 @@
             Project Filters, Particles, Mobile Nav
    ====================================================================== */
 
+import { threeManager } from './three-manager';
+
 // Wait for DOM
 document.addEventListener('DOMContentLoaded', () => {
   initPreloader();
@@ -31,6 +33,9 @@ function initPreloader() {
 
   window.addEventListener('load', () => {
     setTimeout(() => {
+      // Fade out 3D preloader
+      if (threeManager) threeManager.fadeOut();
+
       preloader.classList.add('loaded');
       document.body.style.overflow = '';
     }, 1800);
