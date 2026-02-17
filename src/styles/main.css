@@ -1335,8 +1335,8 @@ select {
 }
 
 .leader-image {
-  width: 100px;
-  height: 100px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
   overflow: hidden;
   margin: 0 auto 20px;
@@ -1499,19 +1499,24 @@ select {
   gap: 16px;
 }
 
-.presence-card {
-  text-align: center;
-  padding: 32px 16px;
-  border-radius: var(--border-radius);
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  transition: all 0.4s var(--ease);
+.section-light .presence-card {
+  background: var(--white);
+  border: 1px solid rgba(0, 38, 46, 0.1);
+  box-shadow: var(--shadow-sm);
 }
 
-.presence-card:hover {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(200, 163, 95, 0.2);
+.section-light .presence-card:hover {
+  border-color: var(--gold);
+  box-shadow: var(--shadow-md);
   transform: translateY(-4px);
+}
+
+.section-light .presence-card h4 {
+  color: var(--text-dark);
+}
+
+.section-light .presence-card p {
+  color: var(--text-muted);
 }
 
 .presence-photo {
