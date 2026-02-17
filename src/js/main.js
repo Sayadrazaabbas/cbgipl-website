@@ -31,21 +31,37 @@ function initPreloader() {
   const preloader = document.getElementById('preloader');
   if (!preloader) return;
 
+  // Simulate/Track progress for the 3D ring
+  let progress = 0;
+  const progressInterval = setInterval(() => {
+    progress += 0.02;
+    if (progress > 0.9) clearInterval(progressInterval);
+    if (threeManager && typeof threeManager.updateProgress === 'function') {
+      threeManager.updateProgress(progress);
+    }
+  }, 30);
+
   window.addEventListener('load', () => {
+    clearInterval(progressInterval);
+    if (threeManager && typeof threeManager.updateProgress === 'function') {
+      threeManager.updateProgress(1);
+    }
+
     setTimeout(() => {
       // Fade out 3D preloader
       if (threeManager) threeManager.fadeOut();
 
       preloader.classList.add('loaded');
       document.body.style.overflow = '';
-    }, 1800);
+    }, 1200);
   });
 
   // Fallback
   setTimeout(() => {
+    clearInterval(progressInterval);
     preloader.classList.add('loaded');
     document.body.style.overflow = '';
-  }, 3500);
+  }, 4000);
 }
 
 /* ── NAVBAR ── */
