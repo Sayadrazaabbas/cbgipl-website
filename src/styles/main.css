@@ -66,7 +66,8 @@
 
 html {
   scroll-behavior: smooth;
-  font-size: 16px;
+  font-size: 18px;
+  /* OR Increased from 16px */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -130,8 +131,13 @@ select {
 }
 
 .section {
-  padding: var(--section-padding) 0;
+  padding: 120px 0;
+  /* OR Increased from var(--section-padding) */
   position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .section-header {
@@ -169,6 +175,26 @@ select {
   font-size: 1.1rem;
   color: rgba(255, 255, 255, 0.55);
   line-height: 1.8;
+}
+
+/* ── Animations ── */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+}
+
+[data-animate].animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+[data-animate="fade-down"] {
+  transform: translateY(-30px);
+}
+
+[data-animate="fade-down"].animated {
+  transform: translateY(0);
 }
 
 /* ── Buttons ── */
@@ -668,8 +694,8 @@ select {
 .about-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-bottom: 80px;
+  gap: 32px;
+  margin-bottom: 100px;
 }
 
 .about-card {
