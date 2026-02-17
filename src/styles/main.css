@@ -161,7 +161,8 @@ select {
 }
 
 .section-light .section-desc {
-  color: var(--text-muted);
+  color: #00262E !important;
+  opacity: 0.7;
 }
 
 .section-tag {
@@ -766,10 +767,9 @@ select {
   margin-bottom: 12px;
 }
 
-.about-card p {
-  font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.55);
-  line-height: 1.7;
+.section-light .about-card p {
+  color: #00262E !important;
+  opacity: 0.8;
 }
 
 /* About Story */
@@ -785,8 +785,11 @@ select {
 }
 
 .section-light .story-content p,
-.section-light .story-item p {
-  color: var(--text-muted);
+.section-light .story-item p,
+.section-light .about-story p {
+  color: #00262E !important;
+  /* Force dark navy */
+  opacity: 0.85;
 }
 
 .section-light .story-content strong {
