@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initBackToTop();
   initContactForm();
   initSmoothScroll();
+  initRoadmapAnimation();
 
   // Initialize Lucide icons
   if (window.lucide) {
@@ -176,6 +177,45 @@ function initProjectFilters() {
           }
         }
       });
+    });
+  });
+}
+
+/* ── ROADMAP ANIMATION ── */
+function initRoadmapAnimation() {
+  const roadmap = document.querySelector('.roadmap-timeline');
+  if (!roadmap) return;
+
+  const lineProgress = document.querySelector('.timeline-line-progress');
+  const items = document.querySelectorAll('.timeline-item');
+  const dots = document.querySelectorAll('.timeline-dot');
+
+  window.addEventListener('scroll', () => {
+    const rect = roadmap.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+
+    // Calculate progress through the roadmap section
+    let progress = 0;
+    if (rect.top < windowHeight * 0.7) {
+      const totalDist = rect.height;
+      const currentDist = (windowHeight * 0.7) - rect.top;
+      progress = Math.min(Math.max((currentDist / totalDist) * 100, 0), 100);
+    }
+
+    if (lineProgress) {
+      lineProgress.style.height = `${progress}%`;
+    }
+
+    // Toggle active state for items and dots
+    items.forEach((item, index) => {
+      const itemRect = item.getBoundingClientRect();
+      if (itemRect.top < windowHeight * 0.75) {
+        item.classList.add('active');
+        if (dots[index]) dots[index].classList.add('active');
+      } else {
+        item.classList.remove('active');
+        if (dots[index]) dots[index].classList.remove('active');
+      }
     });
   });
 }
