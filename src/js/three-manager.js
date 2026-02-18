@@ -34,9 +34,9 @@ class ThreeManager {
         this.constructionSite = new THREE.Group();
         this.scene.add(this.constructionSite);
 
-        // Zone A: Skyscraper Assembly (Repositioned for larger ring)
+        // Zone A: Skyscraper Assembly (Elevated more upside)
         this.tower = new THREE.Group();
-        this.tower.position.set(4, -2, 4);
+        this.tower.position.set(4, 1, 4);
         this.constructionSite.add(this.tower);
         this.floors = [];
 
@@ -301,66 +301,56 @@ class ThreeManager {
         }
 
         const theta = progress * Math.PI * 2;
-        const radius = 12; // Increased Diameter
+        const radius = 12; // Large Diameter
 
-        // Outer Glow Ring
-        const geometry = new THREE.TorusGeometry(8, 0.15, 16, 100, theta || 0.001);
+        // 1. Outer Progress Ring (Glow)
+        const geometry = new THREE.TorusGeometry(radius, 0.15, 16, 100, theta || 0.001);
         const material = new THREE.MeshPhongMaterial({
             color: 0xD4BD9B,
-            transparent: true,
-            opacity: 0.6,
             emissive: 0xD4BD9B,
-            emissiveIntensity: 0.5,
-            side: THREE.DoubleSide
-        });
-
-        this.arcMesh = new THREE.Mesh(geometry, material);
-        this.arcMesh.rotation.x = Math.PI / 2;
-        this.arcMesh.rotation.z = Math.PI;
-        this.arcGroup.add(this.arcMesh);
-
-        // Inner Tech Ring
-        const innerGeo = new THREE.TorusGeometry(7.5, 0.05, 16, 100, theta || 0.001);
-        const innerMat = new THREE.MeshBasicMaterial({
-            color: 0xE0CDA8,
+            emissiveIntensity: 1 + Math.sin(Date.now() * 0.002) * 0.5,
             transparent: true,
-            opacity: 0.3,
-            wireframe: true
+            opacity: 0.8
+        });
+        this.progressRing = new THREE.Mesh(geometry, material);
+        this.progressRing.rotation.x = Math.PI / 2;
+        this.progressRing.rotation.z = -Math.PI / 2;
+        this.arcGroup.add(this.progressRing);
+
+        // 2. Inner Track Ring
+        const innerGeo = new THREE.TorusGeometry(radius - 0.5, 0.05, 8, 100);
+        const innerMat = new THREE.MeshBasicMaterial({
+            color: 0x1A3A40,
+            transparent: true,
+            opacity: 0.5
         });
         this.innerRing = new THREE.Mesh(innerGeo, innerMat);
         this.innerRing.rotation.x = Math.PI / 2;
         this.arcGroup.add(this.innerRing);
 
-        // Update JCB Position and Wheel Rotation: 2 Rounds per construction cycle
+        // 3. Update JCB Position and Wheel Rotation: 2 Rounds
         if (this.jcb) {
-            const jcbTheta = progress * Math.PI * 4; // 2 Full Rounds
+            const jcbTheta = progress * Math.PI * 4;
             const angle = Math.PI - jcbTheta;
-            const radius = 8;
             this.jcb.position.x = Math.sin(angle) * radius;
             this.jcb.position.z = Math.cos(angle) * radius;
             this.jcb.position.y = -4.8;
 
-            // 1. Correct Orientation: Face the direction of travel
             this.jcb.rotation.y = angle + Math.PI;
 
-            // 2. Continuous Micro-Animations
             const time = Date.now() * 0.005;
-            this.jcb.position.y += Math.sin(time * 2) * 0.02; // Working bounce
+            this.jcb.position.y += Math.sin(time * 2) * 0.02;
 
-            // 3. Wheel Rotation (Faster for 2 rounds)
             this.jcb.children.forEach(child => {
                 if (child.isGroup && child.children.length === 2) {
                     child.children.forEach(wPart => {
-                        wPart.rotation.y += 0.3; // Doubled wheel speed
+                        wPart.rotation.y += 0.3;
                     });
                 }
             });
 
-            // 4. Arm movement based on progress
             const arm = this.jcb.children.find(c => c.isGroup && c.children.length === 3);
-            if (arm) {
-                arm.rotation.x = Math.sin(time) * 0.1;
-            }
+            if (arm) arm.rotation.x = Math.sin(time) * 0.1;
         }
     }
 
