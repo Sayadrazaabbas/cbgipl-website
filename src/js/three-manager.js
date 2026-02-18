@@ -62,17 +62,55 @@ class ThreeManager {
             opacity: 0.4
         });
 
-        // 4. Skyscraper Structure (Building floors to be revealed)
-        const floorGeo = new THREE.BoxGeometry(3, 0.8, 3);
+        // 4. Ultra-Luxury Skyscraper Structure
         const floorCount = 15;
+        const floorH = 0.8;
+        const glassGeo = new THREE.BoxGeometry(2.8, floorH - 0.1, 2.8);
+        const frameGeo = new THREE.BoxGeometry(3.05, 0.08, 3.05);
+        const pillarGeo = new THREE.BoxGeometry(0.12, floorH, 0.12);
+
+        // Premium Materials
+        const luxuryGold = new THREE.MeshPhongMaterial({
+            color: 0xD4BD9B,
+            shininess: 120,
+            emissive: 0x443311,
+            emissiveIntensity: 0.2
+        });
+        const luxuryGlass = new THREE.MeshPhongMaterial({
+            color: 0x224466,
+            transparent: true,
+            opacity: 0.6,
+            shininess: 200,
+            reflectivity: 1
+        });
+
         for (let i = 0; i < floorCount; i++) {
             const floor = new THREE.Group();
-            const core = new THREE.Mesh(floorGeo, this.goldMat);
-            const frame = new THREE.Mesh(floorGeo, this.wireMat);
-            floor.add(core, frame);
 
-            const targetY = i * 0.85 + 0.4;
-            floor.position.y = targetY - 5; // Start below ground for growing effect
+            // Glass Hub
+            const core = new THREE.Mesh(glassGeo, luxuryGlass);
+            floor.add(core);
+
+            // Ceiling & Floor Plates (Gold)
+            const ceiling = new THREE.Mesh(frameGeo, luxuryGold);
+            ceiling.position.y = floorH / 2;
+            const floorPlate = new THREE.Mesh(frameGeo, luxuryGold);
+            floorPlate.position.y = -floorH / 2;
+            floor.add(ceiling, floorPlate);
+
+            // Corner Pillars
+            const pillarPos = [
+                [1.45, 0, 1.45], [1.45, 0, -1.45],
+                [-1.45, 0, 1.45], [-1.45, 0, -1.45]
+            ];
+            pillarPos.forEach(p => {
+                const pillar = new THREE.Mesh(pillarGeo, luxuryGold);
+                pillar.position.set(...p);
+                floor.add(pillar);
+            });
+
+            const targetY = i * (floorH + 0.05) + 0.5;
+            floor.position.y = targetY - 5;
             floor.userData.targetY = targetY;
 
             floor.visible = false;
