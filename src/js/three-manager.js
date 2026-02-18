@@ -62,32 +62,38 @@ class ThreeManager {
             opacity: 0.4
         });
 
-        // 4. Ultra-Luxury Skyscraper Structure
+        // 4. Ultra-Vibrant Luxury Skyscraper Structure
         const floorCount = 15;
         const floorH = 0.8;
         const glassGeo = new THREE.BoxGeometry(2.8, floorH - 0.1, 2.8);
         const frameGeo = new THREE.BoxGeometry(3.05, 0.08, 3.05);
         const pillarGeo = new THREE.BoxGeometry(0.12, floorH, 0.12);
+        const beaconGeo = new THREE.SphereGeometry(0.05, 8, 8);
 
-        // Premium Materials
+        // Vibrant Materials Palette
         const luxuryGold = new THREE.MeshPhongMaterial({
             color: 0xD4BD9B,
             shininess: 120,
             emissive: 0x443311,
-            emissiveIntensity: 0.2
+            emissiveIntensity: 0.3
         });
-        const luxuryGlass = new THREE.MeshPhongMaterial({
-            color: 0x224466,
-            transparent: true,
-            opacity: 0.6,
-            shininess: 200,
-            reflectivity: 1
-        });
+
+        const glassTints = [0x224466, 0x1A3A40, 0x2C3E50]; // Varied luxurious blues/teals
+        const beaconMat = new THREE.MeshBasicMaterial({ color: 0xFF0000 });
 
         for (let i = 0; i < floorCount; i++) {
             const floor = new THREE.Group();
 
-            // Glass Hub
+            // Glass Hub with varied tint
+            const tint = glassTints[i % glassTints.length];
+            const luxuryGlass = new THREE.MeshPhongMaterial({
+                color: tint,
+                transparent: true,
+                opacity: 0.65,
+                shininess: 200,
+                emissive: tint,
+                emissiveIntensity: 0.15
+            });
             const core = new THREE.Mesh(glassGeo, luxuryGlass);
             floor.add(core);
 
@@ -98,15 +104,23 @@ class ThreeManager {
             floorPlate.position.y = -floorH / 2;
             floor.add(ceiling, floorPlate);
 
-            // Corner Pillars
+            // Corner Pillars with Red Safety Beacons
             const pillarPos = [
                 [1.45, 0, 1.45], [1.45, 0, -1.45],
                 [-1.45, 0, 1.45], [-1.45, 0, -1.45]
             ];
-            pillarPos.forEach(p => {
+            pillarPos.forEach((p, idx) => {
                 const pillar = new THREE.Mesh(pillarGeo, luxuryGold);
                 pillar.position.set(...p);
                 floor.add(pillar);
+
+                // Add beacons to the top corners
+                if (i === floorCount - 1 || idx % 2 === 0) {
+                    const beacon = new THREE.Mesh(beaconGeo, beaconMat);
+                    beacon.position.set(p[0], floorH / 2 + 0.05, p[2]);
+                    floor.add(beacon);
+                    floor.userData.beacon = beacon;
+                }
             });
 
             const targetY = i * (floorH + 0.05) + 0.5;
@@ -118,6 +132,13 @@ class ThreeManager {
             this.tower.add(floor);
             this.floors.push(floor);
         }
+
+        // Foundation Pad (Glowing base)
+        const padGeo = new THREE.CylinderGeometry(3.5, 3.8, 0.2, 32);
+        const padMat = new THREE.MeshPhongMaterial({ color: 0x111111, emissive: 0xD4BD9B, emissiveIntensity: 0.2 });
+        this.foundation = new THREE.Mesh(padGeo, padMat);
+        this.foundation.position.y = -0.1;
+        this.tower.add(this.foundation);
 
         // 5. Progress Ring (Unified Workspace Enclosure)
         this.updateProgressArc(0);
@@ -346,6 +367,12 @@ class ThreeManager {
         this.floors.forEach((floor, index) => {
             const floorThreshold = index;
             const floorSubProgress = THREE.MathUtils.clamp(activeFloorCount - floorThreshold, 0, 1);
+
+            // Flashing Beacons
+            if (floor.userData.beacon) {
+                floor.userData.beacon.material.opacity = Math.sin(Date.now() * 0.01) > 0 ? 1 : 0.2;
+                floor.userData.beacon.material.transparent = true;
+            }
 
             if (floorSubProgress > 0) {
                 floor.visible = true;
