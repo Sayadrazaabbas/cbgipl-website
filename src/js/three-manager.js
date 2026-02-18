@@ -97,12 +97,74 @@ class ThreeManager {
 
         this.camera.position.set(12, 8, 15);
         this.camera.lookAt(0, 0, 0);
+
+        this.initJCB();
     }
 
     initCrane() {
         // Vertical Pillar (Removed)
         // Horizontal Boom (Removed)
         // Delivery beam (Removed)
+    }
+
+    initJCB() {
+        this.jcb = new THREE.Group();
+
+        // Materials
+        const yellowMat = new THREE.MeshPhongMaterial({ color: 0xFFD700, flatShading: true });
+        const blackMat = new THREE.MeshPhongMaterial({ color: 0x222222 });
+        const glassMat = new THREE.MeshPhongMaterial({ color: 0x88ccff, transparent: true, opacity: 0.6 });
+
+        // Body
+        const bodyGeo = new THREE.BoxGeometry(1.2, 0.6, 0.8);
+        const body = new THREE.Mesh(bodyGeo, yellowMat);
+        body.position.y = 0.4;
+        this.jcb.add(body);
+
+        // Cabin
+        const cabinGeo = new THREE.BoxGeometry(0.6, 0.6, 0.6);
+        const cabin = new THREE.Mesh(cabinGeo, glassMat);
+        cabin.position.set(-0.1, 0.9, 0);
+        this.jcb.add(cabin);
+
+        // Wheels
+        const wheelGeo = new THREE.CylinderGeometry(0.25, 0.25, 0.2, 16);
+        const wheelPos = [
+            [-0.4, 0.25, 0.45], [-0.4, 0.25, -0.45],
+            [0.4, 0.25, 0.45], [0.4, 0.25, -0.45]
+        ];
+        wheelPos.forEach(p => {
+            const wheel = new THREE.Mesh(wheelGeo, blackMat);
+            wheel.position.set(...p);
+            wheel.rotation.x = Math.PI / 2;
+            this.jcb.add(wheel);
+        });
+
+        // Arm/Boom
+        const armGroup = new THREE.Group();
+        armGroup.position.set(0.6, 0.5, 0);
+
+        const boomGeo = new THREE.BoxGeometry(0.8, 0.2, 0.2);
+        const boom = new THREE.Mesh(boomGeo, yellowMat);
+        boom.position.x = 0.3;
+        boom.rotation.z = Math.PI / 4;
+        armGroup.add(boom);
+
+        const dipperGeo = new THREE.BoxGeometry(0.6, 0.15, 0.15);
+        const dipper = new THREE.Mesh(dipperGeo, yellowMat);
+        dipper.position.set(0.7, 0.3, 0);
+        dipper.rotation.z = -Math.PI / 6;
+        armGroup.add(dipper);
+
+        // Bucket
+        const bucketGeo = new THREE.BoxGeometry(0.3, 0.3, 0.4);
+        const bucket = new THREE.Mesh(bucketGeo, blackMat);
+        bucket.position.set(1.1, 0.1, 0);
+        armGroup.add(bucket);
+
+        this.jcb.add(armGroup);
+        this.jcb.scale.set(0.4, 0.4, 0.4);
+        this.scene.add(this.jcb);
     }
 
     updateProgressArc(progress) {
@@ -131,7 +193,7 @@ class ThreeManager {
         this.arcMesh.rotation.z = Math.PI;
         this.arcGroup.add(this.arcMesh);
 
-        // Inner Tech Ring (Dashed/Segmented look)
+        // Inner Tech Ring
         const innerGeo = new THREE.TorusGeometry(7.5, 0.05, 16, 100, theta || 0.001);
         const innerMat = new THREE.MeshBasicMaterial({
             color: 0xE0CDA8,
@@ -141,8 +203,23 @@ class ThreeManager {
         });
         this.innerRing = new THREE.Mesh(innerGeo, innerMat);
         this.innerRing.rotation.x = Math.PI / 2;
-        this.innerRing.rotation.z = -Math.PI; // Opposite rotation
+        this.innerRing.rotation.z = -Math.PI;
         this.arcGroup.add(this.innerRing);
+
+        // Update JCB Position on Ring
+        if (this.jcb) {
+            const angle = Math.PI - theta;
+            const radius = 8;
+            this.jcb.position.x = Math.sin(angle) * radius;
+            this.jcb.position.z = Math.cos(angle) * radius;
+            this.jcb.position.y = -4.8; // Level with ring center (grid at -5)
+
+            // Orient JCB to follow tangent
+            this.jcb.rotation.y = angle + Math.PI / 2;
+
+            // Subtle bounce or arm movement
+            this.jcb.position.y += Math.sin(Date.now() * 0.01) * 0.05;
+        }
     }
 
     updateProgress(progress) {
