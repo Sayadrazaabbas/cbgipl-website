@@ -1,4 +1,7 @@
 import * as THREE from 'three';
+import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass.js';
 
 class ThreeManager {
     constructor() {
@@ -11,7 +14,19 @@ class ThreeManager {
 
         this.renderer.setSize(window.innerWidth, window.innerHeight);
         this.renderer.setPixelRatio(window.devicePixelRatio);
+        this.renderer.toneMapping = THREE.ReinhardToneMapping;
         this.container.appendChild(this.renderer.domElement);
+
+        // Post-Processing Setup
+        const renderScene = new RenderPass(this.scene, this.camera);
+        this.bloomPass = new UnrealBloomPass(new THREE.Vector2(window.innerWidth, window.innerHeight), 1.5, 0.4, 0.85);
+        this.bloomPass.threshold = 0.2;
+        this.bloomPass.strength = 1.0;
+        this.bloomPass.radius = 0.5;
+
+        this.composer = new EffectComposer(this.renderer);
+        this.composer.addPass(renderScene);
+        this.composer.addPass(this.bloomPass);
 
         this.progress = 0;
         this.targetProgress = 0;
@@ -75,8 +90,28 @@ class ThreeManager {
 
         this.camera.position.set(18, 12, 22);
         this.camera.lookAt(0, 0, 0);
+
+        this.initStars();
+        this.initJCB();
     }
 
+    initStars() {
+        const starGeo = new THREE.BufferGeometry();
+        const starCount = 1000;
+        const starPos = new Float32Array(starCount * 3);
+        for (let i = 0; i < starCount * 3; i++) {
+            starPos[i] = (Math.random() - 0.5) * 200;
+        }
+        starGeo.setAttribute('position', new THREE.BufferAttribute(starPos, 3));
+        const starMat = new THREE.PointsMaterial({
+            color: 0xD4BD9B,
+            size: 0.15,
+            transparent: true,
+            opacity: 0.4
+        });
+        this.stars = new THREE.Points(starGeo, starMat);
+        this.scene.add(this.stars);
+    }
     createWorker(x, y, z) {
         const worker = new THREE.Group();
         worker.position.set(x, y, z);
@@ -122,10 +157,10 @@ class ThreeManager {
 
         const floorCount = 15;
         const floorH = 0.8;
-        const silverMat = new THREE.MeshPhongMaterial({ color: 0xFFFFFF, shininess: 150 });
-        const glassMat = new THREE.MeshPhongMaterial({ color: 0x88ccff, transparent: true, opacity: 0.5, shininess: 200 });
-        const coreMat = new THREE.MeshPhongMaterial({ color: 0x111111 });
-        const goldMat = new THREE.MeshPhongMaterial({ color: 0xD4BD9B, shininess: 100 });
+        const silverMat = new THREE.MeshStandardMaterial({ color: 0xFFFFFF, metalness: 0.8, roughness: 0.1 });
+        const glassMat = new THREE.MeshStandardMaterial({ color: 0x88ccff, transparent: true, opacity: 0.4, metalness: 0.9, roughness: 0.05 });
+        const coreMat = new THREE.MeshStandardMaterial({ color: 0x050505, roughness: 0.9 });
+        const goldMat = new THREE.MeshStandardMaterial({ color: 0xD4BD9B, metalness: 0.9, roughness: 0.1 });
         const neonColors = [0x00FFFF, 0xFF00FF, 0xFFFF00, 0x00FF00];
 
         for (let i = 0; i < floorCount; i++) {
@@ -195,10 +230,10 @@ class ThreeManager {
 
     initJCB() {
         this.jcb = new THREE.Group();
-        const yellowMat = new THREE.MeshPhongMaterial({ color: 0xFFD700, shininess: 80 });
-        const darkMat = new THREE.MeshPhongMaterial({ color: 0x1A1A1A, shininess: 50 });
-        const silverMat = new THREE.MeshPhongMaterial({ color: 0xCCCCCC, shininess: 120 });
-        const glassMat = new THREE.MeshPhongMaterial({ color: 0x88ccff, transparent: true, opacity: 0.5, shininess: 150 });
+        const yellowMat = new THREE.MeshStandardMaterial({ color: 0xFFD700, metalness: 0.5, roughness: 0.3 });
+        const darkMat = new THREE.MeshStandardMaterial({ color: 0x111111, metalness: 0.2, roughness: 0.8 });
+        const silverMat = new THREE.MeshStandardMaterial({ color: 0xCCCCCC, metalness: 0.9, roughness: 0.1 });
+        const glassMat = new THREE.MeshStandardMaterial({ color: 0x88ccff, transparent: true, opacity: 0.5, metalness: 0.9, roughness: 0.1 });
 
         const chassis = new THREE.Mesh(new THREE.BoxGeometry(1.6, 0.6, 0.9), yellowMat);
         chassis.position.y = 0.5;
@@ -263,6 +298,7 @@ class ThreeManager {
         this.camera.aspect = window.innerWidth / window.innerHeight;
         this.camera.updateProjectionMatrix();
         this.renderer.setSize(window.innerWidth, window.innerHeight);
+        this.composer.setSize(window.innerWidth, window.innerHeight);
     }
 
     animate() {
@@ -313,8 +349,15 @@ class ThreeManager {
             });
         }
 
+        if (this.stars) {
+            this.stars.rotation.y += 0.0001;
+            this.stars.material.opacity = 0.3 + Math.sin(Date.now() * 0.001) * 0.2;
+        }
+
         if (this.grid) this.grid.position.z = (Date.now() * 0.0005) % 1;
-        this.renderer.render(this.scene, this.camera);
+
+        // Use composer for Bloom effect
+        this.composer.render();
     }
 
     fadeOut() {

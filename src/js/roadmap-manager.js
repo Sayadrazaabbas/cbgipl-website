@@ -1,4 +1,7 @@
 import * as THREE from 'three';
+import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass.js';
 
 class RoadmapManager {
     constructor() {
@@ -6,12 +9,26 @@ class RoadmapManager {
         if (!this.container) return;
 
         this.scene = new THREE.Scene();
+        this.scene.fog = new THREE.FogExp2(0x0a1628, 0.05);
+
         this.camera = new THREE.PerspectiveCamera(60, this.container.clientWidth / this.container.clientHeight, 0.1, 1000);
         this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 
         this.renderer.setSize(this.container.clientWidth, this.container.clientHeight);
         this.renderer.setPixelRatio(window.devicePixelRatio);
+        this.renderer.toneMapping = THREE.ReinhardToneMapping;
         this.container.appendChild(this.renderer.domElement);
+
+        // Post-Processing Setup
+        const renderScene = new RenderPass(this.scene, this.camera);
+        this.bloomPass = new UnrealBloomPass(new THREE.Vector2(window.innerWidth, window.innerHeight), 1.5, 0.4, 0.85);
+        this.bloomPass.threshold = 0.1; // More sensitivity for the spline
+        this.bloomPass.strength = 1.2;
+        this.bloomPass.radius = 0.6;
+
+        this.composer = new EffectComposer(this.renderer);
+        this.composer.addPass(renderScene);
+        this.composer.addPass(this.bloomPass);
 
         this.scrollProgress = 0;
         this.initRoadmap();
@@ -33,12 +50,14 @@ class RoadmapManager {
 
         // 2. Glowing Path Mesh
         const pathGeo = new THREE.TubeGeometry(this.path, 100, 0.05, 8, false);
-        const pathMat = new THREE.MeshPhongMaterial({
+        const pathMat = new THREE.MeshStandardMaterial({
             color: 0xD4BD9B,
             emissive: 0xD4BD9B,
-            emissiveIntensity: 0.5,
+            emissiveIntensity: 0.8,
             transparent: true,
-            opacity: 0.6
+            opacity: 0.7,
+            metalness: 0.9,
+            roughness: 0.1
         });
         this.pathMesh = new THREE.Mesh(pathGeo, pathMat);
         this.scene.add(this.pathMesh);
@@ -63,7 +82,13 @@ class RoadmapManager {
         // 4. Floating Nodes (Placeholders for Phases)
         this.nodes = [];
         const nodeGeo = new THREE.SphereGeometry(0.3, 16, 16);
-        const nodeMat = new THREE.MeshPhongMaterial({ color: 0xD4BD9B, emissive: 0xD4BD9B });
+        const nodeMat = new THREE.MeshStandardMaterial({
+            color: 0xD4BD9B,
+            emissive: 0xD4BD9B,
+            emissiveIntensity: 0.5,
+            metalness: 0.9,
+            roughness: 0.1
+        });
 
         for (let i = 0; i < 3; i++) {
             const node = new THREE.Mesh(nodeGeo, nodeMat);
@@ -104,6 +129,7 @@ class RoadmapManager {
         this.camera.aspect = this.container.clientWidth / this.container.clientHeight;
         this.camera.updateProjectionMatrix();
         this.renderer.setSize(this.container.clientWidth, this.container.clientHeight);
+        this.composer.setSize(this.container.clientWidth, this.container.clientHeight);
     }
 
     animate() {
@@ -137,7 +163,7 @@ class RoadmapManager {
             this.particles.rotation.z += 0.0005;
         }
 
-        this.renderer.render(this.scene, this.camera);
+        this.composer.render();
     }
 }
 
