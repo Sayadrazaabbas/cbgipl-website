@@ -72,7 +72,7 @@ class ThreeManager {
             floor.add(core, frame);
 
             const targetY = i * 0.85 + 0.4;
-            floor.position.y = targetY + 10; // Start high up for fly-in
+            floor.position.y = targetY - 5; // Start below ground for growing effect
             floor.userData.targetY = targetY;
 
             floor.visible = false;
@@ -189,7 +189,7 @@ class ThreeManager {
                 }
             } else {
                 floor.visible = false;
-                floor.position.y = floor.userData.targetY + 5;
+                floor.position.y = floor.userData.targetY - 2;
             }
         });
 
