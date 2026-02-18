@@ -172,13 +172,13 @@ class ThreeManager {
             if (floorSubProgress > 0) {
                 floor.visible = true;
 
-                // Smooth Drop-in: position and scale lerped based on sub-progress
-                const dropHeight = 2;
+                // Smooth Rise-up: position and scale lerped based on sub-progress
+                const risingHeight = 1.5; // Come from 1.5 units below
                 const targetY = floor.userData.targetY;
-                const currentY = targetY + (dropHeight * (1 - floorSubProgress));
+                const currentY = targetY - (risingHeight * (1 - floorSubProgress));
 
-                floor.position.y = THREE.MathUtils.lerp(floor.position.y, currentY, 0.15);
-                const targetScale = 0.2 + (0.8 * floorSubProgress);
+                floor.position.y = THREE.MathUtils.lerp(floor.position.y, currentY, 0.1);
+                const targetScale = 0.5 + (0.5 * floorSubProgress);
                 const currentScale = THREE.MathUtils.lerp(floor.scale.x, targetScale, 0.15);
                 floor.scale.set(currentScale, currentScale, currentScale);
 
