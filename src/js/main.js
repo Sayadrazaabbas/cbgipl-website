@@ -33,19 +33,31 @@ function initPreloader() {
 
   // Simulate/Track progress for the 3D ring
   let progress = 0;
+  const progressFill = document.getElementById('preloaderProgress');
+  const percentText = document.getElementById('preloaderPercent');
+
   const progressInterval = setInterval(() => {
-    progress += 0.02;
-    if (progress > 0.9) clearInterval(progressInterval);
+    progress += 0.015;
+    if (progress > 0.95) clearInterval(progressInterval);
+
+    // Update 3D Scene
     if (threeManager && typeof threeManager.updateProgress === 'function') {
       threeManager.updateProgress(progress);
     }
-  }, 30);
+
+    // Update UI elements
+    const percent = Math.round(progress * 100);
+    if (progressFill) progressFill.style.width = `${percent}%`;
+    if (percentText) percentText.textContent = `${percent}%`;
+  }, 40);
 
   window.addEventListener('load', () => {
     clearInterval(progressInterval);
     if (threeManager && typeof threeManager.updateProgress === 'function') {
       threeManager.updateProgress(1);
     }
+    if (progressFill) progressFill.style.width = `100%`;
+    if (percentText) percentText.textContent = `100%`;
 
     setTimeout(() => {
       // Fade out 3D preloader
@@ -53,7 +65,7 @@ function initPreloader() {
 
       preloader.classList.add('loaded');
       document.body.style.overflow = '';
-    }, 1200);
+    }, 1500);
   });
 
   // Fallback

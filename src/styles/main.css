@@ -293,10 +293,25 @@ select {
   z-index: 1;
 }
 
+.preloader-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 0%, rgba(0, 38, 46, 0.4) 100%);
+  z-index: 1;
+}
+
 .preloader-inner {
   position: relative;
   z-index: 2;
   text-align: center;
+}
+
+.preloader-percent {
+  font-family: var(--font-accent);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--gold);
+  margin-top: 12px;
 }
 
 .preloader-logo {
