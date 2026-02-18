@@ -302,8 +302,11 @@ select {
 
 .preloader-inner {
   position: relative;
-  z-index: 2;
+  z-index: 5;
   text-align: center;
+  padding: 60px;
+  background: radial-gradient(circle at center, rgba(10, 22, 40, 0.85) 0%, rgba(10, 22, 40, 0.4) 50%, transparent 80%);
+  border-radius: 50%;
 }
 
 .preloader-percent {
@@ -321,6 +324,7 @@ select {
   color: var(--white);
   letter-spacing: 8px;
   margin-bottom: 32px;
+  text-shadow: 0 10px 40px rgba(0, 0, 0, 1), 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
 .preloader-bar {
@@ -357,10 +361,12 @@ select {
 
 .preloader-text {
   font-family: var(--font-accent);
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   letter-spacing: 4px;
   text-transform: uppercase;
-  color: var(--gray-300);
+  color: var(--white);
+  text-shadow: 0 2px 15px rgba(0, 0, 0, 1), 0 0 10px rgba(0, 0, 0, 0.8);
+  font-weight: 500;
 }
 
 /* ── NAVBAR ── */
