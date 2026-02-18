@@ -34,15 +34,15 @@ class ThreeManager {
         this.constructionSite = new THREE.Group();
         this.scene.add(this.constructionSite);
 
-        // Zone A: Skyscraper Assembly (Repositioned closer to ring and higher)
+        // Zone A: Skyscraper Assembly (Repositioned for larger ring)
         this.tower = new THREE.Group();
-        this.tower.position.set(6, -2, 0);
+        this.tower.position.set(4, -2, 4);
         this.constructionSite.add(this.tower);
         this.floors = [];
 
         // Zone B: Gantry Crane/Construction (Left Side)
         this.crane = new THREE.Group();
-        this.crane.position.set(-5, -5, 0);
+        this.crane.position.set(-6, -5, -4);
         this.constructionSite.add(this.crane);
         this.initCrane();
 
@@ -289,14 +289,19 @@ class ThreeManager {
     }
 
     updateProgressArc(progress) {
-        if (this.arcGroup) {
-            this.scene.remove(this.arcGroup);
+        if (!this.arcGroup) {
+            this.arcGroup = new THREE.Group();
+            this.scene.add(this.arcGroup);
         }
 
-        this.arcGroup = new THREE.Group();
-        this.scene.add(this.arcGroup);
+        while (this.arcGroup.children.length > 0) {
+            const child = this.arcGroup.children[0];
+            this.arcGroup.remove(child);
+            if (child.geometry) child.geometry.dispose();
+        }
 
         const theta = progress * Math.PI * 2;
+        const radius = 12; // Increased Diameter
 
         // Outer Glow Ring
         const geometry = new THREE.TorusGeometry(8, 0.15, 16, 100, theta || 0.001);
