@@ -34,9 +34,9 @@ class ThreeManager {
         this.constructionSite = new THREE.Group();
         this.scene.add(this.constructionSite);
 
-        // Zone A: Skyscraper Assembly (Right Side)
+        // Zone A: Skyscraper Assembly (Repositioned closer to ring and higher)
         this.tower = new THREE.Group();
-        this.tower.position.set(3, -5, 0);
+        this.tower.position.set(6, -2, 0);
         this.constructionSite.add(this.tower);
         this.floors = [];
 
