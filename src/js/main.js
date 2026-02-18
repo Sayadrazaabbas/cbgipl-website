@@ -31,66 +31,58 @@ function initPreloader() {
   const preloader = document.getElementById('preloader');
   if (!preloader) return;
 
-  // Simulate/Track progress for the 3D ring
-  let currentStep = 1; // Start with the first box visible
+  // Precise Construction Timing Logic
+  let currentStep = 0;
   const totalSteps = 7;
-  const stepDelay = 300; // 300ms per floor
+  const initialDelay = 500; // Delay before first box
+  const stepDelay = 300;   // Delay between boxes
   const progressFill = document.getElementById('preloaderProgress');
   const percentText = document.getElementById('preloaderPercent');
 
-  // Initial update to show first box
-  if (threeManager && typeof threeManager.updateProgress === 'function') {
-    threeManager.updateProgress(currentStep / totalSteps);
-  }
+  // Wait 500ms before starting the construction sequence
+  setTimeout(() => {
+    const progressInterval = setInterval(() => {
+      currentStep++;
+      const progress = currentStep / totalSteps;
 
-  const progressInterval = setInterval(() => {
-    if (currentStep >= totalSteps) {
-      clearInterval(progressInterval);
-      return;
-    }
+      // Update 3D Scene
+      if (threeManager && typeof threeManager.updateProgress === 'function') {
+        threeManager.updateProgress(progress);
+      }
 
-    currentStep++;
-    const progress = currentStep / totalSteps;
+      // Update UI elements
+      const percent = Math.round(progress * 100);
+      if (progressFill) progressFill.style.width = `${percent}%`;
+      if (percentText) percentText.textContent = `${percent}%`;
 
-    // Update 3D Scene
-    if (threeManager && typeof threeManager.updateProgress === 'function') {
-      threeManager.updateProgress(progress);
-    }
-
-    // Update UI elements
-    const percent = Math.round(progress * 100);
-    if (progressFill) progressFill.style.width = `${percent}%`;
-    if (percentText) percentText.textContent = `${percent}%`;
-  }, stepDelay);
+      if (currentStep >= totalSteps) {
+        clearInterval(progressInterval);
+      }
+    }, stepDelay);
+  }, initialDelay);
 
   window.addEventListener('load', () => {
-    // We keep the interval running until all steps are done, 
-    // unless the page loads extremely fast.
-    // If it loads fast, we wait for the animation steps to finish?
-    // Actually, let's just let it reach 100% naturally.
-    // Ensure it reaches 100% on load, even if interval hasn't finished
-    clearInterval(progressInterval); // Clear any remaining interval
-    if (threeManager && typeof threeManager.updateProgress === 'function') {
-      threeManager.updateProgress(1);
-    }
-    if (progressFill) progressFill.style.width = `100%`;
-    if (percentText) percentText.textContent = `100%`;
-
-    setTimeout(() => {
-      // Fade out 3D preloader
-      if (threeManager) threeManager.fadeOut();
-
-      preloader.classList.add('loaded');
-      document.body.style.overflow = '';
-    }, 1500);
+    // The sequence continues naturally. On full page load, we ensure 100% 
+    // but only after a minimum time if needed, though usually window.load 
+    // takes longer than 2.6 seconds (500 + 7*300).
+    // Let's just let the animation finish its sequence.
   });
 
-  // Fallback
   setTimeout(() => {
-    clearInterval(progressInterval);
+    // Fade out 3D preloader
+    if (threeManager) threeManager.fadeOut();
+
     preloader.classList.add('loaded');
     document.body.style.overflow = '';
-  }, 4000);
+  }, 1500);
+});
+
+// Fallback
+setTimeout(() => {
+  clearInterval(progressInterval);
+  preloader.classList.add('loaded');
+  document.body.style.overflow = '';
+}, 4000);
 }
 
 /* ── NAVBAR ── */
