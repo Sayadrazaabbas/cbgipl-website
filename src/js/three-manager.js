@@ -110,60 +110,107 @@ class ThreeManager {
     initJCB() {
         this.jcb = new THREE.Group();
 
-        // Materials
-        const yellowMat = new THREE.MeshPhongMaterial({ color: 0xFFD700, flatShading: true });
-        const blackMat = new THREE.MeshPhongMaterial({ color: 0x222222 });
-        const glassMat = new THREE.MeshPhongMaterial({ color: 0x88ccff, transparent: true, opacity: 0.6 });
-
-        // Body
-        const bodyGeo = new THREE.BoxGeometry(1.2, 0.6, 0.8);
-        const body = new THREE.Mesh(bodyGeo, yellowMat);
-        body.position.y = 0.4;
-        this.jcb.add(body);
-
-        // Cabin
-        const cabinGeo = new THREE.BoxGeometry(0.6, 0.6, 0.6);
-        const cabin = new THREE.Mesh(cabinGeo, glassMat);
-        cabin.position.set(-0.1, 0.9, 0);
-        this.jcb.add(cabin);
-
-        // Wheels
-        const wheelGeo = new THREE.CylinderGeometry(0.25, 0.25, 0.2, 16);
-        const wheelPos = [
-            [-0.4, 0.25, 0.45], [-0.4, 0.25, -0.45],
-            [0.4, 0.25, 0.45], [0.4, 0.25, -0.45]
-        ];
-        wheelPos.forEach(p => {
-            const wheel = new THREE.Mesh(wheelGeo, blackMat);
-            wheel.position.set(...p);
-            wheel.rotation.x = Math.PI / 2;
-            this.jcb.add(wheel);
+        // Materials (Premium Construction Palette)
+        const yellowMat = new THREE.MeshPhongMaterial({ color: 0xFFD700, shininess: 80 });
+        const darkMat = new THREE.MeshPhongMaterial({ color: 0x1A1A1A, shininess: 50 });
+        const silverMat = new THREE.MeshPhongMaterial({ color: 0xCCCCCC, shininess: 120 });
+        const glassMat = new THREE.MeshPhongMaterial({
+            color: 0x88ccff,
+            transparent: true,
+            opacity: 0.5,
+            shininess: 150
         });
 
-        // Arm/Boom
-        const armGroup = new THREE.Group();
-        armGroup.position.set(0.6, 0.5, 0);
+        // 1. Chassis/Body
+        const chassisGeo = new THREE.BoxGeometry(1.6, 0.6, 0.9);
+        const chassis = new THREE.Mesh(chassisGeo, yellowMat);
+        chassis.position.y = 0.5;
+        this.jcb.add(chassis);
 
-        const boomGeo = new THREE.BoxGeometry(0.8, 0.2, 0.2);
-        const boom = new THREE.Mesh(boomGeo, yellowMat);
-        boom.position.x = 0.3;
-        boom.rotation.z = Math.PI / 4;
-        armGroup.add(boom);
+        // 2. Cabin Structure
+        const cabinGroup = new THREE.Group();
+        const glass = new THREE.Mesh(new THREE.BoxGeometry(0.8, 0.7, 0.75), glassMat);
+        glass.position.set(-0.1, 1.1, 0);
+        cabinGroup.add(glass);
 
-        const dipperGeo = new THREE.BoxGeometry(0.6, 0.15, 0.15);
-        const dipper = new THREE.Mesh(dipperGeo, yellowMat);
-        dipper.position.set(0.7, 0.3, 0);
-        dipper.rotation.z = -Math.PI / 6;
-        armGroup.add(dipper);
+        // Cabin Pillars (Poles)
+        const pillarGeo = new THREE.BoxGeometry(0.05, 0.8, 0.05);
+        const pPositions = [
+            [0.3, 1.1, 0.35], [0.3, 1.1, -0.35],
+            [-0.5, 1.1, 0.35], [-0.5, 1.1, -0.35]
+        ];
+        pPositions.forEach(p => {
+            const pillar = new THREE.Mesh(pillarGeo, darkMat);
+            pillar.position.set(...p);
+            cabinGroup.add(pillar);
+        });
 
-        // Bucket
-        const bucketGeo = new THREE.BoxGeometry(0.3, 0.3, 0.4);
-        const bucket = new THREE.Mesh(bucketGeo, blackMat);
-        bucket.position.set(1.1, 0.1, 0);
-        armGroup.add(bucket);
+        // Cabin Roof
+        const roof = new THREE.Mesh(new THREE.BoxGeometry(1, 0.1, 0.85), yellowMat);
+        roof.position.set(-0.1, 1.5, 0);
+        cabinGroup.add(roof);
+        this.jcb.add(cabinGroup);
 
-        this.jcb.add(armGroup);
-        this.jcb.scale.set(0.4, 0.4, 0.4);
+        // 3. Heavy Wheels with Rims
+        const wheelGeo = new THREE.CylinderGeometry(0.35, 0.35, 0.25, 24);
+        const rimGeo = new THREE.CylinderGeometry(0.18, 0.18, 0.27, 24);
+        const wheelPos = [
+            [-0.55, 0.35, 0.55], [-0.55, 0.35, -0.55],
+            [0.55, 0.35, 0.55], [0.55, 0.35, -0.55]
+        ];
+        wheelPos.forEach(p => {
+            const wGroup = new THREE.Group();
+            const tire = new THREE.Mesh(wheelGeo, darkMat);
+            const rim = new THREE.Mesh(rimGeo, silverMat);
+            wGroup.add(tire, rim);
+            wGroup.position.set(...p);
+            wGroup.rotation.x = Math.PI / 2;
+            this.jcb.add(wGroup);
+        });
+
+        // 4. Backhoe Arm (Rear)
+        const rearArm = new THREE.Group();
+        rearArm.position.set(-0.8, 0.6, 0);
+
+        const boomRear = new THREE.Mesh(new THREE.BoxGeometry(1, 0.2, 0.2), yellowMat);
+        boomRear.position.set(-0.4, 0.3, 0);
+        boomRear.rotation.z = Math.PI / 3;
+        rearArm.add(boomRear);
+
+        const piston = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 0.6), silverMat);
+        piston.position.set(-0.2, 0.3, 0);
+        piston.rotation.z = Math.PI / 3;
+        rearArm.add(piston);
+
+        const dipperRear = new THREE.Mesh(new THREE.BoxGeometry(0.8, 0.15, 0.15), yellowMat);
+        dipperRear.position.set(-0.8, 0.8, 0);
+        dipperRear.rotation.z = -Math.PI / 4;
+        rearArm.add(dipperRear);
+
+        const rearBucket = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.4, 0.5), darkMat);
+        rearBucket.position.set(-1.1, 0.6, 0);
+        rearArm.add(rearBucket);
+        this.jcb.add(rearArm);
+
+        // 5. Front Loader (Front)
+        const frontArm = new THREE.Group();
+        frontArm.position.set(0.8, 0.4, 0);
+
+        const fArm1 = new THREE.Mesh(new THREE.BoxGeometry(0.8, 0.15, 0.1), yellowMat);
+        fArm1.position.set(0.4, 0.2, 0.3);
+        fArm1.rotation.z = -Math.PI / 8;
+        const fArm2 = fArm1.clone();
+        fArm2.position.z = -0.3;
+        frontArm.add(fArm1, fArm2);
+
+        const frontBucket = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.6, 1.2), yellowMat);
+        frontBucket.position.set(0.8, 0, 0);
+        const frontBucketEdge = new THREE.Mesh(new THREE.BoxGeometry(0.65, 0.1, 1.3), darkMat);
+        frontBucketEdge.position.set(0.8, -0.3, 0);
+        frontArm.add(frontBucket, frontBucketEdge);
+        this.jcb.add(frontArm);
+
+        this.jcb.scale.set(0.8, 0.8, 0.8); // Increased size
         this.scene.add(this.jcb);
     }
 
