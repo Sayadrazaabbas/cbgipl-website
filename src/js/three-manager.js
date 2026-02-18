@@ -25,7 +25,7 @@ class ThreeManager {
         const gridSize = 40;
         const divisions = 40;
         this.grid = new THREE.GridHelper(gridSize, divisions, 0xD4BD9B, 0x1A3A40);
-        this.grid.position.y = -5;
+        this.grid.position.y = -9;
         this.grid.material.transparent = true;
         this.grid.material.opacity = 0.25;
         this.scene.add(this.grid);
@@ -34,15 +34,15 @@ class ThreeManager {
         this.constructionSite = new THREE.Group();
         this.scene.add(this.constructionSite);
 
-        // Zone A: Skyscraper Assembly (Elevated more upside)
+        // Zone A: Skyscraper Assembly (Shifted down)
         this.tower = new THREE.Group();
-        this.tower.position.set(4, 1, 4);
+        this.tower.position.set(4, -5, 4);
         this.constructionSite.add(this.tower);
         this.floors = [];
 
-        // Zone B: Gantry Crane/Construction (Left Side)
+        // Zone B: Gantry Crane/Construction (Shifted down)
         this.crane = new THREE.Group();
-        this.crane.position.set(-6, -5, -4);
+        this.crane.position.set(-6, -9, -4);
         this.constructionSite.add(this.crane);
         this.initCrane();
 
@@ -146,14 +146,6 @@ class ThreeManager {
             this.tower.add(floor);
             this.floors.push(floor);
         }
-
-        // Glowing Foundation Pad
-        const pad = new THREE.Mesh(
-            new THREE.CylinderGeometry(3.5, 3.8, 0.2, 32),
-            new THREE.MeshPhongMaterial({ color: 0x111111, emissive: 0x00FFFF, emissiveIntensity: 0.3 })
-        );
-        pad.position.y = -0.1;
-        this.tower.add(pad);
 
         // 5. Progress Ring (Unified Workspace Enclosure)
         this.updateProgressArc(0);
@@ -334,7 +326,7 @@ class ThreeManager {
             const angle = Math.PI - jcbTheta;
             this.jcb.position.x = Math.sin(angle) * radius;
             this.jcb.position.z = Math.cos(angle) * radius;
-            this.jcb.position.y = -4.8;
+            this.jcb.position.y = -8.8; // Match grid/crane level
 
             this.jcb.rotation.y = angle + Math.PI;
 
