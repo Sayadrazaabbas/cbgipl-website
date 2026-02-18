@@ -37,6 +37,14 @@
     <div class="preloader-inner">
       <div class="preloader-logo">CBG<span class="logo-accent">IPL</span></div>
       <p class="preloader-text">Carter Brown Global Infra Private Ltd</p>
+
+      <!-- Market Value Ticker -->
+      <div class="preloader-market-value">
+        <span class="value-label">Market Appreciation:</span>
+        <span id="marketValue" class="value-amount">$1.2M</span>
+        <span id="marketGrowth" class="value-growth">+0%</span>
+      </div>
+
       <div class="preloader-bar">
         <div class="preloader-progress" id="preloaderProgress"></div>
       </div>
@@ -655,8 +663,9 @@
   </section>
 
   <!-- ========== STRATEGIC ROADMAP ========== -->
-  <section class="section roadmap-section">
-    <div class="container">
+  <section class="section roadmap-section" id="roadmap">
+    <div id="roadmap-3d-container"></div>
+    <div class="container roadmap-overlay">
       <div class="section-header" data-animate="fade-up">
         <span class="section-tag">Strategic Vision</span>
         <h2 class="section-title">Our <span class="text-gradient">Roadmap</span></h2>

@@ -38,14 +38,31 @@ class ThreeManager {
         this.constructionSite = new THREE.Group();
         this.scene.add(this.constructionSite);
 
+        this.towers = [];
+        this.allFloors = [];
+        this.workers = [];
+
         // Zone A: Dual Skyscraper Assembly
         this.createTower(-8, -5, 0); // Left Tower
         this.createTower(8, -5, 0);  // Right Tower
+
+        // Scatter 12 Ground Workers
+        for (let i = 0; i < 12; i++) {
+            const angle = (i / 12) * Math.PI * 2;
+            const dist = 6 + Math.random() * 4;
+            this.createWorker(Math.sin(angle) * dist, -8.8, Math.cos(angle) * dist);
+        }
 
         // 3. Progress Ring (Unified Workspace Enclosure)
         this.updateProgressArc(0);
 
         // 4. Lighting
+        this.initLightingAndCamera();
+
+        this.initJCB();
+    }
+
+    initLightingAndCamera() {
         const sun = new THREE.DirectionalLight(0xffffff, 2);
         sun.position.set(10, 20, 10);
         this.scene.add(sun);
@@ -58,8 +75,43 @@ class ThreeManager {
 
         this.camera.position.set(18, 12, 22);
         this.camera.lookAt(0, 0, 0);
+    }
 
-        this.initJCB();
+    createWorker(x, y, z) {
+        const worker = new THREE.Group();
+        worker.position.set(x, y, z);
+
+        const skinMat = new THREE.MeshPhongMaterial({ color: 0xD4BD9B });
+        const vestMat = new THREE.MeshPhongMaterial({ color: 0xFF8C00 }); // Safety Orange
+        const blueMat = new THREE.MeshPhongMaterial({ color: 0x1A3A40 });
+        const hatMat = new THREE.MeshPhongMaterial({ color: 0xFFFF00 }); // Yellow Hat
+
+        // Body
+        const torso = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.1, 0.35), vestMat);
+        torso.position.y = 0.45;
+        worker.add(torso);
+
+        // Legs
+        const legGeo = new THREE.BoxGeometry(0.06, 0.3, 0.06);
+        const lLeg = new THREE.Mesh(legGeo, blueMat);
+        lLeg.position.set(-0.04, 0.15, 0);
+        const rLeg = lLeg.clone();
+        rLeg.position.x = 0.04;
+        worker.add(lLeg, rLeg);
+
+        // Head & Hard Hat
+        const head = new THREE.Mesh(new THREE.SphereGeometry(0.08, 8, 8), skinMat);
+        head.position.y = 0.7;
+        worker.add(head);
+
+        const hat = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.12, 0.04, 16), hatMat);
+        hat.position.y = 0.78;
+        worker.add(hat);
+
+        worker.scale.set(1.5, 1.5, 1.5);
+        this.constructionSite.add(worker);
+        this.workers.push(worker);
+        return worker;
     }
 
     createTower(x, y, z) {
@@ -244,6 +296,23 @@ class ThreeManager {
         });
 
         this.towers.forEach(t => t.rotation.y += 0.002);
+
+        // 3. Worker Idle Animations
+        if (this.workers) {
+            this.workers.forEach((worker, i) => {
+                const time = Date.now() * 0.001 + i;
+                // Subtle breathing/looking around
+                worker.position.y += Math.sin(time * 2) * 0.001;
+
+                // Head bobbing
+                const head = worker.children.find(c => c.geometry && c.geometry.type === 'SphereGeometry');
+                if (head) {
+                    head.rotation.y = Math.sin(time * 1.5) * 0.1;
+                    head.rotation.x = Math.abs(Math.cos(time)) * 0.1;
+                }
+            });
+        }
+
         if (this.grid) this.grid.position.z = (Date.now() * 0.0005) % 1;
         this.renderer.render(this.scene, this.camera);
     }

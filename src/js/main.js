@@ -5,6 +5,7 @@
    ====================================================================== */
 
 import { threeManager } from './three-manager';
+import { roadmapManager } from './roadmap-manager';
 
 // Wait for DOM
 document.addEventListener('DOMContentLoaded', () => {
@@ -59,6 +60,19 @@ function initPreloader() {
     const percent = Math.round(progress * 100);
     if (progressFill) progressFill.style.width = `${percent}%`;
     if (percentText) percentText.textContent = `${percent}%`;
+
+    // Update Market Value Ticker
+    const marketVal = document.getElementById('marketValue');
+    const marketGro = document.getElementById('marketGrowth');
+    if (marketVal && marketGro) {
+      const startVal = 1.25;
+      const endVal = 48.8; // High appreciation for industrial/infra
+      const currentVal = (startVal + (endVal - startVal) * progress).toFixed(1);
+      const growth = Math.round(((currentVal - startVal) / startVal) * 100);
+
+      marketVal.textContent = `$${currentVal}M`;
+      marketGro.textContent = `+${growth}%`;
+    }
 
     if (progress < 1) {
       requestAnimationFrame(updateSmoothProgress);
@@ -238,38 +252,22 @@ function initProjectFilters() {
 
 /* ── ROADMAP ANIMATION ── */
 function initRoadmapAnimation() {
-  const roadmap = document.querySelector('.roadmap-timeline');
+  const roadmap = document.querySelector('.roadmap-section');
   if (!roadmap) return;
 
-  const lineProgress = document.querySelector('.timeline-line-progress');
   const items = document.querySelectorAll('.timeline-item');
-  const dots = document.querySelectorAll('.timeline-dot');
 
   window.addEventListener('scroll', () => {
-    const rect = roadmap.getBoundingClientRect();
     const windowHeight = window.innerHeight;
 
-    // Calculate progress through the roadmap section
-    let progress = 0;
-    if (rect.top < windowHeight * 0.7) {
-      const totalDist = rect.height;
-      const currentDist = (windowHeight * 0.7) - rect.top;
-      progress = Math.min(Math.max((currentDist / totalDist) * 100, 0), 100);
-    }
-
-    if (lineProgress) {
-      lineProgress.style.height = `${progress}%`;
-    }
-
-    // Toggle active state for items and dots
+    // Toggle active state for items
     items.forEach((item, index) => {
       const itemRect = item.getBoundingClientRect();
-      if (itemRect.top < windowHeight * 0.75) {
+      // Active when item is centered in view
+      if (itemRect.top < windowHeight * 0.6 && itemRect.bottom > windowHeight * 0.4) {
         item.classList.add('active');
-        if (dots[index]) dots[index].classList.add('active');
       } else {
         item.classList.remove('active');
-        if (dots[index]) dots[index].classList.remove('active');
       }
     });
   });
