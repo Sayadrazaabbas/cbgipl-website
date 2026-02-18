@@ -146,32 +146,7 @@ class ThreeManager {
     }
 
     updateProgress(progress) {
-        this.progress = progress;
-        this.updateProgressArc(progress);
-
-        // Skyscraper Assembly: Strict one-by-one visibility
-        const currentActiveFloor = Math.ceil(progress * this.floors.length) - 1;
-
-        this.floors.forEach((floor, index) => {
-            if (index <= currentActiveFloor) {
-                floor.visible = true;
-
-                // If it's the latest floor being added, we can do a quick snap-in
-                if (index === currentActiveFloor) {
-                    floor.position.y = floor.userData.targetY;
-                    floor.scale.set(1, 1, 1);
-
-                    // Light focus on active building level
-                    this.buildLight.position.set(3, floor.position.y, 2);
-                    this.buildLight.intensity = 5;
-                } else {
-                    floor.position.y = floor.userData.targetY;
-                    floor.scale.set(1, 1, 1);
-                }
-            } else {
-                floor.visible = false;
-            }
-        });
+        this.targetProgress = progress;
     }
 
     onWindowResize() {
@@ -183,17 +158,46 @@ class ThreeManager {
     animate() {
         requestAnimationFrame(() => this.animate());
 
-        const time = Date.now() * 0.001;
+        // 1. Smooth Progress Interpolation
+        this.progress = THREE.MathUtils.lerp(this.progress || 0, this.targetProgress || 0, 0.1);
+        this.updateProgressArc(this.progress);
+
+        // 2. Skyscraper Assembly: Smooth one-by-one transitions
+        const activeFloorCount = this.progress * this.floors.length;
+
+        this.floors.forEach((floor, index) => {
+            const floorThreshold = index;
+            const floorSubProgress = THREE.MathUtils.clamp(activeFloorCount - floorThreshold, 0, 1);
+
+            if (floorSubProgress > 0) {
+                floor.visible = true;
+
+                // Smooth Drop-in: position and scale lerped based on sub-progress
+                const dropHeight = 2;
+                const targetY = floor.userData.targetY;
+                const currentY = targetY + (dropHeight * (1 - floorSubProgress));
+
+                floor.position.y = THREE.MathUtils.lerp(floor.position.y, currentY, 0.15);
+                const targetScale = 0.2 + (0.8 * floorSubProgress);
+                const currentScale = THREE.MathUtils.lerp(floor.scale.x, targetScale, 0.15);
+                floor.scale.set(currentScale, currentScale, currentScale);
+
+                // Light focus follows construction
+                if (index === Math.floor(activeFloorCount)) {
+                    this.buildLight.position.y = floor.position.y;
+                    this.buildLight.intensity = floorSubProgress * 5;
+                }
+            } else {
+                floor.visible = false;
+                floor.position.y = floor.userData.targetY + 5;
+            }
+        });
 
         if (this.tower) {
-            // Subtle rotation for better structure viewing
             this.tower.rotation.y += 0.002;
         }
 
-        // Reverted: No complex ring rotation/wobble
-
         if (this.grid) {
-            // "Blueprint scrolling" effect
             this.grid.position.z = (Date.now() * 0.0005) % 1;
         }
 
