@@ -32,13 +32,23 @@ function initPreloader() {
   if (!preloader) return;
 
   // Simulate/Track progress for the 3D ring
-  let currentStep = 0;
+  let currentStep = 1; // Start with the first box visible
   const totalSteps = 7;
   const stepDelay = 200; // 200ms per floor
   const progressFill = document.getElementById('preloaderProgress');
   const percentText = document.getElementById('preloaderPercent');
 
+  // Initial update to show first box
+  if (threeManager && typeof threeManager.updateProgress === 'function') {
+    threeManager.updateProgress(currentStep / totalSteps);
+  }
+
   const progressInterval = setInterval(() => {
+    if (currentStep >= totalSteps) {
+      clearInterval(progressInterval);
+      return;
+    }
+
     currentStep++;
     const progress = currentStep / totalSteps;
 
@@ -51,10 +61,6 @@ function initPreloader() {
     const percent = Math.round(progress * 100);
     if (progressFill) progressFill.style.width = `${percent}%`;
     if (percentText) percentText.textContent = `${percent}%`;
-
-    if (currentStep >= totalSteps) {
-      clearInterval(progressInterval);
-    }
   }, stepDelay);
 
   window.addEventListener('load', () => {

@@ -149,34 +149,27 @@ class ThreeManager {
         this.progress = progress;
         this.updateProgressArc(progress);
 
-        // Skyscraper Assembly: Enhanced fly-in one-by-one logic
+        // Skyscraper Assembly: Strict one-by-one visibility
+        const currentActiveFloor = Math.ceil(progress * this.floors.length) - 1;
+
         this.floors.forEach((floor, index) => {
-            const floorStepProgress = (index + 1) / this.floors.length;
-            const prevFloorStepProgress = index / this.floors.length;
-
-            if (progress >= floorStepProgress) {
-                // This floor is fully active
+            if (index <= currentActiveFloor) {
                 floor.visible = true;
-                floor.position.y = floor.userData.targetY;
-                floor.scale.set(1, 1, 1);
-            } else if (progress > prevFloorStepProgress) {
-                // This floor is currently animating in
-                floor.visible = true;
-                const subProgress = (progress - prevFloorStepProgress) * this.floors.length;
 
-                // Drop-in effect
-                const dropHeight = 3;
-                floor.position.y = floor.userData.targetY + (dropHeight * (1 - subProgress));
+                // If it's the latest floor being added, we can do a quick snap-in
+                if (index === currentActiveFloor) {
+                    floor.position.y = floor.userData.targetY;
+                    floor.scale.set(1, 1, 1);
 
-                const scale = 0.2 + (0.8 * subProgress);
-                floor.scale.set(scale, scale, scale);
-
-                // Light focus
-                this.buildLight.position.set(3, floor.position.y, 2);
-                this.buildLight.intensity = subProgress * 10;
+                    // Light focus on active building level
+                    this.buildLight.position.set(3, floor.position.y, 2);
+                    this.buildLight.intensity = 5;
+                } else {
+                    floor.position.y = floor.userData.targetY;
+                    floor.scale.set(1, 1, 1);
+                }
             } else {
                 floor.visible = false;
-                floor.position.y = floor.userData.targetY + 10;
             }
         });
     }
@@ -197,19 +190,7 @@ class ThreeManager {
             this.tower.rotation.y += 0.002;
         }
 
-        if (this.arcGroup) {
-            // 3D Wobble/Pulse for the ring
-            this.arcGroup.rotation.x = Math.PI / 2 + Math.sin(time * 0.5) * 0.1;
-            this.arcGroup.rotation.y = Math.cos(time * 0.5) * 0.1;
-
-            if (this.arcMesh) {
-                this.arcMesh.rotation.z += 0.01;
-                this.arcMesh.material.emissiveIntensity = 0.5 + Math.sin(time * 2) * 0.3;
-            }
-            if (this.innerRing) {
-                this.innerRing.rotation.z -= 0.02;
-            }
-        }
+        // Reverted: No complex ring rotation/wobble
 
         if (this.grid) {
             // "Blueprint scrolling" effect
