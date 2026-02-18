@@ -32,13 +32,15 @@ function initPreloader() {
   if (!preloader) return;
 
   // Simulate/Track progress for the 3D ring
-  let progress = 0;
+  let currentStep = 0;
+  const totalSteps = 7;
+  const stepDelay = 200; // 200ms per floor
   const progressFill = document.getElementById('preloaderProgress');
   const percentText = document.getElementById('preloaderPercent');
 
   const progressInterval = setInterval(() => {
-    progress += 0.015;
-    if (progress > 0.95) clearInterval(progressInterval);
+    currentStep++;
+    const progress = currentStep / totalSteps;
 
     // Update 3D Scene
     if (threeManager && typeof threeManager.updateProgress === 'function') {
@@ -49,10 +51,19 @@ function initPreloader() {
     const percent = Math.round(progress * 100);
     if (progressFill) progressFill.style.width = `${percent}%`;
     if (percentText) percentText.textContent = `${percent}%`;
-  }, 40);
+
+    if (currentStep >= totalSteps) {
+      clearInterval(progressInterval);
+    }
+  }, stepDelay);
 
   window.addEventListener('load', () => {
-    clearInterval(progressInterval);
+    // We keep the interval running until all steps are done, 
+    // unless the page loads extremely fast.
+    // If it loads fast, we wait for the animation steps to finish?
+    // Actually, let's just let it reach 100% naturally.
+    // Ensure it reaches 100% on load, even if interval hasn't finished
+    clearInterval(progressInterval); // Clear any remaining interval
     if (threeManager && typeof threeManager.updateProgress === 'function') {
       threeManager.updateProgress(1);
     }

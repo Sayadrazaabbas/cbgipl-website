@@ -64,12 +64,17 @@ class ThreeManager {
 
         // 4. Skyscraper Structure (Building floors to be revealed)
         const floorGeo = new THREE.BoxGeometry(3, 1, 3);
-        for (let i = 0; i < 6; i++) {
+        const floorCount = 7;
+        for (let i = 0; i < floorCount; i++) {
             const floor = new THREE.Group();
             const core = new THREE.Mesh(floorGeo, this.goldMat);
             const frame = new THREE.Mesh(floorGeo, this.wireMat);
             floor.add(core, frame);
-            floor.position.y = i * 1.05 + 0.5;
+
+            const targetY = i * 1.05 + 0.5;
+            floor.position.y = targetY + 10; // Start high up for fly-in
+            floor.userData.targetY = targetY;
+
             floor.visible = false;
             floor.scale.set(0.1, 0.1, 0.1);
             this.tower.add(floor);
@@ -144,20 +149,34 @@ class ThreeManager {
         this.progress = progress;
         this.updateProgressArc(progress);
 
-        // Skyscraper Assembly: Logic for each floor
+        // Skyscraper Assembly: Enhanced fly-in one-by-one logic
         this.floors.forEach((floor, index) => {
-            const threshold = index / this.floors.length;
-            if (progress > threshold) {
-                floor.visible = true;
-                const subProgress = Math.min(1, (progress - threshold) * this.floors.length);
-                floor.scale.set(subProgress, subProgress, subProgress);
+            const floorStepProgress = (index + 1) / this.floors.length;
+            const prevFloorStepProgress = index / this.floors.length;
 
-                // Light follows the current construction level
-                if (index === Math.floor(progress * this.floors.length)) {
-                    this.buildLight.position.set(3, floor.position.y - 4.5, 2);
-                }
+            if (progress >= floorStepProgress) {
+                // This floor is fully active
+                floor.visible = true;
+                floor.position.y = floor.userData.targetY;
+                floor.scale.set(1, 1, 1);
+            } else if (progress > prevFloorStepProgress) {
+                // This floor is currently animating in
+                floor.visible = true;
+                const subProgress = (progress - prevFloorStepProgress) * this.floors.length;
+
+                // Drop-in effect
+                const dropHeight = 3;
+                floor.position.y = floor.userData.targetY + (dropHeight * (1 - subProgress));
+
+                const scale = 0.2 + (0.8 * subProgress);
+                floor.scale.set(scale, scale, scale);
+
+                // Light focus
+                this.buildLight.position.set(3, floor.position.y, 2);
+                this.buildLight.intensity = subProgress * 10;
             } else {
                 floor.visible = false;
+                floor.position.y = floor.userData.targetY + 10;
             }
         });
     }
@@ -171,16 +190,25 @@ class ThreeManager {
     animate() {
         requestAnimationFrame(() => this.animate());
 
+        const time = Date.now() * 0.001;
+
         if (this.tower) {
             // Subtle rotation for better structure viewing
             this.tower.rotation.y += 0.002;
         }
 
-        if (this.arcMesh) {
-            this.arcMesh.rotation.z += 0.005;
-        }
-        if (this.innerRing) {
-            this.innerRing.rotation.z -= 0.01;
+        if (this.arcGroup) {
+            // 3D Wobble/Pulse for the ring
+            this.arcGroup.rotation.x = Math.PI / 2 + Math.sin(time * 0.5) * 0.1;
+            this.arcGroup.rotation.y = Math.cos(time * 0.5) * 0.1;
+
+            if (this.arcMesh) {
+                this.arcMesh.rotation.z += 0.01;
+                this.arcMesh.material.emissiveIntensity = 0.5 + Math.sin(time * 2) * 0.3;
+            }
+            if (this.innerRing) {
+                this.innerRing.rotation.z -= 0.02;
+            }
         }
 
         if (this.grid) {
