@@ -252,31 +252,27 @@ class ThreeManager {
         this.innerRing.rotation.x = Math.PI / 2;
         this.arcGroup.add(this.innerRing);
 
-        // Update JCB Position and Wheel Rotation
+        // Update JCB Position and Wheel Rotation: 2 Rounds per construction cycle
         if (this.jcb) {
-            const angle = Math.PI - theta;
+            const jcbTheta = progress * Math.PI * 4; // 2 Full Rounds
+            const angle = Math.PI - jcbTheta;
             const radius = 8;
             this.jcb.position.x = Math.sin(angle) * radius;
             this.jcb.position.z = Math.cos(angle) * radius;
             this.jcb.position.y = -4.8;
 
             // 1. Correct Orientation: Face the direction of travel
-            // The tangent to (sin(a), cos(a)) is (cos(a), -sin(a))
-            // jcb.rotation.y should be the angle of the tangent
             this.jcb.rotation.y = angle + Math.PI;
 
             // 2. Continuous Micro-Animations
             const time = Date.now() * 0.005;
             this.jcb.position.y += Math.sin(time * 2) * 0.02; // Working bounce
 
-            // 3. Wheel Rotation (Roll along the axis)
-            // Wheels were added with rotation.x = PI/2, so cylinder axis is Z
+            // 3. Wheel Rotation (Faster for 2 rounds)
             this.jcb.children.forEach(child => {
                 if (child.isGroup && child.children.length === 2) {
-                    // This is a wheel group
                     child.children.forEach(wPart => {
-                        // Rotate on its local axis (tube height)
-                        wPart.rotation.y += 0.15;
+                        wPart.rotation.y += 0.3; // Doubled wheel speed
                     });
                 }
             });
