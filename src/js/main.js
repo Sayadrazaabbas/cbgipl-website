@@ -31,41 +31,48 @@ function initPreloader() {
   const preloader = document.getElementById('preloader');
   if (!preloader) return;
 
-  // Precise Construction Timing Logic: 15 Floors
-  let currentStep = 0;
-  const totalSteps = 15;
-  const initialDelay = 500; // Delay before first box
-  const stepDelay = 300;   // Delay between boxes
+  // Continuous Smooth Construction Timing
+  const totalFloors = 15;
+  const initialDelay = 500;
+  const floorInterval = 300;
+  const totalDuration = totalFloors * floorInterval;
+
   const progressFill = document.getElementById('preloaderProgress');
   const percentText = document.getElementById('preloaderPercent');
 
+  let startTime;
   let constructionFinished = false;
-  let progressInterval;
 
-  // Wait 500ms before starting the construction sequence
+  function updateSmoothProgress(timestamp) {
+    if (!startTime) startTime = timestamp;
+    const elapsed = timestamp - startTime;
+
+    // Progress calculation: 0 to 1 over totalDuration
+    let progress = Math.min(elapsed / totalDuration, 1);
+
+    // Update 3D Scene
+    if (threeManager && typeof threeManager.updateProgress === 'function') {
+      threeManager.updateProgress(progress);
+    }
+
+    // Update UI elements
+    const percent = Math.round(progress * 100);
+    if (progressFill) progressFill.style.width = `${percent}%`;
+    if (percentText) percentText.textContent = `${percent}%`;
+
+    if (progress < 1) {
+      requestAnimationFrame(updateSmoothProgress);
+    } else {
+      constructionFinished = true;
+      if (document.readyState === 'complete') {
+        finishPreloader();
+      }
+    }
+  }
+
+  // Wait 500ms before starting the smooth sequence
   setTimeout(() => {
-    progressInterval = setInterval(() => {
-      currentStep++;
-      const progress = currentStep / totalSteps;
-
-      // Update 3D Scene
-      if (threeManager && typeof threeManager.updateProgress === 'function') {
-        threeManager.updateProgress(progress);
-      }
-
-      // Update UI elements
-      const percent = Math.round(progress * 100);
-      if (progressFill) progressFill.style.width = `${percent}%`;
-      if (percentText) percentText.textContent = `${percent}%`;
-
-      if (currentStep >= totalSteps) {
-        clearInterval(progressInterval);
-        constructionFinished = true;
-        if (document.readyState === 'complete') {
-          finishPreloader();
-        }
-      }
-    }, stepDelay);
+    requestAnimationFrame(updateSmoothProgress);
   }, initialDelay);
 
   function finishPreloader() {
@@ -73,7 +80,7 @@ function initPreloader() {
       if (threeManager) threeManager.fadeOut();
       preloader.classList.add('loaded');
       document.body.style.overflow = '';
-    }, 1200); // Give it a bit more time to admire the 15 floors
+    }, 1200);
   }
 
   window.addEventListener('load', () => {
@@ -85,10 +92,10 @@ function initPreloader() {
   // Fallback
   setTimeout(() => {
     if (!preloader.classList.contains('loaded')) {
-      if (progressInterval) clearInterval(progressInterval);
+      constructionFinished = true;
       finishPreloader();
     }
-  }, 8000); // Longer fallback for more floors
+  }, 10000);
 }
 
 /* ── NAVBAR ── */
