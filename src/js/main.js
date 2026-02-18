@@ -34,7 +34,7 @@ function initPreloader() {
   // Simulate/Track progress for the 3D ring
   let currentStep = 1; // Start with the first box visible
   const totalSteps = 7;
-  const stepDelay = 200; // 200ms per floor
+  const stepDelay = 300; // 300ms per floor
   const progressFill = document.getElementById('preloaderProgress');
   const percentText = document.getElementById('preloaderPercent');
 
