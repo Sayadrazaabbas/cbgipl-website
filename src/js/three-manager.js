@@ -95,60 +95,56 @@ class ThreeManager {
     }
 
     initCrane() {
-        // Vertical Pillar
-        // const pillarGeo = new THREE.BoxGeometry(0.4, 12, 0.4);
-        // const pillar = new THREE.Mesh(pillarGeo, this.wireMat);
-        // pillar.position.y = 6;
-        // this.crane.add(pillar);
-
-        // Horizontal Boom
-        const boomGeo = new THREE.BoxGeometry(6, 0.3, 0.3);
-        this.boom = new THREE.Mesh(boomGeo, this.wireMat);
-        this.boom.position.set(2.8, 2, 0); // Start low
-        this.crane.add(this.boom);
-
-        // Delivery beam (The thing being moved)
-        const beamGeo = new THREE.BoxGeometry(2, 0.2, 0.2);
-        this.deliveryBeam = new THREE.Mesh(beamGeo, this.goldMat);
-        this.deliveryBeam.position.set(2, 1.8, 0);
-        this.crane.add(this.deliveryBeam);
+        // Vertical Pillar (Removed)
+        // Horizontal Boom (Removed)
+        // Delivery beam (Removed)
     }
 
     updateProgressArc(progress) {
-        if (this.arcMesh) {
-            this.scene.remove(this.arcMesh);
-            this.arcMesh.geometry.dispose();
+        if (this.arcGroup) {
+            this.scene.remove(this.arcGroup);
         }
 
+        this.arcGroup = new THREE.Group();
+        this.scene.add(this.arcGroup);
+
         const theta = progress * Math.PI * 2;
-        const geometry = new THREE.TorusGeometry(8, 0.2, 16, 100, theta || 0.001);
-        const material = new THREE.MeshBasicMaterial({
+
+        // Outer Glow Ring
+        const geometry = new THREE.TorusGeometry(8, 0.15, 16, 100, theta || 0.001);
+        const material = new THREE.MeshPhongMaterial({
             color: 0xD4BD9B,
             transparent: true,
-            opacity: 0.8,
+            opacity: 0.6,
+            emissive: 0xD4BD9B,
+            emissiveIntensity: 0.5,
             side: THREE.DoubleSide
         });
 
         this.arcMesh = new THREE.Mesh(geometry, material);
         this.arcMesh.rotation.x = Math.PI / 2;
         this.arcMesh.rotation.z = Math.PI;
-        this.scene.add(this.arcMesh);
+        this.arcGroup.add(this.arcMesh);
+
+        // Inner Tech Ring (Dashed/Segmented look)
+        const innerGeo = new THREE.TorusGeometry(7.5, 0.05, 16, 100, theta || 0.001);
+        const innerMat = new THREE.MeshBasicMaterial({
+            color: 0xE0CDA8,
+            transparent: true,
+            opacity: 0.3,
+            wireframe: true
+        });
+        this.innerRing = new THREE.Mesh(innerGeo, innerMat);
+        this.innerRing.rotation.x = Math.PI / 2;
+        this.innerRing.rotation.z = -Math.PI; // Opposite rotation
+        this.arcGroup.add(this.innerRing);
     }
 
     updateProgress(progress) {
         this.progress = progress;
         this.updateProgressArc(progress);
 
-        // 1. Crane Motion: Moves up as progress increases
-        if (this.boom) {
-            this.boom.position.y = 1 + progress * 8;
-            this.deliveryBeam.position.y = this.boom.position.y - 0.2;
-
-            // X-Motion: Beam "extends" towards the tower
-            this.deliveryBeam.position.x = 2 + progress * 4;
-        }
-
-        // 2. Skyscraper Assembly: Logic for each floor
+        // Skyscraper Assembly: Logic for each floor
         this.floors.forEach((floor, index) => {
             const threshold = index / this.floors.length;
             if (progress > threshold) {
@@ -178,6 +174,13 @@ class ThreeManager {
         if (this.tower) {
             // Subtle rotation for better structure viewing
             this.tower.rotation.y += 0.002;
+        }
+
+        if (this.arcMesh) {
+            this.arcMesh.rotation.z += 0.005;
+        }
+        if (this.innerRing) {
+            this.innerRing.rotation.z -= 0.01;
         }
 
         if (this.grid) {
