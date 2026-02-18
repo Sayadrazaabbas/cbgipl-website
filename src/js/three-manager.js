@@ -96,10 +96,10 @@ class ThreeManager {
 
     initCrane() {
         // Vertical Pillar
-        const pillarGeo = new THREE.BoxGeometry(0.4, 12, 0.4);
-        const pillar = new THREE.Mesh(pillarGeo, this.wireMat);
-        pillar.position.y = 6;
-        this.crane.add(pillar);
+        // const pillarGeo = new THREE.BoxGeometry(0.4, 12, 0.4);
+        // const pillar = new THREE.Mesh(pillarGeo, this.wireMat);
+        // pillar.position.y = 6;
+        // this.crane.add(pillar);
 
         // Horizontal Boom
         const boomGeo = new THREE.BoxGeometry(6, 0.3, 0.3);
