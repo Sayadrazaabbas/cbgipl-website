@@ -31,17 +31,20 @@ function initPreloader() {
   const preloader = document.getElementById('preloader');
   if (!preloader) return;
 
-  // Precise Construction Timing Logic
+  // Precise Construction Timing Logic: 15 Floors
   let currentStep = 0;
-  const totalSteps = 7;
+  const totalSteps = 15;
   const initialDelay = 500; // Delay before first box
   const stepDelay = 300;   // Delay between boxes
   const progressFill = document.getElementById('preloaderProgress');
   const percentText = document.getElementById('preloaderPercent');
 
+  let constructionFinished = false;
+  let progressInterval;
+
   // Wait 500ms before starting the construction sequence
   setTimeout(() => {
-    const progressInterval = setInterval(() => {
+    progressInterval = setInterval(() => {
       currentStep++;
       const progress = currentStep / totalSteps;
 
@@ -57,32 +60,35 @@ function initPreloader() {
 
       if (currentStep >= totalSteps) {
         clearInterval(progressInterval);
+        constructionFinished = true;
+        if (document.readyState === 'complete') {
+          finishPreloader();
+        }
       }
     }, stepDelay);
   }, initialDelay);
 
+  function finishPreloader() {
+    setTimeout(() => {
+      if (threeManager) threeManager.fadeOut();
+      preloader.classList.add('loaded');
+      document.body.style.overflow = '';
+    }, 1200); // Give it a bit more time to admire the 15 floors
+  }
+
   window.addEventListener('load', () => {
-    // The sequence continues naturally. On full page load, we ensure 100% 
-    // but only after a minimum time if needed, though usually window.load 
-    // takes longer than 2.6 seconds (500 + 7*300).
-    // Let's just let the animation finish its sequence.
+    if (constructionFinished) {
+      finishPreloader();
+    }
   });
 
+  // Fallback
   setTimeout(() => {
-    // Fade out 3D preloader
-    if (threeManager) threeManager.fadeOut();
-
-    preloader.classList.add('loaded');
-    document.body.style.overflow = '';
-  }, 1500);
-});
-
-// Fallback
-setTimeout(() => {
-  clearInterval(progressInterval);
-  preloader.classList.add('loaded');
-  document.body.style.overflow = '';
-}, 4000);
+    if (!preloader.classList.contains('loaded')) {
+      if (progressInterval) clearInterval(progressInterval);
+      finishPreloader();
+    }
+  }, 8000); // Longer fallback for more floors
 }
 
 /* ── NAVBAR ── */

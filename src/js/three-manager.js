@@ -63,15 +63,15 @@ class ThreeManager {
         });
 
         // 4. Skyscraper Structure (Building floors to be revealed)
-        const floorGeo = new THREE.BoxGeometry(3, 1, 3);
-        const floorCount = 7;
+        const floorGeo = new THREE.BoxGeometry(3, 0.8, 3);
+        const floorCount = 15;
         for (let i = 0; i < floorCount; i++) {
             const floor = new THREE.Group();
             const core = new THREE.Mesh(floorGeo, this.goldMat);
             const frame = new THREE.Mesh(floorGeo, this.wireMat);
             floor.add(core, frame);
 
-            const targetY = i * 1.05 + 0.5;
+            const targetY = i * 0.85 + 0.4;
             floor.position.y = targetY + 10; // Start high up for fly-in
             floor.userData.targetY = targetY;
 
