@@ -452,19 +452,41 @@ select {
   justify-content: space-between;
 }
 
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .navbar-logo {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  text-decoration: none;
+  z-index: 1000;
 }
 
+.nav-logo-img { height: 95px;
+  /* Adjust based on actual logo proportions */
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.3s var(--ease);
+}
+
+.navbar.scrolled .nav-logo-img { height: 75px;
+}
+
+.navbar-logo:hover .nav-logo-img {
+  transform: scale(1.02);
+}
+
+/* Fallback for text if needed */
 .logo-text {
   font-family: var(--font-heading);
   font-size: 1.8rem;
   font-weight: 700;
   color: var(--white);
-  letter-spacing: 4px;
   line-height: 1;
+  letter-spacing: 1px;
 }
 
 .logo-accent {
@@ -473,10 +495,12 @@ select {
 
 .logo-sub {
   font-family: var(--font-accent);
-  font-size: 0.6rem;
-  letter-spacing: 2px;
+  font-size: 0.65rem;
+  font-weight: 600;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 4px;
 }
 
 .navbar-links {
