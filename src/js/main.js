@@ -72,7 +72,7 @@ function initPreloader() {
       const currentVal = (startVal + (endVal - startVal) * progress).toFixed(1);
       const growth = Math.round(((currentVal - startVal) / startVal) * 100);
 
-      marketVal.textContent = `$${currentVal}M`;
+      marketVal.textContent = `$${currentVal}B`;
       marketGro.textContent = `+${growth}%`;
     }
 
