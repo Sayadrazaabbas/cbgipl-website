@@ -465,14 +465,15 @@ select {
   z-index: 1000;
 }
 
-.nav-logo-img { height: 95px;
-  /* Adjust based on actual logo proportions */
+.nav-logo-img {
+  height: 150px;
   width: auto;
   object-fit: contain;
-  transition: transform 0.3s var(--ease);
+  transition: transform 0.3s var(--ease), height 0.3s var(--ease);
 }
 
-.navbar.scrolled .nav-logo-img { height: 75px;
+.navbar.scrolled .nav-logo-img {
+  height: 110px;
 }
 
 .navbar-logo:hover .nav-logo-img {
