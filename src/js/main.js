@@ -20,6 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactForm();
   initSmoothScroll();
   initRoadmapAnimation();
+  initLeadershipTilt(); // Added initLeadershipTilt
+  // initFaqAccordion(); // Added initFaqAccordion - assuming this was intended to be added as well
 
   // Initialize Lucide icons
   if (window.lucide) {
@@ -128,20 +130,15 @@ function initNavbar() {
       navbar.classList.remove('scrolled');
     }
 
-    // Active nav link based on scroll
-    const sections = document.querySelectorAll('section[id]');
-    sections.forEach(section => {
-      const top = section.offsetTop - 150;
-      const bottom = top + section.offsetHeight;
-      const id = section.getAttribute('id');
-
-      if (currentScroll >= top && currentScroll < bottom) {
-        document.querySelectorAll('.nav-link').forEach(link => {
-          link.classList.remove('active');
-          if (link.getAttribute('href') === `#${id}`) {
-            link.classList.add('active');
-          }
-        });
+    // Active nav link based on current page
+    const currentPath = window.location.pathname;
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.classList.remove('active');
+      const href = link.getAttribute('href');
+      if (href === '/' && (currentPath === '/' || currentPath === '/index.html')) {
+        link.classList.add('active');
+      } else if (href !== '/' && currentPath.includes(href)) {
+        link.classList.add('active');
       }
     });
 
@@ -337,6 +334,37 @@ function initBackToTop() {
 
   btn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
+
+/**
+ * Leadership 3D Tilt Interaction
+ */
+function initLeadershipTilt() {
+  const cards = document.querySelectorAll('.leader-card');
+  if (cards.length === 0) return;
+
+  cards.forEach(card => {
+    const frame = card.querySelector('.leader-frame');
+    if (!frame) return;
+
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+
+      const rotateX = -(y - centerY) / 10;
+      const rotateY = (x - centerX) / 10;
+
+      frame.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      frame.style.transform = 'rotateX(0deg) rotateY(0deg) translateZ(0px)';
+    });
   });
 }
 
