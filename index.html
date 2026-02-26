@@ -75,31 +75,44 @@
   </nav>
 
   <!-- ========== HERO SECTION ========== -->
-  <section class="hero" id="home">
-    <div class="hero-bg">
-      <video class="hero-bg-image" autoplay loop muted playsinline>
+  <section class="hero" id="home" style="min-height: 80vh; padding: 0;">
+    <div class="hero-bg" style="position: relative; height: 80vh;">
+      <video class="hero-bg-image" autoplay loop muted playsinline
+        style="width: 100%; height: 100%; object-fit: cover;">
         <source src="/videos/hero-bg.mp4" type="video/mp4">
       </video>
       <div class="hero-gradient-overlay"></div>
     </div>
 
-    <div class="hero-particles" id="particles"></div>
+    <div class="hero-particles" id="particles" style="height: 80vh;"></div>
 
-    <div class="container hero-content">
-      <div class="hero-badge" data-animate="fade-down">
+    <div class="hero-scroll-indicator" style="bottom: 20px;">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ========== HERO CONTENT BANNER ========== -->
+  <section class="section" id="hero-banner" style="padding-top: 80px; padding-bottom: 80px;">
+    <div class="container hero-content" style="text-align: center;">
+      <div class="hero-badge" data-animate="fade-down" style="margin-bottom: 24px;">
         <span class="badge-dot"></span>
         Shaping Urban Landscapes
       </div>
 
-      <h1 class="hero-title" data-animate="fade-up" data-delay="100">
+      <h1 class="hero-title" data-animate="fade-up" data-delay="100"
+        style="color: var(--gold); font-size: clamp(2.2rem, 5vw, 4rem); margin-bottom: 20px;">
         Engineering Tomorrow's <br />
         <span class="text-gradient">Iconic Horizons</span>
       </h1>
-      <p class="hero-subtitle" data-animate="fade-up" data-delay="200">
+      <p class="hero-subtitle" data-animate="fade-up" data-delay="200"
+        style="color: rgba(255, 255, 255, 0.85); font-size: 1.15rem; max-width: 800px; margin: 0 auto 40px;">
         Carter Brown Global Infra Pvt Ltd — Transforming Mumbai's skyline through
         world-class real estate development, SRA redevelopment, and mega township projects.
       </p>
-      <div class="hero-actions" data-animate="fade-up" data-delay="400">
+
+      <div class="hero-actions" data-animate="fade-up" data-delay="400"
+        style="display: flex; gap: 16px; justify-content: center; margin-bottom: 60px;">
         <a href="#projects" class="btn btn-primary">
           <span>Explore Projects</span>
           <i data-lucide="arrow-right"></i>
@@ -108,43 +121,52 @@
           <span>Our Story</span>
         </a>
       </div>
-      <div class="hero-stats" data-animate="fade-up" data-delay="600">
-        <div class="hero-stat">
+
+      <div class="hero-stats" data-animate="fade-up" data-delay="600"
+        style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;">
+        <div class="hero-stat" style="display: flex; align-items: center; gap: 16px;">
           <div class="stat-icon-wrapper"><i data-lucide="map"></i></div>
-          <div class="stat-info">
-            <span class="stat-number" data-count="1100">0</span><span class="stat-suffix">+</span>
-            <span class="stat-label">Acres in Pipeline</span>
+          <div class="stat-info" style="text-align: left;">
+            <span class="stat-number" data-count="1100">0</span><span class="stat-suffix"
+              style="color: var(--gold); font-size: 1.4rem;">+</span>
+            <span class="stat-label"
+              style="display: block; font-family: var(--font-accent); font-size: 0.8rem; color: rgba(255, 255, 255, 0.6); text-transform: uppercase; margin-top: 4px;">Acres
+              in Pipeline</span>
           </div>
         </div>
-        <div class="hero-stat-divider"></div>
-        <div class="hero-stat">
+        <div class="hero-stat-divider" style="width: 1px; height: 40px; background: rgba(255, 255, 255, 0.1);"></div>
+        <div class="hero-stat" style="display: flex; align-items: center; gap: 16px;">
           <div class="stat-icon-wrapper"><i data-lucide="layers"></i></div>
-          <div class="stat-info">
-            <span class="stat-number" data-count="9">0</span><span class="stat-suffix">+</span>
-            <span class="stat-label">Mega Projects</span>
+          <div class="stat-info" style="text-align: left;">
+            <span class="stat-number" data-count="9">0</span><span class="stat-suffix"
+              style="color: var(--gold); font-size: 1.4rem;">+</span>
+            <span class="stat-label"
+              style="display: block; font-family: var(--font-accent); font-size: 0.8rem; color: rgba(255, 255, 255, 0.6); text-transform: uppercase; margin-top: 4px;">Mega
+              Projects</span>
           </div>
         </div>
-        <div class="hero-stat-divider"></div>
-        <div class="hero-stat">
+        <div class="hero-stat-divider" style="width: 1px; height: 40px; background: rgba(255, 255, 255, 0.1);"></div>
+        <div class="hero-stat" style="display: flex; align-items: center; gap: 16px;">
           <div class="stat-icon-wrapper"><i data-lucide="globe"></i></div>
-          <div class="stat-info">
+          <div class="stat-info" style="text-align: left;">
             <span class="stat-number" data-count="7">0</span>
-            <span class="stat-label">Global Offices</span>
+            <span class="stat-label"
+              style="display: block; font-family: var(--font-accent); font-size: 0.8rem; color: rgba(255, 255, 255, 0.6); text-transform: uppercase; margin-top: 4px;">Global
+              Offices</span>
           </div>
         </div>
-        <div class="hero-stat-divider"></div>
-        <div class="hero-stat">
+        <div class="hero-stat-divider" style="width: 1px; height: 40px; background: rgba(255, 255, 255, 0.1);"></div>
+        <div class="hero-stat" style="display: flex; align-items: center; gap: 16px;">
           <div class="stat-icon-wrapper"><i data-lucide="clock"></i></div>
-          <div class="stat-info">
-            <span class="stat-number" data-count="30">0</span><span class="stat-suffix">+</span>
-            <span class="stat-label">Years Expertise</span>
+          <div class="stat-info" style="text-align: left;">
+            <span class="stat-number" data-count="30">0</span><span class="stat-suffix"
+              style="color: var(--gold); font-size: 1.4rem;">+</span>
+            <span class="stat-label"
+              style="display: block; font-family: var(--font-accent); font-size: 0.8rem; color: rgba(255, 255, 255, 0.6); text-transform: uppercase; margin-top: 4px;">Years
+              Expertise</span>
           </div>
         </div>
       </div>
-    </div>
-    <div class="hero-scroll-indicator">
-      <div class="scroll-line"></div>
-      <span>Scroll</span>
     </div>
   </section>
 
