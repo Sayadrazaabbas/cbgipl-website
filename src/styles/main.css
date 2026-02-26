@@ -300,14 +300,24 @@ select {
   z-index: 1;
 }
 
+.preloader-logo-img {
+  height: 350px;
+  width: auto;
+  margin-bottom: 25px;
+  display: block;
+}
+
 .preloader-inner {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   z-index: 5;
   text-align: center;
   padding: 60px;
   background: radial-gradient(circle at center, rgba(10, 22, 40, 0.85) 0%, rgba(10, 22, 40, 0.4) 50%, transparent 80%);
   border-radius: 50%;
-  transform: translateY(120px);
+  transform: translateY(170px);
 }
 
 .preloader-percent {
@@ -461,23 +471,46 @@ select {
 .navbar-logo {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   text-decoration: none;
   z-index: 1000;
+  position: relative;
+  width: 150px;
+  /* Reserve some space in the flex container */
 }
 
 .nav-logo-img {
-  height: 150px;
+  height: 280px;
   width: auto;
   object-fit: contain;
   transition: transform 0.3s var(--ease), height 0.3s var(--ease);
+  position: absolute;
+  top: -80px;
+  /* Pull it up slightly so it doesn't push the navbar down too much but mostly overhangs below */
+  left: 0;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
+  /* Add a shadow to the overhanging logo so it stands out against the background */
 }
 
 .navbar.scrolled .nav-logo-img {
-  height: 110px;
+  height: 85px;
+  /* Small enough to fit cleanly inside the scrolled 12px padded navbar */
+  position: static;
+  /* Remove absolute positioning pop-out effect */
+  transform: scale(1.2);
+  /* Use transform to visually increase the logo by 20% so it doesn't push the navbar height boundaries open */
+  transform-origin: left center;
+  filter: none;
+  /* Shadow isn't necessary against the solid dark bar */
+  margin-top: 0;
 }
 
 .navbar-logo:hover .nav-logo-img {
   transform: scale(1.02);
+}
+
+.navbar.scrolled .navbar-logo:hover .nav-logo-img {
+  transform: scale(1.22);
 }
 
 /* Fallback for text if needed */
