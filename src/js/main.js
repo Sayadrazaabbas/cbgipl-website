@@ -1,3 +1,4 @@
+import { projectStatusData } from '/src/data/project_status.js';
 /* ======================================================================
    CBGIPL — Main JavaScript
    Handles: Preloader, Navbar, Scroll Animations, Counters,
@@ -429,3 +430,31 @@ style.textContent = `
   }
 `;
 document.head.appendChild(style);
+
+
+// --- Project Status Module ---
+// Populate Table
+        const tableBody = document.getElementById('status-table-body');
+        const totalProjectsEl = document.getElementById('total-projects');
+
+        if (tableBody) {
+            projectStatusData.forEach(item => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td class="td-sn">${item.sn}</td>
+                    <td class="td-project">${item.project}</td>
+                    <td class="td-location"><i data-lucide="map-pin" class="table-icon"></i> ${item.location}</td>
+                    <td class="td-area">${item.area}</td>
+                    <td class="td-status"><span class="status-badge ${getStatusClass(item.status)}">${item.status}</span></td>
+                `;
+                tableBody.appendChild(tr);
+            });
+            lucide.createIcons();
+            totalProjectsEl.textContent = projectStatusData.length;
+        }
+
+        function getStatusClass(status) {
+            if (status.includes("Ready")) return "status-ready";
+            if (status.includes("Visited")) return "status-visited";
+            return "status-default";
+        }
