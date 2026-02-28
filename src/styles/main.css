@@ -444,13 +444,16 @@ select {
   left: 0;
   right: 0;
   z-index: 1000;
-  padding: 20px 0;
+  padding: 10px 0;
+  background: rgba(10, 22, 40, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   transition: all 0.4s var(--ease);
 }
 
 .navbar.scrolled {
-  padding: 12px 0;
-  background: rgba(10, 22, 40, 0.95);
+  padding: 6px 0;
+  background: rgba(10, 22, 40, 0.92);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
@@ -473,36 +476,28 @@ select {
   flex-direction: column;
   justify-content: center;
   text-decoration: none;
-  z-index: 1000;
+  z-index: 1001;
   position: relative;
-  width: 150px;
-  /* Reserve some space in the flex container */
+  margin-left: -10px;
+  flex-shrink: 0;
 }
 
 .nav-logo-img {
-  height: 280px;
+  height: 180px;
   width: auto;
+  max-width: none;
   object-fit: contain;
   transition: transform 0.3s var(--ease), height 0.3s var(--ease);
-  position: absolute;
-  top: -80px;
-  /* Pull it up slightly so it doesn't push the navbar down too much but mostly overhangs below */
-  left: 0;
-  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
-  /* Add a shadow to the overhanging logo so it stands out against the background */
+  position: static;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.6));
 }
 
 .navbar.scrolled .nav-logo-img {
-  height: 85px;
-  /* Small enough to fit cleanly inside the scrolled 12px padded navbar */
+  height: 70px;
   position: static;
-  /* Remove absolute positioning pop-out effect */
-  transform: scale(1.2);
-  /* Use transform to visually increase the logo by 20% so it doesn't push the navbar height boundaries open */
+  transform: scale(1);
   transform-origin: left center;
   filter: none;
-  /* Shadow isn't necessary against the solid dark bar */
-  margin-top: 0;
 }
 
 .navbar-logo:hover .nav-logo-img {
@@ -540,12 +535,13 @@ select {
 .navbar-links {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 15px;
+  /* Increased padding slightly */
 }
 
 .nav-link {
   font-family: var(--font-accent);
-  font-size: 0.88rem;
+  font-size: 1.0rem;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.7);
   padding: 10px 18px;
@@ -575,6 +571,8 @@ select {
   background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
   color: var(--white) !important;
   padding: 10px 24px;
+  white-space: nowrap;
+  /* Keep on one line */
 }
 
 .cta-link:hover {
