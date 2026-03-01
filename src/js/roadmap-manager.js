@@ -9,7 +9,7 @@ class RoadmapManager {
         if (!this.container) return;
 
         this.scene = new THREE.Scene();
-        this.scene.fog = new THREE.FogExp2(0x0a1628, 0.05);
+        this.scene.fog = new THREE.FogExp2(0xf4f6f9, 0.05);
 
         this.camera = new THREE.PerspectiveCamera(60, this.container.clientWidth / this.container.clientHeight, 0.1, 1000);
         this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });

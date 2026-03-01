@@ -99,44 +99,47 @@
       <div class="scroll-line"></div>
       <span>Scroll</span>
     </div>
-  </div>
 
-  <!-- ========== HERO CONTENT BANNER ========== -->
-  <section class="section" id="hero-banner" style="padding-top: 80px; padding-bottom: 80px;">
-    <div class="container hero-content" style="text-align: center;">
-      <div class="hero-badge" data-animate="fade-down" style="margin-bottom: 24px;">
+    <!-- ========== HERO CONTENT OVERLAY ========== -->
+    <div class="container hero-content"
+      style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; width: 100%; z-index: 10;">
+      <div class="hero-badge" data-animate="fade-down" style="margin-bottom: 24px; display: inline-block;">
         <span class="badge-dot"></span>
         Shaping Urban Landscapes
       </div>
 
       <h1 class="hero-title" data-animate="fade-up" data-delay="100"
-        style="color: var(--gold); font-size: clamp(2.2rem, 5vw, 4rem); margin-bottom: 20px;">
+        style="color: #fff; font-size: clamp(2.2rem, 5vw, 4rem); margin-bottom: 20px; text-shadow: 0 4px 15px rgba(0,0,0,0.6);">
         Engineering Tomorrow's <br />
         <span class="text-gradient">Iconic Horizons</span>
       </h1>
       <p class="hero-subtitle" data-animate="fade-up" data-delay="200"
-        style="color: rgba(255, 255, 255, 0.85); font-size: 1.15rem; max-width: 800px; margin: 0 auto 40px;">
+        style="color: rgba(255, 255, 255, 0.95); font-size: 1.15rem; max-width: 800px; margin: 0 auto 40px; text-shadow: 0 2px 10px rgba(0,0,0,0.5);">
         Carter Brown Global Infra Pvt Ltd — Transforming Mumbai's skyline through
         world-class real estate development, SRA redevelopment, and mega township projects.
       </p>
 
       <div class="hero-actions" data-animate="fade-up" data-delay="400"
-        style="display: flex; gap: 16px; justify-content: center; margin-bottom: 60px;">
-        <a href="#projects" class="btn btn-primary">
+        style="display: flex; gap: 16px; justify-content: center;">
+        <a href="#projects" class="btn btn-primary" style="padding: 12px 28px; border-radius: 5px;">
           <span>Explore Projects</span>
-          <i data-lucide="arrow-right"></i>
         </a>
-        <a href="#about" class="btn btn-outline">
+        <a href="#about" class="btn btn-outline" style="padding: 12px 28px; border-radius: 5px;">
           <span>Our Story</span>
         </a>
       </div>
+    </div>
+  </div>
 
+  <!-- ========== HERO STATS BANNER ========== -->
+  <section class="section" id="hero-banner" style="padding-top: 0; padding-bottom: 60px;">
+    <div class="container">
       <div class="hero-stats" data-animate="fade-up" data-delay="600"
-        style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;">
+        style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: -50px; position: relative; z-index: 20; background: var(--white); box-shadow: var(--shadow-md); padding: 30px; border-radius: 12px;">
         <div class="hero-stat" style="display: flex; align-items: center; gap: 16px;">
-          <div class="stat-icon-wrapper"><i data-lucide="map"></i></div>
+          <div class="stat-icon-wrapper"><i data-lucide="map" style="color: var(--gold);"></i></div>
           <div class="stat-info" style="text-align: left;">
-            <span class="stat-number" data-count="1100">0</span><span class="stat-suffix"
+            <span class="stat-number" data-count="1100" style="color: var(--navy);">0</span><span class="stat-suffix"
               style="color: var(--gold); font-size: 1.4rem;">+</span>
             <span class="stat-label"
               style="display: block; font-family: var(--font-accent); font-size: 0.8rem; color: rgba(255, 255, 255, 0.6); text-transform: uppercase; margin-top: 4px;">Acres
@@ -195,7 +198,7 @@
       <div class="about-grid">
         <div class="about-card glass-card" data-animate="fade-up">
           <div class="about-icon">
-            <img src="/images/about/vision_icon.jpg" alt="Our Vision" class="about-icon-img" />
+            <i data-lucide="eye" style="width: 32px; height: 32px;"></i>
           </div>
           <h3>Our Vision</h3>
           <p>To become a world-class real estate company known for quality, integrity, and commitment to excellence in
@@ -203,7 +206,7 @@
         </div>
         <div class="about-card glass-card" data-animate="fade-up" data-delay="100">
           <div class="about-icon">
-            <img src="/images/about/mission_icon.jpg" alt="Our Mission" class="about-icon-img" />
+            <i data-lucide="target" style="width: 32px; height: 32px;"></i>
           </div>
           <h3>Our Mission</h3>
           <p>To create value within families, communities, and the environment by providing world-class infrastructure
@@ -211,7 +214,7 @@
         </div>
         <div class="about-card glass-card" data-animate="fade-up" data-delay="200">
           <div class="about-icon">
-            <img src="/images/about/core_values_icon.jpg" alt="Core Values" class="about-icon-img" />
+            <i data-lucide="shield-check" style="width: 32px; height: 32px;"></i>
           </div>
           <h3>Core Values</h3>
           <p>Quality, Integrity, Commitment, and Excellence — the four pillars that define every decision we make and
@@ -249,7 +252,7 @@
         </div>
         <div class="story-image">
           <img src="/images/cbgholding/home_cbg-mumbai-india.png" alt="CBGIPL Mumbai Operations"
-            class="story-real-image" style="width:100%;height:400px;object-fit:cover;border-radius:24px;" />
+            class="story-real-image" style="width:100%;height:auto;border-radius:24px;" />
           <div class="story-float-card glass-card">
             <div class="float-number">30+</div>
             <div class="float-label">Years of Industry Expertise</div>
@@ -282,8 +285,9 @@
         <!-- Project 1: Baba Nagar -->
         <div class="project-card" data-category="ready sra" data-animate="fade-up">
           <div class="project-image">
-            <img src="/images/cbgholding/home_cssfile_page-3.png" alt="Baba Nagar - Bandra West"
-              class="project-real-img" />
+            <img
+              src="https://images.unsplash.com/photo-1448630360428-65456885c650?auto=format&fit=crop&q=80&w=700&h=500"
+              alt="Baba Nagar - Bandra West" class="project-real-img" />
             <div class="project-badge">Ready to Proceed</div>
           </div>
           <div class="project-content">
@@ -307,7 +311,9 @@
         <!-- Project 4: Malad MM Westbay -->
         <div class="project-card project-card-featured" data-category="ready greenfield" data-animate="fade-up">
           <div class="project-image">
-            <img src="/images/cbgholding/home_cssfile_page-8.png" alt="Malad MM Westbay" class="project-real-img" />
+            <img
+              src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=700&h=500"
+              alt="Malad MM Westbay" class="project-real-img" />
             <div class="project-badge badge-gold">Flagship</div>
           </div>
           <div class="project-content">
@@ -330,9 +336,8 @@
         <!-- Project 7: Panvel -->
         <div class="project-card project-card-featured" data-category="due-diligence greenfield" data-animate="fade-up">
           <div class="project-image">
-            <div class="project-image-placeholder featured-placeholder">
-              <i data-lucide="map"></i>
-            </div>
+            <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=700&h=500"
+              alt="Panvel Township" class="project-real-img" />
             <div class="project-badge badge-orange">Due Diligence</div>
           </div>
           <div class="project-content">
