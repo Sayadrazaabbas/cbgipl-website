@@ -25,6 +25,12 @@
   <!-- Lucide Icons CDN -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
+  <link rel="manifest" href="/images/favicon/site.webmanifest">
+
   <link rel="stylesheet" href="/src/styles/main.css" />
 </head>
 
@@ -134,7 +140,7 @@
   </section>
 
   <!-- ========== ABOUT SECTION ========== -->
-  <section class="section about-premium" id="about" style="background: var(--corporate-blue); padding: 0 0 160px; position: relative; min-height: auto;">
+  <section class="section about-premium" id="about" style="background: #ffffff; padding: 0 0 160px; position: relative; min-height: auto;">
     
     <!-- Hero Stats Overlap -->
     <div class="section-stats" style="margin-top: -60px; margin-bottom: 80px; position: relative; z-index: 20;">
@@ -178,43 +184,92 @@
         </div>
       </div>
     </div>
+
     <div class="container">
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;">
-        
-        <div class="about-visual" data-animate="fade-right" style="position: relative;">
-          <!-- Using Generated Office Lobby Visual -->
-          <img src="/images/about/corporate-office.png" alt="CBGIPL Corporate Core" style="width: 100%; height: 600px; object-fit: cover; border-radius: var(--radius-lg); box-shadow: var(--shadow-premium);">
-          <div class="glass-card" style="position: absolute; bottom: -40px; right: -40px; padding: 40px; width: 280px; text-align: center; background: #ffffff; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 20px 40px rgba(0,0,0,0.05);">
-            <span style="font-size: 3rem; font-weight: 700; color: var(--gold); display: block; line-height: 1;"><span class="stat-number" data-count="30">0</span>+</span>
-            <span style="font-family: var(--font-accent); font-size: 0.85rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 2px; margin-top: 12px; display: block;">Years of Global Expertise</span>
+      <!-- Header Section -->
+      <div class="section-header" style="text-align: center; margin-bottom: 80px;" data-animate="fade-up">
+        <span class="section-tag" style="background: rgba(0, 0, 0, 0.05); color: var(--navy); border: 1px solid rgba(0,0,0,0.1);">Who We Are</span>
+        <h2 class="section-title" style="color: var(--navy); font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.2;">A Global Vision, <span style="color: var(--gold);">Rooted in India</span></h2>
+        <p class="section-desc" style="max-width: 850px; margin: 30px auto 0; color: var(--text-secondary); line-height: 1.8; font-size: 1.15rem;">
+          CBGIPL is a Indian entity backed by Saudi Based group Carter Brown Global Holding, combining international financial strength with deep local expertise to shape Mumbai's real estate landscape.
+        </p>
+      </div>
+
+      <!-- Vision/Mission/Values Grid -->
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-bottom: 120px;">
+        <!-- Card 1: Our Vision -->
+        <div class="glass-card" data-animate="fade-up" style="padding: 60px 40px; text-align: center; background: #ffffff; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 10px 40px rgba(0,0,0,0.03); border-radius: 24px;">
+          <div style="width: 72px; height: 72px; background: rgba(212, 175, 55, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 32px; border: 1px solid rgba(212, 175, 55, 0.2);">
+            <i data-lucide="eye" style="color: var(--gold); width: 32px; height: 32px;"></i>
           </div>
+          <h4 style="color: var(--navy); margin-bottom: 20px; font-size: 1.6rem; font-family: var(--font-heading);">Our Vision</h4>
+          <p style="color: var(--text-secondary); line-height: 1.7; font-size: 1.05rem;">To become a world-class real estate company known for quality, integrity, and commitment to excellence in every project we undertake.</p>
         </div>
 
-        <div class="about-content" data-animate="fade-left">
-          <span class="section-tag" style="background: rgba(255, 255, 255, 0.1); color: #ffffff; border-color: rgba(255, 255, 255, 0.2);">Corporate Identity</span>
-          <h2 class="section-title" style="color: #ffffff;">A Saudi-India <br /><span class="text-gradient">Joint Venture</span></h2>
-          <p class="section-desc" style="margin-bottom: 40px; color: rgba(255, 255, 255, 0.8);">
-            Carter Brown Global Infra Pvt Ltd (CBGIPL) represents a powerful synergy between international capital and local execution excellence. Backed by Carter Brown Global Holding, we bring the financial muscle of the Middle East to Mumbai's sky-high aspirations.
-          </p>
+        <!-- Card 2: Our Mission -->
+        <div class="glass-card" data-animate="fade-up" data-delay="100" style="padding: 60px 40px; text-align: center; background: #ffffff; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 10px 40px rgba(0,0,0,0.03); border-radius: 24px;">
+          <div style="width: 72px; height: 72px; background: rgba(212, 175, 55, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 32px; border: 1px solid rgba(212, 175, 55, 0.2);">
+            <i data-lucide="target" style="color: var(--gold); width: 32px; height: 32px;"></i>
+          </div>
+          <h4 style="color: var(--navy); margin-bottom: 20px; font-size: 1.6rem; font-family: var(--font-heading);">Our Mission</h4>
+          <p style="color: var(--text-secondary); line-height: 1.7; font-size: 1.05rem;">To create value within families, communities, and the environment by providing world-class infrastructure through global-standard projects.</p>
+        </div>
+
+        <!-- Card 3: Core Values -->
+        <div class="glass-card" data-animate="fade-up" data-delay="200" style="padding: 60px 40px; text-align: center; background: #ffffff; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 10px 40px rgba(0,0,0,0.03); border-radius: 24px;">
+          <div style="width: 72px; height: 72px; background: rgba(212, 175, 55, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 32px; border: 1px solid rgba(212, 175, 55, 0.2);">
+            <i data-lucide="shield-check" style="color: var(--gold); width: 32px; height: 32px;"></i>
+          </div>
+          <h4 style="color: var(--navy); margin-bottom: 20px; font-size: 1.6rem; font-family: var(--font-heading);">Core Values</h4>
+          <p style="color: var(--text-secondary); line-height: 1.7; font-size: 1.05rem;">Quality, Integrity, Commitment, and Excellence — the four pillars that define every decision we make and every structure we build.</p>
+        </div>
+      </div>
+
+      <!-- The CBG Story with Sea Link Visual -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;">
+        
+        <div class="story-content" data-animate="fade-right">
+          <h3 style="color: var(--navy); margin-bottom: 40px; font-size: 2.5rem; font-family: var(--font-heading);">The <span class="text-gradient">CBG Story</span></h3>
           
-          <div style="display: grid; gap: 32px;">
+          <div style="display: grid; gap: 40px;">
             <div style="display: flex; gap: 24px;">
-              <div style="width: 64px; height: 64px; background: rgba(212, 175, 55, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid var(--gold-glimmer);">
-                <i data-lucide="eye" style="color: var(--gold);"></i>
+              <div style="width: 56px; height: 56px; background: rgba(212, 175, 55, 0.08); border-radius: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid rgba(212, 175, 55, 0.15);">
+                <i data-lucide="briefcase" style="color: var(--gold); width: 24px; height: 24px;"></i>
               </div>
-              <div>
-                <h4 style="color: #ffffff; margin-bottom: 8px;">Our Vision</h4>
-                <p style="color: rgba(255, 255, 255, 0.7); font-size: 0.95rem;">To redefine urban living by engineering sustainable, world-class landmarks that stand as a testament to quality and integrity.</p>
-              </div>
+              <p style="color: var(--text-secondary); line-height: 1.8; font-size: 1.05rem;">
+                Founded by <span style="color: var(--gold); font-weight: 700;">Mohammad Nusrat Ali Khan</span>, an engineer and techno-commercial specialist with over a decade of international experience across the Middle East, India, and China, Carter Brown Global has grown into a diversified multinational group.
+              </p>
             </div>
 
             <div style="display: flex; gap: 24px;">
-              <div style="width: 64px; height: 64px; background: rgba(212, 175, 55, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid var(--gold-glimmer);">
-                <i data-lucide="target" style="color: var(--gold);"></i>
+              <div style="width: 56px; height: 56px; background: rgba(212, 175, 55, 0.08); border-radius: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid rgba(212, 175, 55, 0.15);">
+                <i data-lucide="globe" style="color: var(--gold); width: 24px; height: 24px;"></i>
               </div>
-              <div>
-                <h4 style="color: #ffffff; margin-bottom: 8px;">Our Mission</h4>
-                <p style="color: rgba(255, 255, 255, 0.7); font-size: 0.95rem;">To deliver high-impact infrastructure projects that create lasting social and economic value for communities and investors alike.</p>
+              <p style="color: var(--text-secondary); line-height: 1.8; font-size: 1.05rem;">
+                With established entities in <span style="font-weight: 700; color: #ea580c;">Saudi Arabia, UAE, Oman, Hong Kong</span>, and now India, CBG brings the financial muscle and global construction expertise to address one of India’s most pressing needs — <span style="font-weight: 700; color: #ea580c;">urban transformation.</span>
+              </p>
+            </div>
+
+            <div style="display: flex; gap: 24px;">
+              <div style="width: 56px; height: 56px; background: rgba(212, 175, 55, 0.08); border-radius: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid rgba(212, 175, 55, 0.15);">
+                <i data-lucide="landmark" style="color: var(--gold); width: 24px; height: 24px;"></i>
+              </div>
+              <p style="color: var(--text-secondary); line-height: 1.8; font-size: 1.05rem;">
+                CBGIPL represents the next chapter: leveraging Saudi capital and international project management standards to deliver world-class developments in <span style="font-weight: 700; color: #ea580c;">Mumbai</span> — from SRA redevelopments to mega integrated townships.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-visual" data-animate="fade-left" style="position: relative;">
+          <div style="border-radius: 24px; overflow: hidden; box-shadow: 0 40px 100px rgba(0,0,0,0.12);">
+            <img src="/images/sealink.jpg" alt="Mumbai Sea Link" style="width: 100%; height: 520px; object-fit: cover;">
+            
+            <div style="position: absolute; bottom: 30px; left: 30px; right: 30px; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px); padding: 32px; border-radius: 20px; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 15px 45px rgba(0,0,0,0.15);">
+              <h5 style="color: var(--navy); margin-bottom: 12px; font-size: 1rem; font-family: var(--font-heading); line-height: 1.4;">Nusrat Infra Holding Pvt Ltd - Mumbai, Maharashtra, India</h5>
+              <div style="display: flex; align-items: center; gap: 20px; border-top: 1px solid rgba(0,0,0,0.05); padding-top: 20px;">
+                <span style="font-size: 2.5rem; font-weight: 700; color: var(--gold); line-height: 1;">30+</span>
+                <span style="font-family: var(--font-accent); font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1.5px; line-height: 1.3;">Years of<br>Industry Expertise</span>
               </div>
             </div>
           </div>
@@ -392,25 +447,23 @@
     <div class="container" style="position: relative; z-index: 5;">
       <div class="section-header">
         <span class="section-tag">Strategic Vision</span>
-        <h2 class="section-title" style="color: #ffffff;">The <span class="text-gradient">Roadmap</span></h2>
+        <h2 class="section-title" style="color: #ffffff;">Our <span class="text-gradient">Road Map</span></h2>
         <p class="section-desc" style="color: rgba(255, 255, 255, 0.9); max-width: 600px;">Our path toward global infrastructure leadership and sustainable urban development.</p>
       </div>
 
       <div class="roadmap-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 80px; width: 100%;">
         <div class="roadmap-item glass-card" data-animate="fade-up" style="padding: 48px; border-radius: var(--radius-lg); border-left: 4px solid var(--gold); background: rgba(255, 255, 255, 0.1);">
-          <div style="font-family: var(--font-accent); color: var(--gold); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 24px;">Phase 01</div>
-          <h3 style="font-size: 1.5rem; margin-bottom: 20px; font-family: var(--font-heading); color: #ffffff;">Local Leadership</h3>
-          <p style="color: rgba(255, 255, 255, 0.8); line-height: 1.7;">Establishing a dominant position in Mumbai’s redevelopment and mega-township sectors through SRA and greenfield projects.</p>
+          <div style="font-family: var(--font-accent); color: var(--gold); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 24px;">Phase 1</div>
+          <p style="color: rgba(255, 255, 255, 0.8); line-height: 1.7;">Targeted acquisition, redevelopment, and development of prime real estate opportunities across Mumbai</p>
         </div>
         <div class="roadmap-item glass-card" data-animate="fade-up" data-delay="100" style="padding: 48px; border-radius: var(--radius-lg); border-left: 4px solid var(--gold-glimmer); background: rgba(255, 255, 255, 0.1);">
-          <div style="font-family: var(--font-accent); color: var(--gold); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 24px;">Phase 02</div>
-          <h3 style="font-size: 1.5rem; margin-bottom: 20px; font-family: var(--font-heading); color: #ffffff;">National Expansion</h3>
-          <p style="color: rgba(255, 255, 255, 0.8); line-height: 1.7;">Scaling operations across Tier-1 Indian cities through strategic joint ventures with national development titans.</p>
+          <div style="font-family: var(--font-accent); color: var(--gold); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 24px;">Phase 2</div>
+          <h3 style="font-size: 1.5rem; margin-bottom: 20px; font-family: var(--font-heading); color: #ffffff;">Global JV Expansion</h3>
+          <p style="color: rgba(255, 255, 255, 0.8); line-height: 1.7;">Building strategic joint ventures with leading developers and capital partners to expand our presence across global real estate markets.</p>
         </div>
         <div class="roadmap-item glass-card" data-animate="fade-up" data-delay="200" style="padding: 48px; border-radius: var(--radius-lg); border-left: 4px solid var(--white); background: rgba(255, 255, 255, 0.1);">
-          <div style="font-family: var(--font-accent); color: var(--gold); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 24px;">Phase 03</div>
-          <h3 style="font-size: 1.5rem; margin-bottom: 20px; font-family: var(--font-heading); color: #ffffff;">Global REIT Listing</h3>
-          <p style="color: rgba(255, 255, 255, 0.8); line-height: 1.7;">Unlocking global capital through REIT listings and establishing a presence in international real estate investment markets.</p>
+          <div style="font-family: var(--font-accent); color: var(--gold); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 24px;">Phase 3</div>
+          <p style="color: rgba(255, 255, 255, 0.8); line-height: 1.7;">Scaling our global real estate platform through international investments, strategic acquisitions, and public market participation via REIT listing.</p>
         </div>
       </div>
     </div>
@@ -467,9 +520,9 @@
               <div class="leader-image">
                 <img src="/images/team/saifullah-kurlawala.jpeg" alt="Saifullah Kurlawala" style="object-position: center 15%;">
                 <div class="leader-info">
-                  <span class="leader-role">VP — Strategic BD</span>
+                  <span class="leader-role">VP - Business Development</span>
                   <h3 style="color: var(--white); margin-bottom: 8px;">Saifullah Kurlawala</h3>
-                  <p>Spearheading CBGIPL's strategic expansion and institutional partnerships across India’s infrastructure landscape.</p>
+                  <p>LLB from Mumbai University. Spearheading CBGIPL's strategic expansion and institutional partnerships across India’s infrastructure landscape.</p>
                 </div>
               </div>
             </div>
@@ -809,28 +862,91 @@
   </section>
 
   <!-- ========== FOOTER ========== -->
-  <footer style="background: #F1F5F9; padding: 120px 0 60px; border-top: 1px solid rgba(0,0,0,0.05);">
-    <div class="container">
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 64px; margin-bottom: 80px;">
-        <div style="flex: 2;">
-          <img src="/images/logo.png" alt="CBGIPL" style="height: 48px; margin-bottom: 32px;">
-          <p style="color: var(--text-muted); line-height: 1.8; max-width: 320px;">Redefining urban landscapes through global expertise and visionary redevelopment strategies.</p>
-        </div>
+  <footer style="background: #020a13; padding: 120px 0 60px; border-top: 1px solid rgba(255,255,255,0.05); position: relative; overflow: hidden;">
+    <!-- Background Glimmer -->
+    <div style="position: absolute; bottom: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 10% 90%, rgba(212, 175, 55, 0.05) 0%, transparent 40%); pointer-events: none;"></div>
+    
+    <div class="container" style="position: relative; z-index: 2;">
+      <div style="display: grid; grid-template-columns: 1.5fr 1fr 2.5fr; gap: 60px; margin-bottom: 80px;">
+        
+        <!-- Brand Section -->
         <div>
-          <h4 style="color: var(--gold); margin-bottom: 32px; font-family: var(--font-heading);">Quick Links</h4>
-          <ul style="list-style: none; padding: 0; display: grid; gap: 16px;">
-            <li><a href="#about" style="color: var(--text-secondary); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-secondary)'">Vision</a></li>
-            <li><a href="#projects" style="color: var(--text-secondary); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-secondary)'">Portfolio</a></li>
-            <li><a href="#leadership" style="color: var(--text-secondary); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-secondary)'">Advisory</a></li>
+          <img src="/images/logo.png" alt="CBGIPL" style="height: 128px; margin-bottom: 32px;">
+          <p style="color: rgba(255, 255, 255, 0.7); line-height: 1.8; margin-bottom: 32px; font-size: 0.95rem;">
+            Carter Brown Global Holding is a diversified multinational group with a strong presence in EPC construction, infrastructure, energy, real estate, and international trading of metals, oil, gas, and fertilizers.
+          </p>
+          <div style="display: flex; gap: 12px;">
+            <a href="#" style="width: 40px; height: 40px; background: rgba(255,255,255,0.05); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--gold); border: 1px solid rgba(255,255,255,0.1); transition: all 0.3s;" onmouseover="this.style.background='var(--gold)'; this.style.color='#000'"><i data-lucide="facebook" style="width: 18px;"></i></a>
+            <a href="#" style="width: 40px; height: 40px; background: rgba(255,255,255,0.05); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--gold); border: 1px solid rgba(255,255,255,0.1); transition: all 0.3s;" onmouseover="this.style.background='var(--gold)'; this.style.color='#000'"><i data-lucide="instagram" style="width: 18px;"></i></a>
+            <a href="#" style="width: 40px; height: 40px; background: rgba(255,255,255,0.05); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--gold); border: 1px solid rgba(255,255,255,0.1); transition: all 0.3s;" onmouseover="this.style.background='var(--gold)'; this.style.color='#000'"><i data-lucide="twitter" style="width: 18px;"></i></a>
+            <a href="#" style="width: 40px; height: 40px; background: rgba(255,255,255,0.05); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--gold); border: 1px solid rgba(255,255,255,0.1); transition: all 0.3s;" onmouseover="this.style.background='var(--gold)'; this.style.color='#000'"><i data-lucide="youtube" style="width: 18px;"></i></a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 style="color: var(--gold); margin-bottom: 32px; font-family: var(--font-heading); font-size: 1.25rem; letter-spacing: 1px;">Quick Links</h4>
+          <ul style="list-style: none; padding: 0; display: grid; gap: 20px;">
+            <li><a href="#home" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; transition: all 0.3s; font-size: 1rem;" onmouseover="this.style.color='var(--gold)'; this.style.paddingLeft='5px'" onmouseout="this.style.color='rgba(255, 255, 255, 0.7)'; this.style.paddingLeft='0'">Home</a></li>
+            <li><a href="#about" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; transition: all 0.3s; font-size: 1rem;" onmouseover="this.style.color='var(--gold)'; this.style.paddingLeft='5px'" onmouseout="this.style.color='rgba(255, 255, 255, 0.7)'; this.style.paddingLeft='0'">Who We Are</a></li>
+            <li><a href="#services" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; transition: all 0.3s; font-size: 1rem;" onmouseover="this.style.color='var(--gold)'; this.style.paddingLeft='5px'" onmouseout="this.style.color='rgba(255, 255, 255, 0.7)'; this.style.paddingLeft='0'">What We Do</a></li>
+            <li><a href="#contact" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; transition: all 0.3s; font-size: 1rem;" onmouseover="this.style.color='var(--gold)'; this.style.paddingLeft='5px'" onmouseout="this.style.color='rgba(255, 255, 255, 0.7)'; this.style.paddingLeft='0'">Contact Us</a></li>
           </ul>
         </div>
+
+        <!-- Get In Touch / Addresses -->
         <div>
-          <h4 style="color: var(--gold); margin-bottom: 32px; font-family: var(--font-heading);">Global HQ</h4>
-          <p style="color: var(--text-secondary); line-height: 1.8;">Business Tower, Business Bay<br>Dubai, United Arab Emirates</p>
+          <h4 style="color: var(--gold); margin-bottom: 32px; font-family: var(--font-heading); font-size: 1.25rem; letter-spacing: 1px;">Get In Touch</h4>
+          <ul style="list-style: none; padding: 0; display: grid; gap: 24px;">
+            <!-- UAE -->
+            <li style="display: flex; gap: 16px; color: rgba(255, 255, 255, 0.7); font-size: 0.85rem; line-height: 1.6;">
+              <i data-lucide="map-pin" style="color: var(--gold); width: 22px; flex-shrink: 0;"></i>
+              <span><strong>Address:</strong> United Arab Emirates (UAE) Hamriyah Free Zone, Sharjah P6- ELOB Office No. E2-127F-60 Sharjah, United Arab Emirates</span>
+            </li>
+            <!-- KSA -->
+            <li style="display: flex; gap: 16px; color: rgba(255, 255, 255, 0.7); font-size: 0.85rem; line-height: 1.6;">
+              <i data-lucide="map-pin" style="color: var(--gold); width: 22px; flex-shrink: 0;"></i>
+              <span><strong>Address:</strong> Saudi Arabia (KSA) Al Malaz, Riyadh 2301 Old Akaria Building, Salah Ad Din Al Ayyubi Road Riyadh, Kingdom of Saudi Arabia</span>
+            </li>
+            <!-- Hong Kong -->
+            <li style="display: flex; gap: 16px; color: rgba(255, 255, 255, 0.7); font-size: 0.85rem; line-height: 1.6;">
+              <i data-lucide="map-pin" style="color: var(--gold); width: 22px; flex-shrink: 0;"></i>
+              <span><strong>Address:</strong> Hong Kong Sheung Wan Unit A, 3/F Cheong Sun Tower 116-118 Wing Lok Street Sheung Wan, Hong Kong</span>
+            </li>
+            <!-- India (Gandhinagar) -->
+            <li style="display: flex; gap: 16px; color: rgba(255, 255, 255, 0.7); font-size: 0.85rem; line-height: 1.6;">
+              <i data-lucide="map-pin" style="color: var(--gold); width: 22px; flex-shrink: 0;"></i>
+              <span><strong>Address:</strong> India Gandhinagar, Gujarat 114/2, Sector 2A Gandhinagar, Gujarat, India</span>
+            </li>
+            <!-- India (Mumbai HQ) -->
+            <li style="display: flex; gap: 16px; color: rgba(255, 255, 255, 0.7); font-size: 0.85rem; line-height: 1.6;">
+              <i data-lucide="map-pin" style="color: var(--gold); width: 22px; flex-shrink: 0;"></i>
+              <span><strong>Address:</strong> Nusrat Infra Holding Pvt Ltd. Brown Global Infra Pvt Ltd. 801, 8th Floor, Raheja Centre Building, Nariman point, Mumbai, India</span>
+            </li>
+
+            <!-- Emails & Phones -->
+            <li style="display: flex; gap: 16px; color: rgba(255, 255, 255, 0.7); font-size: 0.9rem; margin-top: 10px;">
+              <i data-lucide="mail" style="color: var(--gold); width: 20px; flex-shrink: 0;"></i>
+              <div>
+                <p>Email: nusratinfraholding@gmail.com</p>
+                <p>Email: info@cbggt.com</p>
+              </div>
+            </li>
+            <li style="display: flex; gap: 16px; color: rgba(255, 255, 255, 0.7); font-size: 0.9rem;">
+              <i data-lucide="phone" style="color: var(--gold); width: 20px; flex-shrink: 0;"></i>
+              <div>
+                <p>SA: +966 580592392</p>
+                <p>IN: +91 922 9000 922</p>
+              </div>
+            </li>
+          </ul>
         </div>
+
       </div>
-      <div style="border-top: 1px solid var(--glass-border); padding-top: 40px; text-align: center;">
-        <p style="color: var(--text-muted); font-size: 0.85rem;">&copy; 2024 CBGIPL. All Rights Reserved. A CBG Holding Company.</p>
+
+      <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+        <p style="color: rgba(255, 255, 255, 0.5); font-size: 0.85rem;">&copy; 2025 Carter Brown Global Infra Pvt Ltd. All Rights Reserved.</p>
+        <p style="color: rgba(255, 255, 255, 0.5); font-size: 0.85rem;">A subsidiary of <span style="color: var(--gold); font-weight: 600;">Carter Brown Global Holding</span></p>
       </div>
     </div>
   </footer>

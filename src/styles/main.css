@@ -588,7 +588,7 @@ select {
 }
 
 .nav-logo-img {
-  height: 60px;
+  height: 90px;
   width: auto;
   max-width: none;
   object-fit: contain;
@@ -598,7 +598,7 @@ select {
 }
 
 .navbar.scrolled .nav-logo-img {
-  height: 45px;
+  height: 68px;
 }
 
 .navbar-logo:hover .nav-logo-img {
