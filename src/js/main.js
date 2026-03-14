@@ -419,38 +419,4 @@ style.textContent = `
 document.head.appendChild(style);
 
 
-// --- Project Status Cards ---
-const statusGrid = document.getElementById('status-project-grid');
-
-if (statusGrid) {
-  projectStatusData.forEach(item => {
-    const isReady = item.status.includes("Ready");
-    const statusColor = isReady ? '#22C55E' : '#F59E0B';
-    const statusBg = isReady ? 'rgba(34, 197, 94, 0.1)' : 'rgba(245, 158, 11, 0.1)';
-    const statusBorder = isReady ? 'rgba(34, 197, 94, 0.3)' : 'rgba(245, 158, 11, 0.3)';
-
-    const card = document.createElement('div');
-    card.className = 'glass-card';
-    card.style.cssText = 'padding: 28px; border-radius: var(--radius-md); transition: transform 0.3s ease, border-color 0.3s ease;';
-    card.onmouseover = function() { this.style.transform='translateY(-4px)'; this.style.borderColor='var(--gold-glimmer)'; };
-    card.onmouseout = function() { this.style.transform=''; this.style.borderColor=''; };
-
-    card.innerHTML = `
-      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px;">
-        <h4 style="color: var(--white); font-size: 1rem; font-weight: 600; line-height: 1.4; flex: 1; margin-right: 12px;">${item.project}</h4>
-        <span style="font-size: 0.65rem; padding: 4px 10px; border-radius: var(--radius-pill); background: ${statusBg}; color: ${statusColor}; border: 1px solid ${statusBorder}; white-space: nowrap; font-family: var(--font-accent); text-transform: uppercase; letter-spacing: 1px;">${isReady ? 'Ready' : 'Under DD'}</span>
-      </div>
-      <div style="display: flex; gap: 20px; align-items: center;">
-        <div style="display: flex; align-items: center; gap: 6px; color: var(--text-secondary); font-size: 0.85rem;">
-          <i data-lucide="map-pin" style="width: 14px; height: 14px; color: var(--gold);"></i>
-          ${item.location}
-        </div>
-        ${item.area !== 'To be estimated' ? `<div style="display: flex; align-items: center; gap: 6px; color: var(--text-secondary); font-size: 0.85rem;"><i data-lucide="maximize" style="width: 14px; height: 14px; color: var(--gold);"></i>${item.area}</div>` : ''}
-      </div>
-    `;
-    statusGrid.appendChild(card);
-  });
-
-  // Re-init Lucide icons for the new cards
-  if (window.lucide) lucide.createIcons();
-}
+// --- End of main.js ---
