@@ -6,32 +6,37 @@
 /* ── CSS Variables ── */
 :root {
   /* Primary Palette — Midnight & Radiant Gold */
-  --midnight: #F1F5F9;
-  --midnight-light: #E2E8F0;
-  --midnight-deep: #F1F5F9;
+  --midnight: #0a1c3d;
+  --midnight-light: #0d244d;
+  --midnight-deep: #07142b;
   --gold: #D4AF37;
   --gold-light: #EBC05D;
   --gold-dark: #A6892C;
   --gold-glimmer: rgba(212, 175, 55, 0.4);
-  --corporate-blue: #1E3A8A;
+  --corporate-blue: #0a1c3d;
+  --navy: #0a1c3d;
+  --navy-mid: #0d244d;
+  --navy-light: #162e5b;
+  --emerald: #10B981;
+  --warning: #F59E0B;
 
   /* Neutrals — Premium Dark Theme */
-  --white: #F8FAFC;
-  --off-white: #E2E8F0;
-  --slate-100: #F1F5F9;
-  --slate-200: #E2E8F0;
-  --slate-300: #CBD5E1;
-  --slate-800: #1E293B;
-  --slate-900: #0F172A;
-  --text-primary: #000000;
-  --text-secondary: #475569;
-  --text-muted: rgba(0, 0, 0, 0.6);
+  --white: #ffffff;
+  --off-white: #e2e8f0;
+  --slate-100: #0a1c3d;
+  --slate-200: #0d244d;
+  --slate-300: #1e293b;
+  --slate-800: #f8fafc;
+  --slate-900: #ffffff;
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.7);
+  --text-muted: rgba(255, 255, 255, 0.4);
 
-  /* Glassmorphism Tokens — Soft Light Theme */
-  --glass-bg: rgba(255, 255, 255, 0.5);
-  --glass-border: rgba(0, 0, 0, 0.1);
+  /* Glassmorphism Tokens — Premium Dark Theme */
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
   --glass-blur: blur(20px);
-  --glass-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  --glass-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 
   /* Typography — Architectural and Elegant */
   --font-heading: 'Playfair Display', serif;
@@ -79,7 +84,7 @@ html {
 body {
   font-family: var(--font-body);
   color: var(--text-primary);
-  background: #1E3A8A;
+  background: var(--corporate-blue);
   line-height: 1.8;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -90,7 +95,7 @@ body {
   position: fixed;
   inset: 0;
   z-index: 99999;
-  background: #1E3A8A;
+  background: var(--corporate-blue);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -107,7 +112,7 @@ body {
 .preloader-overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at center, transparent 0%, #1E3A8A 70%);
+  background: radial-gradient(ellipse at center, transparent 0%, var(--corporate-blue) 70%);
   z-index: 1;
 }
 .preloader-inner {
@@ -544,14 +549,14 @@ select {
   z-index: 1000;
   padding: 15px 0;
   background: var(--midnight-deep);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   transition: all 0.4s var(--ease);
 }
 
 .navbar.scrolled {
   top: 0;
   padding: 10px 0;
-  background: rgba(241, 245, 249, 0.95);
+  background: rgba(10, 28, 61, 0.95);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   width: 100%;
@@ -560,8 +565,8 @@ select {
   left: 0;
   transform: none;
   border-radius: 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
 .navbar-container {
@@ -614,7 +619,7 @@ select {
   font-family: var(--font-heading);
   font-size: 1.8rem;
   font-weight: 700;
-  color: var(--navy);
+  color: #ffffff;
   line-height: 1;
   letter-spacing: 1px;
 }
@@ -629,7 +634,7 @@ select {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(255, 255, 255, 0.6);
   margin-top: 4px;
 }
 
@@ -941,7 +946,7 @@ select {
   font-family: var(--font-heading);
   font-size: 1.8rem;
   font-weight: 700;
-  color: var(--navy);
+  color: var(--gold);
   line-height: 1;
 }
 
