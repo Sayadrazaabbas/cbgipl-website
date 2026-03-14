@@ -6,13 +6,14 @@
 /* ── CSS Variables ── */
 :root {
   /* Primary Palette — Midnight & Radiant Gold */
-  --midnight: #0A1628;
-  --midnight-light: #162436;
-  --midnight-deep: #050B14;
+  --midnight: #F1F5F9;
+  --midnight-light: #E2E8F0;
+  --midnight-deep: #F1F5F9;
   --gold: #D4AF37;
   --gold-light: #EBC05D;
   --gold-dark: #A6892C;
   --gold-glimmer: rgba(212, 175, 55, 0.4);
+  --corporate-blue: #1E3A8A;
 
   /* Neutrals — Premium Dark Theme */
   --white: #F8FAFC;
@@ -22,15 +23,15 @@
   --slate-300: #CBD5E1;
   --slate-800: #1E293B;
   --slate-900: #0F172A;
-  --text-primary: #F8FAFC;
-  --text-secondary: #94A3B8;
-  --text-muted: rgba(248, 250, 252, 0.45);
+  --text-primary: #000000;
+  --text-secondary: #475569;
+  --text-muted: rgba(0, 0, 0, 0.6);
 
-  /* Glassmorphism Tokens */
-  --glass-bg: rgba(10, 22, 40, 0.85);
-  --glass-border: rgba(255, 255, 255, 0.12);
-  --glass-blur: blur(25px);
-  --glass-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  /* Glassmorphism Tokens — Soft Light Theme */
+  --glass-bg: rgba(255, 255, 255, 0.5);
+  --glass-border: rgba(0, 0, 0, 0.1);
+  --glass-blur: blur(20px);
+  --glass-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 
   /* Typography — Architectural and Elegant */
   --font-heading: 'Playfair Display', serif;
@@ -48,9 +49,9 @@
   --radius-lg: 32px;
   --radius-pill: 100px;
 
-  /* Shadows */
-  --shadow-premium: 0 30px 60px rgba(0, 0, 0, 0.5);
-  --shadow-gold: 0 10px 30px rgba(212, 175, 55, 0.15);
+  /* Shadows - Refined for Light Theme */
+  --shadow-premium: 0 15px 40px rgba(0, 0, 0, 0.08);
+  --shadow-gold: 0 10px 30px rgba(212, 175, 55, 0.1);
 
   /* Transitions */
   --ease-in-out: cubic-bezier(0.16, 1, 0.3, 1);
@@ -78,7 +79,7 @@ html {
 body {
   font-family: var(--font-body);
   color: var(--text-primary);
-  background: var(--midnight-deep);
+  background: #1E3A8A;
   line-height: 1.8;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -89,7 +90,7 @@ body {
   position: fixed;
   inset: 0;
   z-index: 99999;
-  background: var(--midnight-deep);
+  background: #1E3A8A;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -106,7 +107,7 @@ body {
 .preloader-overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at center, transparent 0%, var(--midnight-deep) 70%);
+  background: radial-gradient(ellipse at center, transparent 0%, #1E3A8A 70%);
   z-index: 1;
 }
 .preloader-inner {
@@ -127,7 +128,7 @@ body {
 .preloader-text {
   font-family: var(--font-accent);
   font-size: 0.85rem;
-  color: var(--text-secondary);
+  color: #ffffff;
   text-transform: uppercase;
   letter-spacing: 3px;
 }
@@ -162,7 +163,7 @@ body {
 .preloader-percent {
   font-family: var(--font-accent);
   font-size: 0.75rem;
-  color: var(--text-muted);
+  color: #ffffff;
   letter-spacing: 2px;
 }
 
@@ -173,7 +174,7 @@ h4,
 h5,
 h6 {
   font-family: var(--font-heading);
-  color: var(--white);
+  color: var(--text-primary);
   letter-spacing: var(--tracking-tight);
 }
 
@@ -377,7 +378,7 @@ select {
 #preloader {
   position: fixed;
   inset: 0;
-  background: var(--midnight-deep);
+  background: #1E3A8A;
   z-index: 10000;
   display: flex;
   align-items: center;
@@ -394,7 +395,7 @@ select {
 .preloader-overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at center, transparent 0%, rgba(0, 38, 46, 0.4) 100%);
+  background: radial-gradient(circle at center, transparent 0%, #1E3A8A 100%);
   z-index: 1;
 }
 
@@ -542,15 +543,15 @@ select {
   right: 0;
   z-index: 1000;
   padding: 15px 0;
-  background: #000000;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--midnight-deep);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   transition: all 0.4s var(--ease);
 }
 
 .navbar.scrolled {
   top: 0;
   padding: 10px 0;
-  background: rgba(0, 0, 0, 0.95);
+  background: rgba(241, 245, 249, 0.95);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   width: 100%;
@@ -559,8 +560,8 @@ select {
   left: 0;
   transform: none;
   border-radius: 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
 .navbar-container {
@@ -628,7 +629,7 @@ select {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(0, 0, 0, 0.6);
   margin-top: 4px;
 }
 
@@ -642,7 +643,7 @@ select {
   font-family: var(--font-accent);
   font-size: 0.85rem;
   font-weight: 500;
-  color: #ffffff;
+  color: var(--text-primary);
   padding: 10px 20px;
   letter-spacing: 0.5px;
   transition: all 0.3s var(--ease);
@@ -652,7 +653,7 @@ select {
 }
 
 .navbar.scrolled .nav-link {
-  color: #fff;
+  color: var(--text-primary);
 }
 
 .nav-link:hover,
@@ -1036,6 +1037,18 @@ select {
 .about-card:hover {
   transform: translateY(-8px);
   box-shadow: var(--shadow-md);
+  border-color: var(--gold);
+}
+
+.glass-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+  border-color: var(--gold);
+}
+
+.service-card.glass-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.15);
   border-color: var(--gold);
 }
 
@@ -1646,12 +1659,12 @@ select {
   height: 100%;
   object-fit: cover;
   object-position: top center;
-  filter: grayscale(30%) contrast(1.05);
+  filter: contrast(1.05);
   transition: all 0.7s var(--ease);
 }
 
 .leader-card:hover .leader-image img {
-  filter: grayscale(0%) contrast(1.1);
+  filter: contrast(1.1);
   transform: scale(1.05);
 }
 
@@ -1704,19 +1717,19 @@ select {
 }
 
 .leader-info p {
-  font-size: 0.82rem;
-  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+  color: #ffffff;
   line-height: 1.6;
   max-height: 0;
   overflow: hidden;
   opacity: 0;
-  transition: all 0.5s var(--ease);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .leader-card:hover .leader-info p {
-  max-height: 100px;
+  max-height: 300px;
   opacity: 1;
-  margin-top: 8px;
+  margin-top: 15px;
 }
 
 /* Gold accent line at bottom */
@@ -2716,9 +2729,9 @@ select {
 }
 
 .leader-card {
-  background: var(--white);
-  border: 1px solid var(--gray-200);
-  box-shadow: var(--shadow-sm);
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: none;
 }
 
 .leader-info h3 {
