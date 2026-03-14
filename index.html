@@ -101,841 +101,704 @@
     </div>
   </div>
 
-  <!-- ========== HERO CONTENT SECTION (Navy Blue) ========== -->
-  <section style="background: var(--navy); padding: 80px 0 60px; text-align: center;">
-    <div class="container hero-content">
-      <div class="hero-badge" data-animate="fade-down"
-        style="margin-bottom: 24px; display: inline-block; border-color: rgba(255,255,255,0.2);">
-        <span class="badge-dot"></span>
-        Shaping Urban Landscapes
+  <!-- ========== HERO CONTENT SECTION (Midnight Blue) ========== -->
+  <section class="section hero-premium" style="background: var(--midnight-deep); padding: 120px 0 100px; position: relative; overflow: hidden;">
+    <!-- Abstract Architectural Background Elements -->
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; pointer-events: none; opacity: 0.1;">
+      <div style="position: absolute; top: -10%; left: -10%; width: 50%; height: 120%; background: linear-gradient(45deg, var(--gold) 0%, transparent 70%); transform: rotate(-15deg); filter: blur(100px);"></div>
+    </div>
+
+    <div class="container hero-content" style="position: relative; z-index: 5;">
+      <div class="hero-badge" data-animate="fade-down" style="padding: 10px 24px; border: 1px solid var(--gold-glimmer); background: rgba(212, 175, 55, 0.05); color: var(--gold); border-radius: var(--radius-pill); font-family: var(--font-accent); font-size: 0.75rem; font-weight: 700; letter-spacing: var(--ls-architectural); margin-bottom: 40px; display: inline-flex; align-items: center; gap: 12px;">
+        <span class="badge-dot" style="width: 8px; height: 8px; background: var(--gold); border-radius: 50%; display: inline-block;"></span>
+        Global Vision. Indian Excellence.
       </div>
 
-      <h1 class="hero-title" data-animate="fade-up" data-delay="100"
-        style="color: #fff; font-size: clamp(2.2rem, 5vw, 4rem); margin-bottom: 20px;">
-        Engineering Tomorrow's <br />
-        <span style="color: var(--gold);">Iconic Horizons</span>
+      <h1 class="hero-title" data-animate="fade-up" data-delay="100" style="font-family: var(--font-heading); font-size: clamp(3rem, 7vw, 6rem); color: var(--white); line-height: 1; margin-bottom: 32px; letter-spacing: var(--tracking-tight);">
+        Engineering <span style="display: block; color: var(--gold);">Iconic Horizons</span>
       </h1>
-      <p class="hero-subtitle" data-animate="fade-up" data-delay="200"
-        style="color: rgba(255, 255, 255, 0.8); font-size: 1.15rem; max-width: 800px; margin: 0 auto 40px;">
-        Carter Brown Global Infra Pvt Ltd — Transforming Mumbai's skyline through
-        world-class real estate development, SRA redevelopment, and mega township projects.
+      
+      <p class="hero-subtitle" data-animate="fade-up" data-delay="200" style="font-size: 1.25rem; color: var(--text-secondary); max-width: 750px; margin: 0 auto 56px; line-height: 1.7;">
+        Carter Brown Global Infra Pvt Ltd — A Saudi-India Joint Venture transforming Mumbai’s urban landscape through world-class engineering and sustainable urban redevelopment.
       </p>
 
-      <div class="hero-actions" data-animate="fade-up" data-delay="400"
-        style="display: flex; gap: 16px; justify-content: center;">
-        <a href="#projects" class="btn btn-primary" style="padding: 12px 28px; border-radius: 5px;">
-          <span>Explore Projects</span>
+      <div class="hero-actions" data-animate="fade-up" data-delay="400" style="display: flex; gap: 24px; justify-content: center; flex-wrap: wrap;">
+        <a href="#projects" class="btn btn-primary">
+          <span>Explore Portfolio</span>
         </a>
-        <a href="#about" class="btn btn-outline"
-          style="padding: 12px 28px; border-radius: 5px; border-color: rgba(255,255,255,0.3); color: #fff;">
-          <span>Our Story</span>
+        <a href="#about" class="btn btn-outline">
+          <span>Our Vision</span>
         </a>
       </div>
     </div>
   </section>
 
   <!-- ========== HERO STATS BANNER ========== -->
-  <section class="section" id="hero-banner" style="padding-top: 0; padding-bottom: 60px;">
+  <section class="section-stats" style="margin-top: -80px; position: relative; z-index: 20;">
     <div class="container">
-      <div class="hero-stats" data-animate="fade-up" data-delay="600"
-        style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: -50px; position: relative; z-index: 20; background: var(--white); box-shadow: var(--shadow-md); padding: 30px; border-radius: 12px;">
-        <div class="hero-stat" style="display: flex; align-items: center; gap: 16px;">
-          <div class="stat-icon-wrapper"><i data-lucide="map" style="color: var(--gold);"></i></div>
-          <div class="stat-info" style="text-align: left;">
-            <span class="stat-number" data-count="1100" style="color: var(--navy);">0</span><span class="stat-suffix"
-              style="color: var(--gold); font-size: 1.4rem;">+</span>
-            <span class="stat-label"
-              style="display: block; font-family: var(--font-accent); font-size: 0.8rem; color: rgba(255, 255, 255, 0.6); text-transform: uppercase; margin-top: 4px;">Acres
-              in Pipeline</span>
+      <div class="glass-card" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; padding: 48px; border-radius: var(--radius-lg); background: rgba(10, 22, 40, 0.95); border: 1px solid var(--gold-glimmer);">
+        
+        <div class="hero-stat" style="display: flex; flex-direction: column; gap: 8px;">
+          <span class="stat-label" style="font-family: var(--font-accent); font-size: 0.75rem; color: var(--gold); text-transform: uppercase; letter-spacing: 2px;">Land Bank</span>
+          <div style="display: flex; align-items: baseline; gap: 4px;">
+            <span class="stat-number" data-count="1100" style="font-size: 2.5rem; font-weight: 700; color: var(--white);">0</span>
+            <span style="color: var(--gold); font-size: 1.5rem; font-weight: 700;">+</span>
+            <span style="font-size: 0.85rem; color: var(--text-secondary); margin-left: 4px;">Acres</span>
           </div>
         </div>
-        <div class="hero-stat-divider" style="width: 1px; height: 40px; background: rgba(255, 255, 255, 0.1);"></div>
-        <div class="hero-stat" style="display: flex; align-items: center; gap: 16px;">
-          <div class="stat-icon-wrapper"><i data-lucide="layers"></i></div>
-          <div class="stat-info" style="text-align: left;">
-            <span class="stat-number" data-count="9">0</span><span class="stat-suffix"
-              style="color: var(--gold); font-size: 1.4rem;">+</span>
-            <span class="stat-label"
-              style="display: block; font-family: var(--font-accent); font-size: 0.8rem; color: rgba(255, 255, 255, 0.6); text-transform: uppercase; margin-top: 4px;">Mega
-              Projects</span>
+
+        <div class="hero-stat" style="display: flex; flex-direction: column; gap: 8px;">
+          <span class="stat-label" style="font-family: var(--font-accent); font-size: 0.75rem; color: var(--gold); text-transform: uppercase; letter-spacing: 2px;">Mega Projects</span>
+          <div style="display: flex; align-items: baseline; gap: 4px;">
+            <span class="stat-number" data-count="9" style="font-size: 2.5rem; font-weight: 700; color: var(--white);">0</span>
+            <span style="color: var(--gold); font-size: 1.5rem; font-weight: 700;">+</span>
           </div>
         </div>
-        <div class="hero-stat-divider" style="width: 1px; height: 40px; background: rgba(255, 255, 255, 0.1);"></div>
-        <div class="hero-stat" style="display: flex; align-items: center; gap: 16px;">
-          <div class="stat-icon-wrapper"><i data-lucide="globe"></i></div>
-          <div class="stat-info" style="text-align: left;">
-            <span class="stat-number" data-count="7">0</span>
-            <span class="stat-label"
-              style="display: block; font-family: var(--font-accent); font-size: 0.8rem; color: rgba(255, 255, 255, 0.6); text-transform: uppercase; margin-top: 4px;">Global
-              Offices</span>
+
+        <div class="hero-stat" style="display: flex; flex-direction: column; gap: 8px;">
+          <span class="stat-label" style="font-family: var(--font-accent); font-size: 0.75rem; color: var(--gold); text-transform: uppercase; letter-spacing: 2px;">Global Presence</span>
+          <div style="display: flex; align-items: baseline; gap: 4px;">
+            <span class="stat-number" data-count="7" style="font-size: 2.5rem; font-weight: 700; color: var(--white);">0</span>
+            <span style="font-size: 0.85rem; color: var(--text-secondary); margin-left: 4px;">Nations</span>
           </div>
         </div>
-        <div class="hero-stat-divider" style="width: 1px; height: 40px; background: rgba(255, 255, 255, 0.1);"></div>
-        <div class="hero-stat" style="display: flex; align-items: center; gap: 16px;">
-          <div class="stat-icon-wrapper"><i data-lucide="clock"></i></div>
-          <div class="stat-info" style="text-align: left;">
-            <span class="stat-number" data-count="30">0</span><span class="stat-suffix"
-              style="color: var(--gold); font-size: 1.4rem;">+</span>
-            <span class="stat-label"
-              style="display: block; font-family: var(--font-accent); font-size: 0.8rem; color: rgba(255, 255, 255, 0.6); text-transform: uppercase; margin-top: 4px;">Years
-              Expertise</span>
+
+        <div class="hero-stat" style="display: flex; flex-direction: column; gap: 8px;">
+          <span class="stat-label" style="font-family: var(--font-accent); font-size: 0.75rem; color: var(--gold); text-transform: uppercase; letter-spacing: 2px;">Legacy</span>
+          <div style="display: flex; align-items: baseline; gap: 4px;">
+            <span class="stat-number" data-count="30" style="font-size: 2.5rem; font-weight: 700; color: var(--white);">0</span>
+            <span style="color: var(--gold); font-size: 1.5rem; font-weight: 700;">+</span>
+            <span style="font-size: 0.85rem; color: var(--text-secondary); margin-left: 4px;">Years</span>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
   <!-- ========== ABOUT SECTION ========== -->
-  <section class="section section-light" id="about">
+  <section class="section about-premium" id="about" style="background: var(--midnight); padding: 160px 0;">
     <div class="container">
-      <div class="section-header" data-animate="fade-up">
-        <span class="section-tag">Who We Are</span>
-        <h2 class="section-title">A Global Vision, <span class="text-gradient">Rooted in India</span></h2>
-        <p class="section-desc">
-          CBGIPL is a Saudi-India Joint Venture backed by Carter Brown Global Holding,
-          combining international financial strength with deep local expertise to shape
-          Mumbai's real estate landscape.
-        </p>
-      </div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;">
+        
+        <div class="about-visual" data-animate="fade-right" style="position: relative;">
+          <!-- Using Generated Office Lobby Visual -->
+          <img src="/images/about/corporate-office.png" alt="CBGIPL Corporate Core" style="width: 100%; height: 600px; object-fit: cover; border-radius: var(--radius-lg); box-shadow: var(--shadow-premium);">
+          <div class="glass-card" style="position: absolute; bottom: -40px; right: -40px; padding: 40px; width: 280px; text-align: center;">
+            <span style="font-size: 3rem; font-weight: 700; color: var(--gold); display: block; line-height: 1;">30+</span>
+            <span style="font-family: var(--font-accent); font-size: 0.85rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 2px; margin-top: 12px; display: block;">Years of Global Expertise</span>
+          </div>
+        </div>
 
-      <div class="about-grid">
-        <div class="about-card glass-card" data-animate="fade-up">
-          <div class="about-icon">
-            <i data-lucide="eye" style="width: 32px; height: 32px;"></i>
-          </div>
-          <h3>Our Vision</h3>
-          <p>To become a world-class real estate company known for quality, integrity, and commitment to excellence in
-            every project we undertake.</p>
-        </div>
-        <div class="about-card glass-card" data-animate="fade-up" data-delay="100">
-          <div class="about-icon">
-            <i data-lucide="target" style="width: 32px; height: 32px;"></i>
-          </div>
-          <h3>Our Mission</h3>
-          <p>To create value within families, communities, and the environment by providing world-class infrastructure
-            through global-standard projects.</p>
-        </div>
-        <div class="about-card glass-card" data-animate="fade-up" data-delay="200">
-          <div class="about-icon">
-            <i data-lucide="shield-check" style="width: 32px; height: 32px;"></i>
-          </div>
-          <h3>Core Values</h3>
-          <p>Quality, Integrity, Commitment, and Excellence — the four pillars that define every decision we make and
-            every structure we build.</p>
-        </div>
-      </div>
+        <div class="about-content" data-animate="fade-left">
+          <span class="section-tag">Corporate Identity</span>
+          <h2 class="section-title">A Saudi-India <br /><span class="text-gradient">Joint Venture</span></h2>
+          <p class="section-desc" style="margin-bottom: 40px;">
+            Carter Brown Global Infra Pvt Ltd (CBGIPL) represents a powerful synergy between international capital and local execution excellence. Backed by Carter Brown Global Holding, we bring the financial muscle of the Middle East to Mumbai's sky-high aspirations.
+          </p>
+          
+          <div style="display: grid; gap: 32px;">
+            <div style="display: flex; gap: 24px;">
+              <div style="width: 64px; height: 64px; background: rgba(212, 175, 55, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid var(--gold-glimmer);">
+                <i data-lucide="eye" style="color: var(--gold);"></i>
+              </div>
+              <div>
+                <h4 style="color: var(--white); margin-bottom: 8px;">Our Vision</h4>
+                <p style="color: var(--text-secondary); font-size: 0.95rem;">To redefine urban living by engineering sustainable, world-class landmarks that stand as a testament to quality and integrity.</p>
+              </div>
+            </div>
 
-      <div class="about-story" data-animate="fade-up">
-        <div class="story-content">
-          <h3>The CBG Story</h3>
-          <div class="story-item" data-animate="fade-up">
-            <div class="story-icon-mini"><i data-lucide="user-check"></i></div>
-            <p>
-              Founded by <strong>Mohammad Nusrat Ali Khan</strong>, an engineer and techno-commercial specialist
-              with over a decade of international experience across the Middle East, India, and China,
-              Carter Brown Global has grown into a diversified multinational group.
-            </p>
-          </div>
-          <div class="story-item" data-animate="fade-up" data-delay="100">
-            <div class="story-icon-mini"><i data-lucide="globe-2"></i></div>
-            <p>
-              With established entities in <strong>Saudi Arabia, UAE, Oman, Hong Kong</strong>, and now India,
-              CBG brings the financial muscle and global construction expertise of its international operations
-              to address one of India's most pressing needs — <strong>urban transformation</strong>.
-            </p>
-          </div>
-          <div class="story-item" data-animate="fade-up" data-delay="200">
-            <div class="story-icon-mini"><i data-lucide="building-plus"></i></div>
-            <p>
-              CBGIPL represents the next chapter: leveraging Saudi capital and international project management
-              standards to deliver world-class real estate developments in <strong>Mumbai</strong> — from SRA
-              redevelopment projects transforming communities to mega integrated townships redefining urban living.
-            </p>
+            <div style="display: flex; gap: 24px;">
+              <div style="width: 64px; height: 64px; background: rgba(212, 175, 55, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid var(--gold-glimmer);">
+                <i data-lucide="target" style="color: var(--gold);"></i>
+              </div>
+              <div>
+                <h4 style="color: var(--white); margin-bottom: 8px;">Our Mission</h4>
+                <p style="color: var(--text-secondary); font-size: 0.95rem;">To deliver high-impact infrastructure projects that create lasting social and economic value for communities and investors alike.</p>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="story-image">
-          <img src="/images/cbgholding/home_cbg-mumbai-india.png" alt="CBGIPL Mumbai Operations"
-            class="story-real-image" style="width:100%;height:auto;border-radius:24px;" />
-          <div class="story-float-card glass-card">
-            <div class="float-number">30+</div>
-            <div class="float-label">Years of Industry Expertise</div>
-          </div>
-        </div>
+
       </div>
     </div>
   </section>
 
 
   <!-- ========== PROJECTS SECTION ========== -->
-  <section class="section projects-section" id="projects">
-    <div class="container">
-      <div class="section-header" data-animate="fade-up">
-        <span class="section-tag">Our Portfolio</span>
-        <h2 class="section-title">Landmark <span class="text-gradient">Projects</span></h2>
-        <p class="section-desc">From exclusive Bandra West redevelopments to 827-acre mega townships, our
-          project pipeline spans Mumbai's most coveted locations.</p>
+  <!-- ========== PROJECTS SECTION (Commented Out) ========== 
+  <section class="section projects-premium" id="projects" style="background: var(--midnight-deep); padding: 160px 0; position: relative; overflow: hidden;">
+    <div style="position: absolute; top: 0; right: 0; width: 60%; height: 100%; opacity: 0.15; pointer-events: none;">
+      <img src="/images/projects/architectural-bg.png" alt="Architectural Background" style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) brightness(0.5);">
+    </div>
+
+    <div class="container" style="position: relative; z-index: 5;">
+      <div class="section-header" style="text-align: left; margin-bottom: 80px;">
+        <span class="section-tag">Portfolio</span>
+        <h2 class="section-title">Iconic <span class="text-gradient">Landmarks</span></h2>
+        <p class="section-desc" style="max-width: 600px; color: var(--text-secondary);">A collection of high-impact urban redevelopment and mega-township projects across Mumbai’s most strategic locations.</p>
       </div>
 
-      <div class="projects-filter" data-animate="fade-up">
+      <div class="project-filters" data-animate="fade-up" style="display: flex; gap: 16px; margin-bottom: 64px; flex-wrap: wrap;">
         <button class="filter-btn active" data-filter="all">All Projects</button>
-        <button class="filter-btn" data-filter="ready">Ready to Proceed</button>
-        <button class="filter-btn" data-filter="due-diligence">Under Due Diligence</button>
-        <button class="filter-btn" data-filter="greenfield">Greenfield</button>
-        <button class="filter-btn" data-filter="sra">SRA</button>
+        <button class="filter-btn" data-filter="redevelopment">Redevelopment</button>
+        <button class="filter-btn" data-filter="township">Mega Township</button>
+        <button class="filter-btn" data-filter="residential">Residential</button>
       </div>
 
-      <div class="projects-grid">
-        <!-- Project 1: Baba Nagar -->
-        <div class="project-card" data-category="ready sra" data-animate="fade-up">
-          <div class="project-image">
-            <img
-              src="https://images.unsplash.com/photo-1448630360428-65456885c650?auto=format&fit=crop&q=80&w=700&h=500"
-              alt="Baba Nagar - Bandra West" class="project-real-img" />
-            <div class="project-badge">Ready to Proceed</div>
+      <div class="project-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 40px;">
+        
+        <article class="project-card glass-card" data-animate="fade-up" data-category="redevelopment residential">
+          <div class="project-img-wrapper" style="height: 320px; overflow: hidden; position: relative; border-radius: var(--radius-md) var(--radius-md) 0 0;">
+            <img src="/images/projects/baba-nagar.jpg" alt="Baba Nagar Bandra" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s var(--ease-out);">
+            <div class="project-badge" style="position: absolute; top: 24px; left: 24px; background: var(--gold); color: var(--midnight-deep); padding: 6px 16px; border-radius: var(--radius-pill); font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">SRA Redevelopment</div>
           </div>
-          <div class="project-content">
-            <div class="project-location"><i data-lucide="map-pin"></i><span>Bandra West, Mumbai</span>
+          <div class="project-info" style="padding: 40px; background: rgba(10, 22, 40, 0.4);">
+            <div style="color: var(--gold); font-family: var(--font-accent); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+              <i data-lucide="map-pin" style="width: 14px; height: 14px;"></i> Bandra (W), Mumbai
             </div>
-            <h3 class="project-name">Baba Nagar</h3>
-            <p class="project-type">SRA Redevelopment</p>
-            <div class="project-meta">
-              <div class="meta-item"><i data-lucide="maximize" class="meta-icon"></i>
-                <div class="meta-info"><span class="meta-label">Area</span><span class="meta-value">1.28
-                    Acres</span></div>
+            <h3 style="font-size: 1.75rem; margin-bottom: 16px; font-family: var(--font-heading);">Baba Nagar Estate</h3>
+            <p style="color: var(--off-white); font-size: 1rem; margin-bottom: 32px; line-height: 1.6;">Transforming Bandra's coastline with high-end luxury residential towers and community rehabilitation.</p>
+            <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--glass-border); padding-top: 32px;">
+              <div style="display: flex; flex-direction: column;">
+                <span style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">Status</span>
+                <span style="font-size: 0.9rem; color: var(--gold); font-weight: 700;">DA-signed</span>
               </div>
-              <div class="meta-item"><i data-lucide="activity" class="meta-icon"></i>
-                <div class="meta-info"><span class="meta-label">Status</span><span
-                    class="meta-value status-active">DA-signed</span></div>
-              </div>
+              <a href="#contact" class="btn-text" style="color: var(--gold); text-decoration: none; font-weight: 700; display: flex; align-items: center; gap: 8px; font-size: 0.9rem;">
+                Enquire <i data-lucide="arrow-right" style="width: 18px; height: 18px;"></i>
+              </a>
             </div>
           </div>
-        </div>
+        </article>
 
-        <!-- Project 4: Malad MM Westbay -->
-        <div class="project-card project-card-featured" data-category="ready greenfield" data-animate="fade-up">
-          <div class="project-image">
-            <img
-              src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=700&h=500"
-              alt="Malad MM Westbay" class="project-real-img" />
-            <div class="project-badge badge-gold">Flagship</div>
+        <article class="project-card glass-card" data-animate="fade-up" data-delay="100" data-category="township residential">
+          <div class="project-img-wrapper" style="height: 320px; overflow: hidden; position: relative; border-radius: var(--radius-md) var(--radius-md) 0 0;">
+            <img src="/images/projects/west-bay.jpg" alt="MM Westbay City" style="width: 100%; height: 100%; object-fit: cover;">
+            <div class="project-badge" style="position: absolute; top: 24px; left: 24px; background: var(--white); color: var(--midnight-deep); padding: 6px 16px; border-radius: var(--radius-pill); font-size: 0.7rem; font-weight: 800; text-transform: uppercase;">Mega Township</div>
           </div>
-          <div class="project-content">
-            <div class="project-location"><i data-lucide="map-pin"></i><span>Malad, Mumbai</span></div>
-            <h3 class="project-name">MM Westbay City</h3>
-            <p class="project-type">Greenfield Mega Township</p>
-            <div class="project-meta">
-              <div class="meta-item"><i data-lucide="maximize" class="meta-icon"></i>
-                <div class="meta-info"><span class="meta-label">Area</span><span class="meta-value">24.99 Acres</span>
-                </div>
+          <div class="project-info" style="padding: 40px; background: rgba(10, 22, 40, 0.4);">
+            <div style="color: var(--gold); font-family: var(--font-accent); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+              <i data-lucide="map-pin" style="width: 14px; height: 14px;"></i> Westbay, Mumbai
+            </div>
+            <h3 style="font-size: 1.75rem; margin-bottom: 16px; font-family: var(--font-heading);">MM Westbay City</h3>
+            <p style="color: var(--off-white); font-size: 1rem; margin-bottom: 32px; line-height: 1.6;">A sprawling 500-acre integrated mega-township redefining futuristic living in North Mumbai.</p>
+            <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--glass-border); padding-top: 32px;">
+              <div style="display: flex; flex-direction: column;">
+                <span style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">Status</span>
+                <span style="font-size: 0.9rem; color: var(--gold); font-weight: 700;">Land Acquired</span>
               </div>
-              <div class="meta-item"><i data-lucide="activity" class="meta-icon"></i>
-                <div class="meta-info"><span class="meta-label">Status</span><span
-                    class="meta-value status-active">DA-signed</span></div>
-              </div>
+              <a href="#contact" class="btn-text" style="color: var(--gold); text-decoration: none; font-weight: 700; display: flex; align-items: center; gap: 8px; font-size: 0.9rem;">
+                Enquire <i data-lucide="arrow-right" style="width: 18px; height: 18px;"></i>
+              </a>
             </div>
           </div>
-        </div>
+        </article>
 
-        <!-- Project 7: Panvel -->
-        <div class="project-card project-card-featured" data-category="due-diligence greenfield" data-animate="fade-up">
-          <div class="project-image">
-            <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=700&h=500"
-              alt="Panvel Township" class="project-real-img" />
-            <div class="project-badge badge-orange">Due Diligence</div>
+        <article class="project-card glass-card" data-animate="fade-up" data-delay="200" data-category="redevelopment">
+          <div class="project-img-wrapper" style="height: 320px; overflow: hidden; position: relative; border-radius: var(--radius-md) var(--radius-md) 0 0;">
+            <img src="/images/projects/worli.jpg" alt="Worli Project" style="width: 100%; height: 100%; object-fit: cover;">
+            <div class="project-badge" style="position: absolute; top: 24px; left: 24px; background: var(--gold); color: var(--midnight-deep); padding: 6px 16px; border-radius: var(--radius-pill); font-size: 0.7rem; font-weight: 800; text-transform: uppercase;">Strategic</div>
           </div>
-          <div class="project-content">
-            <div class="project-location"><i data-lucide="map-pin"></i><span>Panvel, Navi Mumbai</span>
+          <div class="project-info" style="padding: 40px; background: rgba(10, 22, 40, 0.4);">
+            <div style="color: var(--gold); font-family: var(--font-accent); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+              <i data-lucide="map-pin" style="width: 14px; height: 14px;"></i> Worli, Mumbai
             </div>
-            <h3 class="project-name">Panvel Mega Township</h3>
-            <p class="project-type">Mega Integrated Township</p>
-            <div class="project-meta">
-              <div class="meta-item"><i data-lucide="maximize" class="meta-icon"></i>
-                <div class="meta-info"><span class="meta-label">Area</span><span class="meta-value">827
-                    Acres</span></div>
+            <h3 style="font-size: 1.75rem; margin-bottom: 16px; font-family: var(--font-heading);">Worli Koliwada</h3>
+            <p style="color: var(--off-white); font-size: 1rem; margin-bottom: 32px; line-height: 1.6;">Premium sea-facing development project in one of Mumbai’s most iconic corporate and residential hubs.</p>
+            <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--glass-border); padding-top: 32px;">
+              <div style="display: flex; flex-direction: column;">
+                <span style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">Status</span>
+                <span style="font-size: 0.9rem; color: var(--gold); font-weight: 700;">In Planning</span>
               </div>
-              <div class="meta-item"><i data-lucide="activity" class="meta-icon"></i>
-                <div class="meta-info"><span class="meta-label">Status</span><span class="meta-value status-pending">Due
-                    Diligence</span></div>
-              </div>
+              <a href="#contact" class="btn-text" style="color: var(--gold); text-decoration: none; font-weight: 700; display: flex; align-items: center; gap: 8px; font-size: 0.9rem;">
+                Enquire <i data-lucide="arrow-right" style="width: 18px; height: 18px;"></i>
+              </a>
             </div>
           </div>
-        </div>
+        </article>
+
       </div>
     </div>
   </section>
+  ========== -->
 
   <!-- ========== SERVICES SECTION ========== -->
-  <section class="section services-section section-light" id="services">
+  <section class="section services-premium" id="services" style="background: var(--midnight); padding: 160px 0;">
     <div class="container">
-      <div class="section-header" data-animate="fade-up">
-        <span class="section-tag">What We Do</span>
-        <h2 class="section-title">Our <span class="text-gradient">Services</span></h2>
-        <p class="section-desc">
-          From SRA redevelopment to mega integrated townships, we deliver end-to-end
-          real estate solutions powered by global expertise.
-        </p>
+      <div class="section-header">
+        <span class="section-tag">Expertise</span>
+        <h2 class="section-title">Global <span class="text-gradient">Capabilities</span></h2>
+        <p class="section-desc" style="color: var(--text-secondary);">From SRA redevelopment to mega-township ecosystems, we deliver end-to-end urban solutions powered by international standards.</p>
       </div>
 
-      <div class="services-grid">
-        <div class="service-card" data-animate="fade-up">
-          <div class="service-number">01</div>
-          <div class="service-icon"><i data-lucide="building-2"></i></div>
-          <h3>Real Estate Development</h3>
-          <p>Large-scale residential and commercial projects across Mumbai's prime locations — from luxury towers to
-            affordable housing under SRA schemes.</p>
-          <ul class="service-features">
-            <li><i data-lucide="check-circle-2"></i><span>Premium Residential Towers</span></li>
-            <li><i data-lucide="check-circle-2"></i><span>Commercial Complexes</span></li>
-            <li><i data-lucide="check-circle-2"></i><span>Mixed-Use Developments</span></li>
+      <div class="services-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 40px;">
+        
+        <!-- Service 1 -->
+        <div class="service-card glass-card" data-animate="fade-up" style="padding: 48px; border-radius: var(--radius-lg);">
+          <div class="service-icon" style="width: 80px; height: 80px; background: rgba(212, 175, 55, 0.1); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; margin-bottom: 32px; border: 1px solid var(--gold-glimmer);">
+            <i data-lucide="building-2" style="color: var(--gold); width: 40px; height: 40px;"></i>
+          </div>
+          <h3 style="font-size: 1.5rem; margin-bottom: 20px; font-family: var(--font-heading);">Real Estate Development</h3>
+          <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 32px;">Large-scale residential and commercial projects across Mumbai's prime locations—from luxury towers to community redevelopments.</p>
+          <ul style="list-style: none; padding: 0; display: grid; gap: 12px; color: var(--text-muted); font-size: 0.9rem;">
+            <li style="display: flex; align-items: center; gap: 12px;"><i data-lucide="check" style="color: var(--gold); width: 16px;"></i> Premium High-Rises</li>
+            <li style="display: flex; align-items: center; gap: 12px;"><i data-lucide="check" style="color: var(--gold); width: 16px;"></i> Commercial Hubs</li>
+            <li style="display: flex; align-items: center; gap: 12px;"><i data-lucide="check" style="color: var(--gold); width: 16px;"></i> Mixed-Use Districts</li>
           </ul>
         </div>
 
-        <div class="service-card" data-animate="fade-up" data-delay="100">
-          <div class="service-number">02</div>
-          <div class="service-icon"><i data-lucide="refresh-cw"></i></div>
-          <h3>SRA / Cluster Redevelopment</h3>
-          <p>Transforming communities through Slum Rehabilitation Authority projects, providing modern housing while
-            preserving community bonds.</p>
-          <ul class="service-features">
-            <li><i data-lucide="check-circle-2"></i><span>SRA Project Execution</span></li>
-            <li><i data-lucide="check-circle-2"></i><span>Community Rehabilitation</span></li>
-            <li><i data-lucide="check-circle-2"></i><span>Cluster Scheme Projects</span></li>
+        <!-- Service 2 -->
+        <div class="service-card glass-card" data-animate="fade-up" data-delay="100" style="padding: 48px; border-radius: var(--radius-lg);">
+          <div class="service-icon" style="width: 80px; height: 80px; background: rgba(212, 175, 55, 0.1); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; margin-bottom: 32px; border: 1px solid var(--gold-glimmer);">
+            <i data-lucide="refresh-cw" style="color: var(--gold); width: 40px; height: 40px;"></i>
+          </div>
+          <h3 style="font-size: 1.5rem; margin-bottom: 20px; font-family: var(--font-heading);">Cluster Redevelopment</h3>
+          <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 32px;">Specialized SRA and Cluster projects transforming communities through social housing and modern infrastructure.</p>
+          <ul style="list-style: none; padding: 0; display: grid; gap: 12px; color: var(--text-muted); font-size: 0.9rem;">
+            <li style="display: flex; align-items: center; gap: 12px;"><i data-lucide="check" style="color: var(--gold); width: 16px;"></i> Social Transformation</li>
+            <li style="display: flex; align-items: center; gap: 12px;"><i data-lucide="check" style="color: var(--gold); width: 16px;"></i> SRA Scheme Experts</li>
+            <li style="display: flex; align-items: center; gap: 12px;"><i data-lucide="check" style="color: var(--gold); width: 16px;"></i> Modern Urban Infill</li>
           </ul>
         </div>
 
-        <div class="service-card" data-animate="fade-up" data-delay="200">
-          <div class="service-number">03</div>
-          <div class="service-icon"><i data-lucide="layout-grid"></i></div>
-          <h3>Mega Township Development</h3>
-          <p>Integrated township projects spanning hundreds of acres, creating self-sustaining urban ecosystems with all
-            modern amenities.</p>
-          <ul class="service-features">
-            <li><i data-lucide="check-circle-2"></i><span>Integrated Urban Planning</span></li>
-            <li><i data-lucide="check-circle-2"></i><span>Smart Infrastructure</span></li>
-            <li><i data-lucide="check-circle-2"></i><span>Green & Sustainable Design</span></li>
+        <!-- Service 3 -->
+        <div class="service-card glass-card" data-animate="fade-up" data-delay="200" style="padding: 48px; border-radius: var(--radius-lg);">
+          <div class="service-icon" style="width: 80px; height: 80px; background: rgba(212, 175, 55, 0.1); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; margin-bottom: 32px; border: 1px solid var(--gold-glimmer);">
+            <i data-lucide="layout-grid" style="color: var(--gold); width: 40px; height: 40px;"></i>
+          </div>
+          <h3 style="font-size: 1.5rem; margin-bottom: 20px; font-family: var(--font-heading);">Mega Townships</h3>
+          <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 32px;">Integrated self-sustaining cities spanning hundreds of acres with world-class amenities and smart features.</p>
+          <ul style="list-style: none; padding: 0; display: grid; gap: 12px; color: var(--text-muted); font-size: 0.9rem;">
+            <li style="display: flex; align-items: center; gap: 12px;"><i data-lucide="check" style="color: var(--gold); width: 16px;"></i> Future-Ready Cities</li>
+            <li style="display: flex; align-items: center; gap: 12px;"><i data-lucide="check" style="color: var(--gold); width: 16px;"></i> Sustainable Planning</li>
+            <li style="display: flex; align-items: center; gap: 12px;"><i data-lucide="check" style="color: var(--gold); width: 16px;"></i> Smart Infrastructure</li>
           </ul>
         </div>
 
-        <div class="service-card" data-animate="fade-up">
-          <div class="service-number">04</div>
-          <div class="service-icon"><i data-lucide="hard-hat"></i></div>
-          <h3>Construction & EPC</h3>
-          <p>End-to-end engineering, procurement and construction services backed by international standards and
-            Saudi-India expertise.</p>
-          <ul class="service-features">
-            <li><i data-lucide="check-circle-2"></i><span>Turnkey Construction</span></li>
-            <li><i data-lucide="check-circle-2"></i><span>MEP Solutions</span></li>
-            <li><i data-lucide="check-circle-2"></i><span>Quality Assurance</span></li>
-          </ul>
-        </div>
-
-        <div class="service-card" data-animate="fade-up" data-delay="100">
-          <div class="service-number">05</div>
-          <div class="service-icon"><i data-lucide="handshake"></i></div>
-          <h3>Investment Partnerships</h3>
-          <p>Strategic investment opportunities in India's booming real estate market, connecting global investors with
-            high-yield Mumbai projects.</p>
-          <ul class="service-features">
-            <li><i data-lucide="check-circle-2"></i><span>Joint Development</span></li>
-            <li><i data-lucide="check-circle-2"></i><span>Project Financing</span></li>
-            <li><i data-lucide="check-circle-2"></i><span>REIT Opportunities</span></li>
-          </ul>
-        </div>
-
-        <div class="service-card" data-animate="fade-up" data-delay="200">
-          <div class="service-number">06</div>
-          <div class="service-icon"><i data-lucide="leaf"></i></div>
-          <h3>Sustainability Consulting</h3>
-          <p>Green building design, energy-efficient solutions, and environmental compliance through our advisory arm
-            Ascendcore Advisory LLP.</p>
-          <ul class="service-features">
-            <li><i data-lucide="check-circle-2"></i><span>Green Certifications</span></li>
-            <li><i data-lucide="check-circle-2"></i><span>Energy Efficiency</span></li>
-            <li><i data-lucide="check-circle-2"></i><span>Environmental Compliance</span></li>
-          </ul>
-        </div>
       </div>
     </div>
   </section>
 
   <!-- ========== STRATEGIC ROADMAP ========== -->
-  <section class="section roadmap-section" id="roadmap">
-    <div id="roadmap-3d-container"></div>
-    <div class="container roadmap-overlay">
-      <div class="section-header" data-animate="fade-up">
+  <section class="section roadmap-premium" id="roadmap" style="background: var(--midnight-deep); padding: 160px 0; position: relative; overflow: hidden;">
+    <div id="roadmap-3d-container" style="position: absolute; inset: 0; opacity: 0.4;"></div>
+    <div class="container" style="position: relative; z-index: 5;">
+      <div class="section-header">
         <span class="section-tag">Strategic Vision</span>
-        <h2 class="section-title">Our <span class="text-gradient">Roadmap</span></h2>
+        <h2 class="section-title">The <span class="text-gradient">Roadmap</span></h2>
+        <p class="section-desc" style="color: var(--text-secondary); max-width: 600px;">Our path toward global infrastructure leadership and sustainable urban development.</p>
       </div>
 
-      <div class="roadmap-timeline">
-        <div class="timeline-line"></div>
-        <div class="timeline-line-progress"></div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content glass-card">
-            <div class="roadmap-icon"><i data-lucide="building"></i></div>
-            <span class="timeline-phase">Phase 1</span>
-            <h3>Local Acquisition & Development</h3>
-            <p>Mumbai-focused real estate acquisition, SRA project execution, and greenfield development to establish a
-              strong local presence.</p>
-            <span class="timeline-period">2023 — 2025</span>
-          </div>
+      <div class="roadmap-timeline-new" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-top: 80px;">
+        <div class="roadmap-item glass-card" data-animate="fade-up" style="padding: 48px; border-radius: var(--radius-lg); border-left: 4px solid var(--gold);">
+          <div style="font-family: var(--font-accent); color: var(--gold); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 24px;">Phase 01</div>
+          <h3 style="font-size: 1.5rem; margin-bottom: 20px; font-family: var(--font-heading);">Local Leadership</h3>
+          <p style="color: var(--text-secondary); line-height: 1.7;">Establishing a dominant position in Mumbai’s redevelopment and mega-township sectors through SRA and greenfield projects.</p>
         </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content glass-card">
-            <div class="roadmap-icon"><i data-lucide="map-up"></i></div>
-            <span class="timeline-phase">Phase 2</span>
-            <h3>National JV Expansion</h3>
-            <p>Joint ventures with leading Indian developers to expand across Delhi-NCR, Bengaluru, Hyderabad, and other
-              tier-1 cities.</p>
-            <span class="timeline-period">2025 — 2027</span>
-          </div>
+        <div class="roadmap-item glass-card" data-animate="fade-up" data-delay="100" style="padding: 48px; border-radius: var(--radius-lg); border-left: 4px solid var(--gold-glimmer);">
+          <div style="font-family: var(--font-accent); color: var(--gold); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 24px;">Phase 02</div>
+          <h3 style="font-size: 1.5rem; margin-bottom: 20px; font-family: var(--font-heading);">National Expansion</h3>
+          <p style="color: var(--text-secondary); line-height: 1.7;">Scaling operations across Tier-1 Indian cities through strategic joint ventures with national development titans.</p>
         </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content glass-card">
-            <div class="roadmap-icon"><i data-lucide="trending-up"></i></div>
-            <span class="timeline-phase">Phase 3</span>
-            <h3>Global Market & REIT Listing</h3>
-            <p>Establish a global real estate brand through international investments, REIT listing, and strategic
-              acquisitions worldwide.</p>
-            <span class="timeline-period">2027 — 2030</span>
-          </div>
+        <div class="roadmap-item glass-card" data-animate="fade-up" data-delay="200" style="padding: 48px; border-radius: var(--radius-lg); border-left: 4px solid var(--white);">
+          <div style="font-family: var(--font-accent); color: var(--gold); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 24px;">Phase 03</div>
+          <h3 style="font-size: 1.5rem; margin-bottom: 20px; font-family: var(--font-heading);">Global REIT Listing</h3>
+          <p style="color: var(--text-secondary); line-height: 1.7;">Unlocking global capital through REIT listings and establishing a presence in international real estate investment markets.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ========== LEADERSHIP SECTION ========== -->
-  <section class="section leadership-section section-light" id="leadership">
+  <section class="section leadership-premium" id="leadership" style="background: var(--midnight-deep); padding: 160px 0;">
     <div class="container">
-      <div class="section-header" data-animate="fade-up">
-        <span class="section-tag">Our People</span>
-        <h2 class="section-title">Leadership & <span class="text-gradient">Advisory Board</span></h2>
-        <p class="section-desc">
-          Distinguished professionals with decades of experience in engineering, finance,
-          governance, and international business.
-        </p>
+      <div class="section-header">
+        <span class="section-tag">Leadership</span>
+        <h2 class="section-title">Visionary <span class="text-gradient">Board</span></h2>
+        <p class="section-desc" style="color: var(--text-secondary);">Leading CBGIPL with a unique blend of international techno-commercial expertise and deep-rooted Indian engineering excellence.</p>
       </div>
 
-      <div class="leadership-grid">
-        <!-- Board of Directors -->
+      <div class="leadership-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 32px; max-width: 1300px; margin: 0 auto;">
+        
+        <!-- Founder -->
         <div class="leader-card" data-animate="fade-up">
-          <div class="leader-image">
-            <img src="/images/team/nusrat-ali-khan.png" alt="Mohammad Nusrat Ali Khan" />
-            <div class="leader-info">
-              <h3>Mohammad Nusrat Ali Khan</h3>
-              <span class="leader-role">Founder &amp; Chairman</span>
-              <p>Engineer &amp; Techno-Commercial Specialist with 10+ years of international experience across the
-                Middle East, India, and China.</p>
+          <div class="leader-frame glass-card" style="padding: 48px 36px; text-align: center; height: 100%; border-radius: var(--radius-lg);">
+            <div class="leader-img-container" style="width: 170px; height: 170px; margin: 0 auto 32px; border-radius: 50%; overflow: hidden; border: 2px solid var(--gold-glimmer); padding: 8px; background: rgba(212, 175, 55, 0.05);">
+              <img src="/images/team/nusrat-ali-khan.png" alt="M. Nusrat Ali Khan" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
             </div>
+            <h3 style="font-size: 1.7rem; margin-bottom: 12px; font-family: var(--font-heading);">M. Nusrat Ali Khan</h3>
+            <span class="leader-role" style="color: var(--gold); font-family: var(--font-accent); font-size: 1.2rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 800; margin-bottom: 24px; display: block;">Founder & Chairman</span>
+            <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.6;">Engineer & Techno-Commercial Specialist with 10+ years of international leadership across the Middle East, India, and China.</p>
           </div>
         </div>
 
+        <!-- Co-Founder -->
         <div class="leader-card" data-animate="fade-up" data-delay="100">
-          <div class="leader-image">
-            <img src="/images/team/prahlad-tripathi.png" alt="Prahlad Tripathi" />
-            <div class="leader-info">
-              <h3>Prahlad Tripathi</h3>
-              <span class="leader-role">Co-Founder</span>
-              <p>MSc Finance from LMU (UK) with experience in finance across Infrastructure, Real Estate, Mining,
-                Healthcare, Oil &amp; Gas, and more.</p>
+          <div class="leader-frame glass-card" style="padding: 48px 36px; text-align: center; height: 100%; border-radius: var(--radius-lg);">
+            <div class="leader-img-container" style="width: 170px; height: 170px; margin: 0 auto 32px; border-radius: 50%; overflow: hidden; border: 2px solid var(--gold-glimmer); padding: 8px; background: rgba(212, 175, 55, 0.05);">
+              <img src="/images/team/prahlad-tripathi.jpeg" alt="Prahlad Tripathi" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
             </div>
+            <h3 style="font-size: 1.7rem; margin-bottom: 12px; font-family: var(--font-heading);">Prahlad Tripathi</h3>
+            <span class="leader-role" style="color: var(--gold); font-family: var(--font-accent); font-size: 1.2rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 800; margin-bottom: 24px; display: block;">Co-Founder</span>
+            <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.6;">MSc Finance from LMU (UK) with vast experience across Infrastructure, Real Estate, and Global Investment Banking.</p>
           </div>
         </div>
 
+        <!-- Director BD -->
         <div class="leader-card" data-animate="fade-up" data-delay="200">
-          <div class="leader-image">
-            <img src="/images/team/saifullah-kurlawala.png" alt="Saifullah Kurlawala" />
-            <div class="leader-info">
-              <h3>Saifullah Kurlawala</h3>
-              <span class="leader-role">Director — Business Development (India)</span>
-              <p>Spearheading CBGIPL's growth strategy and infrastructure partnerships in India.</p>
+          <div class="leader-frame glass-card" style="padding: 48px 36px; text-align: center; height: 100%; border-radius: var(--radius-lg);">
+            <div class="leader-img-container" style="width: 170px; height: 170px; margin: 0 auto 32px; border-radius: 50%; overflow: hidden; border: 2px solid var(--gold-glimmer); padding: 8px; background: rgba(212, 175, 55, 0.05);">
+              <img src="/images/team/saifullah-kurlawala.jpeg" alt="Saifullah Kurlawala" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
             </div>
+            <h3 style="font-size: 1.7rem; margin-bottom: 12px; font-family: var(--font-heading);">Saifullah Kurlawala</h3>
+            <span class="leader-role" style="color: var(--gold); font-family: var(--font-accent); font-size: 1.2rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 800; margin-bottom: 24px; display: block;">VP — Strategic BD</span>
+            <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.6;">Spearheading CBGIPL's strategic expansion and institutional partnerships across India’s infrastructure landscape.</p>
           </div>
         </div>
 
-        <div class="leader-card" data-animate="fade-up">
-          <div class="leader-image">
-            <img src="/images/team/shalim-ali.png" alt="Shalim Ali" />
-            <div class="leader-info">
-              <h3>Shalim Ali</h3>
-              <span class="leader-role">Director — Civil Infra Projects</span>
-              <p>Project lead for large-scale civil infrastructure and EPC operations.</p>
+        <!-- Director Civil -->
+        <div class="leader-card" data-animate="fade-up" data-delay="300">
+          <div class="leader-frame glass-card" style="padding: 48px 36px; text-align: center; height: 100%; border-radius: var(--radius-lg);">
+            <div class="leader-img-container" style="width: 170px; height: 170px; margin: 0 auto 32px; border-radius: 50%; overflow: hidden; border: 2px solid var(--gold-glimmer); padding: 8px; background: rgba(212, 175, 55, 0.05);">
+              <img src="/images/team/shalim-ali.png" alt="Shalim Ali" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
             </div>
+            <h3 style="font-size: 1.7rem; margin-bottom: 12px; font-family: var(--font-heading);">Shalim Ali</h3>
+            <span class="leader-role" style="color: var(--gold); font-family: var(--font-accent); font-size: 1.2rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 800; margin-bottom: 24px; display: block;">Director — Civil Infra Projects</span>
+            <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.6;">Project lead for large-scale civil infrastructure and EPC operations, bringing engineering precision to every build.</p>
           </div>
         </div>
 
-        <!-- Advisory Board -->
-        <div class="leader-card" data-animate="fade-up" data-delay="100">
-          <div class="leader-image">
-            <img src="/images/team/dinesh-brahambhatt.png" alt="Dr. Dinesh Brahmbhatt" />
-            <div class="leader-info">
-              <h3>Dr. Dinesh Brahmbhatt</h3>
-              <span class="leader-role">Rtd. IAS — Independent Advisor</span>
-              <p>Retired IAS and Former Secretary, Government of Gujarat. Provides strategic regulatory guidance.</p>
+        <!-- Advisor 1 -->
+        <div class="leader-card" data-animate="fade-up" data-delay="400">
+          <div class="leader-frame glass-card" style="padding: 48px 36px; text-align: center; height: 100%; border-radius: var(--radius-lg);">
+            <div class="leader-img-container" style="width: 170px; height: 170px; margin: 0 auto 32px; border-radius: 50%; overflow: hidden; border: 2px solid var(--gold-glimmer); padding: 8px; background: rgba(212, 175, 55, 0.05);">
+              <img src="/images/team/dinesh-brahambhatt.png" alt="Dr. Dinesh Brahmbhatt" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
             </div>
+            <h3 style="font-size: 1.7rem; margin-bottom: 12px; font-family: var(--font-heading);">Dr. Dinesh Brahmbhatt</h3>
+            <span class="leader-role" style="color: var(--gold); font-family: var(--font-accent); font-size: 1.2rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 800; margin-bottom: 24px; display: block;">Rtd. IAS — Independent Advisor</span>
+            <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.6;">Retired IAS and Former Secretary, Government of Gujarat. Providing strategic regulatory guidance and governance expertise.</p>
           </div>
         </div>
 
-        <div class="leader-card" data-animate="fade-up" data-delay="200">
-          <div class="leader-image">
-            <img src="/images/team/zafar-iqbal.png" alt="Zafar Iqbal" />
-            <div class="leader-info">
-              <h3>Zafar Iqbal</h3>
-              <span class="leader-role">Rtd. IAS — Independent Advisor</span>
-              <p>Retired IAS officer and Supreme Court Lawyer; Advisor associated with the Shapoorji Pallonji Group.</p>
+        <!-- Advisor 2 -->
+        <div class="leader-card" data-animate="fade-up" data-delay="500">
+          <div class="leader-frame glass-card" style="padding: 48px 36px; text-align: center; height: 100%; border-radius: var(--radius-lg);">
+            <div class="leader-img-container" style="width: 170px; height: 170px; margin: 0 auto 32px; border-radius: 50%; overflow: hidden; border: 2px solid var(--gold-glimmer); padding: 8px; background: rgba(212, 175, 55, 0.05);">
+              <img src="/images/team/zafar-iqbal.png" alt="Zafar Iqbal" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
             </div>
+            <h3 style="font-size: 1.7rem; margin-bottom: 12px; font-family: var(--font-heading);">Zafar Iqbal</h3>
+            <span class="leader-role" style="color: var(--gold); font-family: var(--font-accent); font-size: 1.2rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 800; margin-bottom: 24px; display: block;">Rtd. IAS — Independent Advisor</span>
+            <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.6;">Retired IAS officer and Supreme Court Lawyer; Advisor associated with the Shapoorji Pallonji Group.</p>
           </div>
         </div>
+
       </div>
-    </div>
     </div>
   </section>
 
   <!-- ========== PARTNERS SECTION ========== -->
-  <section class="section partners-section" id="partners">
+  <section class="section partners-premium" id="partners" style="background: #ffffff; padding: 160px 0; border-top: 1px solid rgba(0,0,0,0.05);">
     <div class="container">
-      <div class="section-header" data-animate="fade-up">
-        <span class="section-tag">Trusted Collaborations</span>
-        <h2 class="section-title"><span class="text-gradient">Strategic Alliance</span></h2>
-        <p class="section-desc">
-          We collaborate with globally renowned firms in architecture, project management,
-          finance, and construction to deliver excellence.
-        </p>
+      <div class="section-header">
+        <span class="section-tag" style="color: var(--gold); background: rgba(212, 175, 55, 0.1); padding: 5px 15px; border-radius: 20px;">Collaborations</span>
+        <h2 class="section-title" style="color: #1a1a1a;">Strategic <span class="text-gradient">Alliances</span></h2>
+        <p class="section-desc" style="color: #4a4a4a;">We partner with world-renowned firms in architecture, engineering, and finance to deliver unmatched project excellence.</p>
       </div>
 
-      <div class="partners-grid">
-        <div class="partner-card glass-card" data-animate="fade-up">
-          <div class="partner-logo-placeholder">
-            <i data-lucide="pencil-ruler"></i>
-          </div>
-          <h4>Architect Hafeez Contractor</h4>
-          <p class="partner-type">Architectural Design</p>
-          <p class="partner-desc">India's most celebrated architect, bringing iconic and innovative design excellence to
-            every CBGIPL project.</p>
+      <div class="partners-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px;">
+        <div class="partner-card" data-animate="fade-up" style="padding: 40px; text-align: center; border-radius: var(--radius-md); background: #f9fafb; border: 1px solid #e5e7eb; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 10px 30px rgba(0,0,0,0.05)'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">
+          <div style="font-size: 1.35rem; font-weight: 700; color: #b8860b; margin-bottom: 12px; font-family: var(--font-heading);">Hafeez Contractor</div>
+          <p style="font-family: var(--font-accent); font-size: 0.75rem; text-transform: uppercase; color: #8b6508; letter-spacing: 2px; margin-bottom: 16px; font-weight: 700;">Architectural Icon</p>
+          <p style="color: #666; font-size: 0.95rem; line-height: 1.6;">India's most celebrated architect, bringing design excellence to our most prestigious redevelopments.</p>
         </div>
-
-        <div class="partner-card glass-card" data-animate="fade-up" data-delay="100">
-          <div class="partner-logo-placeholder">
-            <i data-lucide="clipboard-check"></i>
-          </div>
-          <h4>Saudiconsult</h4>
-          <p class="partner-type">Project Management</p>
-          <p class="partner-desc">Saudi Consulting Services — bringing international project management standards and
-            Saudi expertise.</p>
+        <div class="partner-card" data-animate="fade-up" data-delay="100" style="padding: 40px; text-align: center; border-radius: var(--radius-md); background: #f9fafb; border: 1px solid #e5e7eb; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 10px 30px rgba(0,0,0,0.05)'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">
+          <div style="font-size: 1.35rem; font-weight: 700; color: #b8860b; margin-bottom: 12px; font-family: var(--font-heading);">Saudiconsult</div>
+          <p style="font-family: var(--font-accent); font-size: 0.75rem; text-transform: uppercase; color: #8b6508; letter-spacing: 2px; margin-bottom: 16px; font-weight: 700;">Global PMC</p>
+          <p style="color: #666; font-size: 0.95rem; line-height: 1.6;">Ensuring world-class project management standards and international expertise in engineering.</p>
         </div>
-
-        <div class="partner-card glass-card" data-animate="fade-up" data-delay="200">
-          <div class="partner-logo-placeholder">
-            <i data-lucide="trending-up"></i>
-          </div>
-          <h4>Resurgent India</h4>
-          <p class="partner-type">Merchant Banking</p>
-          <p class="partner-desc">SEBI registered Category-I Merchant Bank providing financial advisory and capital
-            market solutions.</p>
-        </div>
-
-        <div class="partner-card glass-card" data-animate="fade-up">
-          <div class="partner-logo-placeholder">
-            <i data-lucide="landmark"></i>
-          </div>
-          <h4>L&T Realty</h4>
-          <p class="partner-type">Joint Development</p>
-          <p class="partner-desc">Exploring strategic joint development partnerships for large-scale infrastructure and
-            real estate projects.</p>
-        </div>
-
-        <div class="partner-card glass-card" data-animate="fade-up" data-delay="100">
-          <div class="partner-logo-placeholder">
-            <i data-lucide="shield"></i>
-          </div>
-          <h4>LIC HFL</h4>
-          <p class="partner-type">Construction Finance</p>
-          <p class="partner-desc">Financial partnerships for construction finance, ensuring uninterrupted project
-            funding and delivery.</p>
-        </div>
-
-        <div class="partner-card glass-card" data-animate="fade-up" data-delay="200">
-          <div class="partner-logo-placeholder">
-            <i data-lucide="bar-chart-3"></i>
-          </div>
-          <h4>Scorpion Capital</h4>
-          <p class="partner-type">Investment Banking</p>
-          <p class="partner-desc">Led by Co-Founder Aditya Kashyap, providing investment banking and capital advisory
-            services.</p>
+        <div class="partner-card" data-animate="fade-up" data-delay="200" style="padding: 40px; text-align: center; border-radius: var(--radius-md); background: #f9fafb; border: 1px solid #e5e7eb; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 10px 30px rgba(0,0,0,0.05)'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">
+          <div style="font-size: 1.35rem; font-weight: 700; color: #b8860b; margin-bottom: 12px; font-family: var(--font-heading);">Resurgent India</div>
+          <p style="font-family: var(--font-accent); font-size: 0.75rem; text-transform: uppercase; color: #8b6508; letter-spacing: 2px; margin-bottom: 16px; font-weight: 700;">Merchant Banking</p>
+          <p style="color: #666; font-size: 0.95rem; line-height: 1.6;">Category-I Merchant Bank providing sophisticated capital market solutions and financial advisory.</p>
         </div>
       </div>
-
-      <!-- Banking Partners -->
-      <div class="banking-partners" data-animate="fade-up">
-        <h3 class="banking-title">Banking Relationships</h3>
-        <div class="banking-logos">
-          <div class="banking-item">Citi</div>
-          <div class="banking-item">HSBC</div>
-          <div class="banking-item">BSF</div>
-          <div class="banking-item">Riyad Bank</div>
-          <div class="banking-item">HDFC Bank</div>
-          <div class="banking-item">IDFC FIRST</div>
+      
+      <div style="margin-top: 100px;">
+        <h3 style="font-family: var(--font-accent); font-size: 0.95rem; color: #1a1a1a; font-weight: 800; text-transform: uppercase; letter-spacing: 3px; text-align: center; margin-bottom: 50px;">Our Banking Partners</h3>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 60px; padding: 20px; background: #fff; border-radius: var(--radius-lg);">
+          <a href="https://www.citi.com/" target="_blank" style="transition: all 0.3s ease; transform: translateY(-10px);" onmouseover="this.style.transform='translateY(-10px) scale(1.1)'" onmouseout="this.style.transform='translateY(-10px) scale(1)'">
+            <img src="/images/alliances/citiredesign.svg" alt="CITI" style="height: 129px; width: auto; display: block;">
+          </a>
+          <a href="https://www.hsbc.co.in/" target="_blank" style="transition: all 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+            <img src="/images/alliances/HSBC.svg" alt="HSBC" style="height: 50px; width: auto; display: block;">
+          </a>
+          <a href="https://www.riyadbank.com/" target="_blank" style="transition: all 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+            <img src="/images/alliances/Frame 2147228217.png" alt="Riyad Bank" style="height: 43px; width: auto; display: block;">
+          </a>
+          <a href="https://www.hdfc.bank.in/" target="_blank" style="transition: all 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+            <img src="/images/alliances/hdfc-bank-logo.svg" alt="HDFC BANK" style="height: 38px; width: auto; display: block;">
+          </a>
+          <a href="https://www.idfcfirst.bank.in/" target="_blank" style="transition: all 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+            <img src="/images/alliances/IDFC-logo-website.svg" alt="IDFC FIRST" style="height: 43px; width: auto; display: block;">
+          </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== GLOBAL PRESENCE ========== -->
-  <section class="section section-light presence-section">
+  <!-- ========== GLOBAL PRESENCE (VIDEO RESTRUCTURED) ========== -->
+  <section class="section presence-premium" id="global-footprint" style="background: var(--midnight-deep); padding: 160px 0; position: relative; overflow: hidden;">
+    <!-- Background Decoration -->
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; opacity: 0.05;">
+      <div style="position: absolute; top: 20%; left: 10%; width: 300px; height: 300px; background: var(--gold); filter: blur(150px); border-radius: 50%;"></div>
+    </div>
+
     <div class="container">
-      <div class="section-header" data-animate="fade-up">
-        <span class="section-tag">Worldwide Network</span>
-        <h2 class="section-title">Global <span class="text-gradient">Presence</span></h2>
+      <div class="section-header" style="text-align: center; margin-bottom: 80px;">
+        <span class="section-tag" data-animate="fade-down">International Reach</span>
+        <h2 class="section-title" data-animate="fade-up">Global <span class="text-gradient">Footprint</span></h2>
+        <p class="section-desc" data-animate="fade-up" data-delay="100" style="max-width: 700px; margin: 0 auto;">Establishing strategic hubs across the world's most dynamic financial and infrastructure centers to bridge international expertise with local excellence.</p>
       </div>
 
-      <div class="presence-grid" data-animate="fade-up">
-        <div class="presence-card">
-          <div class="presence-flag">🇮🇳</div>
-          <h4>Mumbai</h4>
-          <p>Headquarters — Real Estate<br />& SRA Projects</p>
-        </div>
-        <div class="presence-card">
-          <div class="presence-flag">🇮🇳</div>
-          <h4>Delhi-NCR</h4>
-          <p>Business Development<br />& Advisory</p>
-        </div>
-        <div class="presence-card">
-          <div class="presence-flag">🇦🇪</div>
-          <h4>Dubai</h4>
-          <p>Trading Operations<br />& Global HQ</p>
-        </div>
-        <div class="presence-card">
-          <div class="presence-flag">🇸🇦</div>
-          <h4>Riyadh</h4>
-          <p>EPC & Construction<br />Operations</p>
-        </div>
-        <div class="presence-card">
-          <div class="presence-flag">🇭🇰</div>
-          <h4>Hong Kong</h4>
-          <p>Asia Pacific Trading<br />& Investments</p>
-        </div>
-        <div class="presence-card">
-          <div class="presence-flag">🇬🇧</div>
-          <h4>London</h4>
-          <p>UK & EU Business<br />Development</p>
-        </div>
-        <div class="presence-card">
-          <div class="presence-flag">🇸🇬</div>
-          <h4>Singapore</h4>
-          <p>Southeast Asia<br />Operations</p>
+      <div style="width: 100%; overflow-x: auto; padding-bottom: 20px; scrollbar-width: none; -ms-overflow-style: none;">
+        <style>.presence-grid::-webkit-scrollbar { display: none; }</style>
+        <div class="presence-grid" style="display: grid; grid-template-columns: repeat(6, 200px); gap: 15px; justify-content: start; min-width: 1280px; margin: 0 auto;">
+          
+          <!-- Mumbai (INDIA VIDEO) -->
+          <div class="presence-card" data-animate="fade-up" style="position: relative; height: 200px; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--glass-border); transition: all 0.5s var(--ease-out); cursor: pointer;" onmouseover="this.style.transform='translateY(-10px)'; this.style.borderColor='var(--gold-glimmer)';" onmouseout="this.style.transform='none'; this.style.borderColor='var(--glass-border)';" onclick="window.location.hash='contact'">
+            <video autoplay loop muted playsinline style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.6; transition: opacity 0.5s ease;">
+              <source src="/videos/INDIA.mp4" type="video/mp4">
+            </video>
+            <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 0%, rgba(10, 22, 40, 0.98)); z-index: 1;"></div>
+            <div class="presence-info" style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 10px; z-index: 2;">
+              <div style="display: flex; align-items: center; gap: 4px; margin-bottom: 2px;">
+                <span style="font-size: 0.9rem;">🇮🇳</span>
+                <h3 style="font-size: 0.9rem; color: var(--white); font-family: var(--font-heading); margin: 0;">Mumbai</h3>
+              </div>
+              <p style="color: var(--gold); font-family: var(--font-accent); font-size: 0.5rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 2px; font-weight: 700;">Headquarters</p>
+              <p style="color: var(--text-secondary); font-size: 0.65rem; line-height: 1.2; margin: 0;">Corporate nerve center driving India's transformation.</p>
+            </div>
+          </div>
+
+          <!-- Dubai (UAE VIDEO) -->
+          <div class="presence-card" data-animate="fade-up" data-delay="100" style="position: relative; height: 200px; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--glass-border); transition: all 0.5s var(--ease-out); cursor: pointer;" onmouseover="this.style.transform='translateY(-10px)'; this.style.borderColor='var(--gold-glimmer)';" onmouseout="this.style.transform='none'; this.style.borderColor='var(--glass-border)';" onclick="window.location.hash='contact'">
+            <video autoplay loop muted playsinline style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.6; transition: opacity 0.5s ease;">
+              <source src="/videos/UAE.mp4" type="video/mp4">
+            </video>
+            <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 0%, rgba(10, 22, 40, 0.98)); z-index: 1;"></div>
+            <div class="presence-info" style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 10px; z-index: 2;">
+              <div style="display: flex; align-items: center; gap: 4px; margin-bottom: 2px;">
+                <span style="font-size: 0.9rem;">🇦🇪</span>
+                <h3 style="font-size: 0.9rem; color: var(--white); font-family: var(--font-heading); margin: 0;">Dubai</h3>
+              </div>
+              <p style="color: var(--gold); font-family: var(--font-accent); font-size: 0.5rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 2px; font-weight: 700;">Global Holding</p>
+              <p style="color: var(--text-secondary); font-size: 0.65rem; line-height: 1.2; margin: 0;">Strategic gateway for MEA capital and standards.</p>
+            </div>
+          </div>
+
+          <!-- Riyadh (INDIA VIDEO FALLBACK) -->
+          <div class="presence-card" data-animate="fade-up" data-delay="200" style="position: relative; height: 200px; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--glass-border); transition: all 0.5s var(--ease-out); cursor: pointer;" onmouseover="this.style.transform='translateY(-10px)'; this.style.borderColor='var(--gold-glimmer)';" onmouseout="this.style.transform='none'; this.style.borderColor='var(--glass-border)';" onclick="window.location.hash='contact'">
+            <video autoplay loop muted playsinline style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.6; transition: opacity 0.5s ease;">
+              <source src="/videos/INDIA.mp4" type="video/mp4">
+            </video>
+            <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 0%, rgba(10, 22, 40, 0.98)); z-index: 1;"></div>
+            <div class="presence-info" style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 10px; z-index: 2;">
+              <div style="display: flex; align-items: center; gap: 4px; margin-bottom: 2px;">
+                <span style="font-size: 0.9rem;">🇸🇦</span>
+                <h3 style="font-size: 0.9rem; color: var(--white); font-family: var(--font-heading); margin: 0;">Riyadh</h3>
+              </div>
+              <p style="color: var(--gold); font-family: var(--font-accent); font-size: 0.5rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 2px; font-weight: 700;">EPC Hub</p>
+              <p style="color: var(--text-secondary); font-size: 0.65rem; line-height: 1.2; margin: 0;">Driving infrastructure and engineering collaborations.</p>
+            </div>
+          </div>
+
+          <!-- London (UK VIDEO) -->
+          <div class="presence-card" data-animate="fade-up" data-delay="300" style="position: relative; height: 200px; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--glass-border); transition: all 0.5s var(--ease-out); cursor: pointer;" onmouseover="this.style.transform='translateY(-10px)'; this.style.borderColor='var(--gold-glimmer)';" onmouseout="this.style.transform='none'; this.style.borderColor='var(--glass-border)';" onclick="window.location.hash='contact'">
+            <video autoplay loop muted playsinline style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.6; transition: opacity 0.5s ease;">
+              <source src="/videos/UK.mp4" type="video/mp4">
+            </video>
+            <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 0%, rgba(10, 22, 40, 0.98)); z-index: 1;"></div>
+            <div class="presence-info" style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 10px; z-index: 2;">
+              <div style="display: flex; align-items: center; gap: 4px; margin-bottom: 2px;">
+                <span style="font-size: 0.9rem;">🇬🇧</span>
+                <h3 style="font-size: 0.9rem; color: var(--white); font-family: var(--font-heading); margin: 0;">London</h3>
+              </div>
+              <p style="color: var(--gold); font-family: var(--font-accent); font-size: 0.5rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 2px; font-weight: 700;">Advisory Hub</p>
+              <p style="color: var(--text-secondary); font-size: 0.65rem; line-height: 1.2; margin: 0;">Bridging European investment with Indian assets.</p>
+            </div>
+          </div>
+
+          <!-- Hong Kong (INDIA VIDEO FALLBACK) -->
+          <div class="presence-card" data-animate="fade-up" data-delay="400" style="position: relative; height: 200px; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--glass-border); transition: all 0.5s var(--ease-out); cursor: pointer;" onmouseover="this.style.transform='translateY(-10px)'; this.style.borderColor='var(--gold-glimmer)';" onmouseout="this.style.transform='none'; this.style.borderColor='var(--glass-border)';" onclick="window.location.hash='contact'">
+            <video autoplay loop muted playsinline style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.6; transition: opacity 0.5s ease;">
+              <source src="/videos/INDIA.mp4" type="video/mp4">
+            </video>
+            <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 0%, rgba(10, 22, 40, 0.98)); z-index: 1;"></div>
+            <div class="presence-info" style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 10px; z-index: 2;">
+              <div style="display: flex; align-items: center; gap: 4px; margin-bottom: 2px;">
+                <span style="font-size: 0.9rem;">🇭🇰</span>
+                <h3 style="font-size: 0.9rem; color: var(--white); font-family: var(--font-heading); margin: 0;">Hong Kong</h3>
+              </div>
+              <p style="color: var(--gold); font-family: var(--font-accent); font-size: 0.5rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 2px; font-weight: 700;">Trading Ops</p>
+              <p style="color: var(--text-secondary); font-size: 0.65rem; line-height: 1.2; margin: 0;">Managing global supply chains and procurement.</p>
+            </div>
+          </div>
+
+          <!-- Singapore (INDIA VIDEO FALLBACK) -->
+          <div class="presence-card" data-animate="fade-up" data-delay="500" style="position: relative; height: 200px; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--glass-border); transition: all 0.5s var(--ease-out); cursor: pointer;" onmouseover="this.style.transform='translateY(-10px)'; this.style.borderColor='var(--gold-glimmer)';" onmouseout="this.style.transform='none'; this.style.borderColor='var(--glass-border)';" onclick="window.location.hash='contact'">
+            <video autoplay loop muted playsinline style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.6; transition: opacity 0.5s ease;">
+              <source src="/videos/INDIA.mp4" type="video/mp4">
+            </video>
+            <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 0%, rgba(10, 22, 40, 0.98)); z-index: 1;"></div>
+            <div class="presence-info" style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 10px; z-index: 2;">
+              <div style="display: flex; align-items: center; gap: 4px; margin-bottom: 2px;">
+                <span style="font-size: 0.9rem;">🇸🇬</span>
+                <h3 style="font-size: 0.9rem; color: var(--white); font-family: var(--font-heading); margin: 0;">Singapore</h3>
+              </div>
+              <p style="color: var(--gold); font-family: var(--font-accent); font-size: 0.5rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 2px; font-weight: 700;">SE Asia Hub</p>
+              <p style="color: var(--text-secondary); font-size: 0.65rem; line-height: 1.2; margin: 0;">Fueling expansion and technological partnerships.</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
-
 
   <div id="status">
-    <!-- ========== PROJECT STATUS HEADER ========== -->
-    <section class="section project-status-header">
+    <!-- ========== PROJECT STATUS ========== -->
+    <section class="section" style="background: var(--midnight); padding: 120px 0;">
       <div class="container">
         <div class="section-header" data-animate="fade-up">
           <span class="section-tag">Live Report</span>
           <h2 class="section-title">Project <span class="text-gradient">Status</span></h2>
-          <p class="section-desc">A comprehensive overview of our current portfolio, including land acquisition
-            status, SRA developments, and greenfield projects.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== STATUS TABLE ========== -->
-    <section class="section status-table-section">
-      <div class="container">
-        <div class="table-container fade-in-up">
-          <table class="excel-table">
-            <thead>
-              <tr>
-                <th class="th-sn">S.No</th>
-                <th class="th-project">Project Name</th>
-                <th class="th-location">Location</th>
-                <th class="th-area">Area</th>
-                <th class="th-status">Current Status</th>
-              </tr>
-            </thead>
-            <tbody id="status-table-body">
-              <!-- Rows will be populated by JS -->
-            </tbody>
-          </table>
+          <p class="section-desc">A comprehensive overview of our current portfolio, including land acquisition status, SRA developments, and greenfield projects.</p>
         </div>
 
-        <div class="status-summary">
-          <div class="summary-card">
-            <h3>Total Projects</h3>
-            <span id="total-projects">0</span>
+        <!-- Summary Stats -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; margin-bottom: 64px;" data-animate="fade-up">
+          <div class="glass-card" style="padding: 32px; text-align: center;">
+            <div style="font-size: 2.5rem; font-weight: 700; color: var(--gold); font-family: var(--font-heading);" id="total-projects">34</div>
+            <div style="font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 2px; margin-top: 8px; font-family: var(--font-accent);">Total Projects</div>
           </div>
-          <div class="summary-card">
-            <h3>Total Area</h3>
-            <span>~3,000+ Acres</span>
+          <div class="glass-card" style="padding: 32px; text-align: center;">
+            <div style="font-size: 2.5rem; font-weight: 700; color: var(--gold); font-family: var(--font-heading);">3,000+</div>
+            <div style="font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 2px; margin-top: 8px; font-family: var(--font-accent);">Total Acres</div>
           </div>
-          <div class="summary-card">
-            <h3>Active Sites</h3>
-            <span>Multiple</span>
+          <div class="glass-card" style="padding: 32px; text-align: center;">
+            <div style="font-size: 2.5rem; font-weight: 700; color: #22C55E; font-family: var(--font-heading);">5</div>
+            <div style="font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 2px; margin-top: 8px; font-family: var(--font-accent);">Ready to Proceed</div>
           </div>
+          <div class="glass-card" style="padding: 32px; text-align: center;">
+            <div style="font-size: 2.5rem; font-weight: 700; color: #F59E0B; font-family: var(--font-heading);">29</div>
+            <div style="font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 2px; margin-top: 8px; font-family: var(--font-accent);">Under Due Diligence</div>
+          </div>
+        </div>
+
+        <!-- Project Cards Grid -->
+        <div id="status-project-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px;" data-animate="fade-up">
+          <!-- Populated by JS -->
         </div>
       </div>
     </section>
   </div>
 
   <!-- ========== CONTACT SECTION ========== -->
-  <section class="section contact-section" id="contact">
+  <section class="section contact-premium" id="contact" style="background: var(--midnight); padding: 160px 0;">
     <div class="container">
-      <div class="section-header" data-animate="fade-up">
-        <span class="section-tag">Get In Touch</span>
-        <h2 class="section-title">Let's Build <span class="text-gradient">Together</span></h2>
-        <p class="section-desc">
-          Whether you're an investor, developer, or community seeking redevelopment,
-          we'd love to hear from you.
-        </p>
-      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 80px;">
+        
+        <div data-animate="fade-up">
+          <span class="section-tag">Get In Touch</span>
+          <h2 class="section-title">Strategic <span class="text-gradient">Inquiry</span></h2>
+          <p class="section-desc" style="color: var(--text-secondary); margin-bottom: 48px;">Connect with our global advisory team for redevelopment, township inquiry, or investment partnerships.</p>
+          
+          <div style="display: grid; gap: 32px;">
+            <div class="glass-card" style="padding: 32px; display: flex; align-items: center; gap: 24px;">
+              <div style="width: 56px; height: 56px; background: rgba(212, 175, 55, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid var(--gold-glimmer);">
+                <i data-lucide="map-pin" style="color: var(--gold);"></i>
+              </div>
+              <div>
+                <h4 style="color: var(--gold); margin-bottom: 4px;">Head Office — Mumbai</h4>
+                <p style="color: var(--text-secondary); font-size: 0.95rem;">801, Raheja Centre, Nariman Point, Mumbai</p>
+              </div>
+            </div>
+            <div class="glass-card" style="padding: 32px; display: flex; align-items: center; gap: 24px;">
+              <div style="width: 56px; height: 56px; background: rgba(212, 175, 55, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid var(--gold-glimmer);">
+                <i data-lucide="mail" style="color: var(--gold);"></i>
+              </div>
+              <div>
+                <h4 style="color: var(--gold); margin-bottom: 4px;">Email</h4>
+                <p style="color: var(--text-secondary); font-size: 0.95rem;">info@cbgipl.com</p>
+              </div>
+            </div>
+            <div class="glass-card" style="padding: 32px; display: flex; align-items: center; gap: 24px;">
+              <div style="width: 56px; height: 56px; background: rgba(212, 175, 55, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid var(--gold-glimmer);">
+                <i data-lucide="phone" style="color: var(--gold);"></i>
+              </div>
+              <div>
+                <h4 style="color: var(--gold); margin-bottom: 4px;">Call Us</h4>
+                <p style="color: var(--text-secondary); font-size: 0.95rem;"><a href="tel:+919229000922" style="color: var(--text-secondary);">+91 922 9000 922</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
 
-      <div class="contact-grid">
-        <div class="contact-form-wrapper glass-card" data-animate="fade-up">
-          <form class="contact-form" id="contactForm">
-            <div class="form-row">
-              <div class="form-group">
-                <label for="name">Full Name</label>
-                <input type="text" id="name" name="name" placeholder="Your name" required />
-              </div>
-              <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" placeholder="you@example.com" required />
-              </div>
+        <div class="glass-card" style="padding: 64px; border-radius: var(--radius-lg); background: rgba(10, 22, 40, 0.6);" data-animate="fade-up" data-delay="100">
+          <form id="contactForm" style="display: grid; gap: 24px;">
+            <div style="display: grid; gap: 12px;">
+              <label style="font-family: var(--font-accent); font-size: 0.75rem; text-transform: uppercase; color: var(--gold);">Full Name</label>
+              <input type="text" placeholder="Your name" style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 16px; border-radius: var(--radius-sm); color: var(--white); outline: none; font-size: 1rem;" required>
             </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" name="phone" placeholder="+91 XXXXX XXXXX" />
-              </div>
-              <div class="form-group">
-                <label for="subject">Subject</label>
-                <select id="subject" name="subject">
-                  <option value="">Select an option</option>
-                  <option value="investment">Investment Inquiry</option>
-                  <option value="partnership">Partnership Opportunity</option>
-                  <option value="project">Project Inquiry</option>
-                  <option value="career">Career Inquiry</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
+            <div style="display: grid; gap: 12px;">
+              <label style="font-family: var(--font-accent); font-size: 0.75rem; text-transform: uppercase; color: var(--gold);">Email Address</label>
+              <input type="email" placeholder="you@example.com" style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 16px; border-radius: var(--radius-sm); color: var(--white); outline: none; font-size: 1rem;" required>
             </div>
-            <div class="form-group">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" rows="5" placeholder="Tell us about your inquiry..."></textarea>
+            <div style="display: grid; gap: 12px;">
+              <label style="font-family: var(--font-accent); font-size: 0.75rem; text-transform: uppercase; color: var(--gold);">Subject</label>
+              <select style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 16px; border-radius: var(--radius-sm); color: var(--text-secondary); outline: none; font-size: 1rem; font-family: inherit;">
+                <option value="">Select an option</option>
+                <option value="investment">Investment Inquiry</option>
+                <option value="partnership">Partnership Opportunity</option>
+                <option value="project">Project Inquiry</option>
+                <option value="career">Career Inquiry</option>
+                <option value="other">Other</option>
+              </select>
             </div>
-            <button type="submit" class="btn btn-primary btn-full">
-              <span>Send Message</span>
-              <i data-lucide="send"></i>
-            </button>
+            <div style="display: grid; gap: 12px;">
+              <label style="font-family: var(--font-accent); font-size: 0.75rem; text-transform: uppercase; color: var(--gold);">Message</label>
+              <textarea placeholder="Tell us about your inquiry..." style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 16px; border-radius: var(--radius-sm); color: var(--white); outline: none; height: 140px; resize: none; font-size: 1rem; font-family: inherit;" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="padding: 20px; width: 100%; justify-content: center;">Send Inquiry</button>
           </form>
         </div>
 
-        <div class="contact-info" data-animate="fade-up" data-delay="200">
-          <div class="contact-info-card glass-card">
-            <div class="contact-icon"><i data-lucide="map-pin"></i></div>
-            <h4>Head Office — Mumbai</h4>
-            <p>Nusrat Infra Holding Pvt Ltd<br />Carter Brown Global Infra Pvt Ltd.<br />801, 8th Floor, Raheja Centre
-              Building,<br />Nariman Point, Mumbai, India</p>
-          </div>
-
-          <div class="contact-info-card glass-card">
-            <div class="contact-icon"><i data-lucide="mail"></i></div>
-            <h4>Email Us</h4>
-            <p><a href="mailto:info@cbgipl.com">info@cbgipl.com</a></p>
-          </div>
-
-          <div class="contact-info-card glass-card">
-            <div class="contact-icon"><i data-lucide="phone"></i></div>
-            <h4>Call Us</h4>
-            <p><a href="tel:+919229000922">+91 922 9000 922</a></p>
-          </div>
-
-          <div class="contact-info-card glass-card">
-            <div class="contact-icon"><i data-lucide="globe"></i></div>
-            <h4>Parent Company</h4>
-            <p><a href="https://cbgholding.com" target="_blank">cbgholding.com</a></p>
-          </div>
-        </div>
       </div>
     </div>
   </section>
 
   <!-- ========== FOOTER ========== -->
-  <footer class="footer">
+  <footer style="background: var(--midnight-deep); padding: 120px 0 60px; border-top: 1px solid var(--glass-border);">
     <div class="container">
-      <div class="footer-main">
-        <div class="footer-brand">
-          <img src="/images/logo.png" alt="CBGIPL Logo" class="footer-logo-img">
-          <p>Building sustainable cities and lasting value through global expertise and local commitment.</p>
-          <div class="footer-social">
-            <a href="#" class="social-link" aria-label="Facebook"><i data-lucide="facebook"></i></a>
-            <a href="#" class="social-link" aria-label="Twitter"><i data-lucide="twitter"></i></a>
-            <a href="#" class="social-link" aria-label="Instagram"><i data-lucide="instagram"></i></a>
-            <a href="#" class="social-link" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
-          </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 64px; margin-bottom: 80px;">
+        <div style="flex: 2;">
+          <img src="/images/logo.png" alt="CBGIPL" style="height: 48px; margin-bottom: 32px;">
+          <p style="color: var(--text-muted); line-height: 1.8; max-width: 320px;">Redefining urban landscapes through global expertise and visionary redevelopment strategies.</p>
         </div>
-
-        <div class="footer-contact">
-          <h4>Contact Us</h4>
-          <ul class="footer-contact-list">
-            <li>
-              <i data-lucide="map-pin"></i>
-              <span>Mumbai, India | Riyadh, Saudi Arabia</span>
-            </li>
-            <li>
-              <i data-lucide="mail"></i>
-              <span>info@cbgipl.com</span>
-            </li>
-            <li>
-              <i data-lucide="phone"></i>
-              <span>+91 22 XXXX XXXX</span>
-            </li>
+        <div>
+          <h4 style="color: var(--gold); margin-bottom: 32px; font-family: var(--font-heading);">Quick Links</h4>
+          <ul style="list-style: none; padding: 0; display: grid; gap: 16px;">
+            <li><a href="#about" style="color: var(--text-secondary); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-secondary)'">Vision</a></li>
+            <li><a href="#projects" style="color: var(--text-secondary); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-secondary)'">Portfolio</a></li>
+            <li><a href="#leadership" style="color: var(--text-secondary); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-secondary)'">Advisory</a></li>
           </ul>
         </div>
-
-        <div class="footer-links-group">
-          <h4>Quick Links</h4>
-          <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-links-group">
-          <h4>Projects</h4>
-          <ul>
-            <li><a href="#projects">Baba Nagar, Bandra</a></li>
-            <li><a href="#projects">MM Westbay City</a></li>
-            <li><a href="#projects">Worli Koliwada</a></li>
-            <li><a href="#projects">Panvel Mega Township</a></li>
-            <li><a href="#projects">Prabhadevi Oasis</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-links-group">
-          <h4>Global Offices</h4>
-          <ul>
-            <li>🇮🇳 Mumbai, India (HQ)</li>
-            <li>🇦🇪 Dubai, UAE</li>
-            <li>🇸🇦 Riyadh, KSA</li>
-            <li>🇭🇰 Hong Kong</li>
-            <li>🇬🇧 London, UK</li>
-          </ul>
+        <div>
+          <h4 style="color: var(--gold); margin-bottom: 32px; font-family: var(--font-heading);">Global HQ</h4>
+          <p style="color: var(--text-secondary); line-height: 1.8;">Business Tower, Business Bay<br>Dubai, United Arab Emirates</p>
         </div>
       </div>
-
-      <div class="footer-bottom">
-        <p>&copy; 2025 Carter Brown Global Infra Pvt Ltd. All Rights Reserved.</p>
-        <p>A subsidiary of <a href="https://cbgholding.com" target="_blank">Carter Brown Global Holding</a></p>
+      <div style="border-top: 1px solid var(--glass-border); padding-top: 40px; text-align: center;">
+        <p style="color: var(--text-muted); font-size: 0.85rem;">&copy; 2024 CBGIPL. All Rights Reserved. A CBG Holding Company.</p>
       </div>
     </div>
   </footer>

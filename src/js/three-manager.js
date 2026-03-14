@@ -43,10 +43,10 @@ class ThreeManager {
         // 1. Blueprint Grid Foundation
         const gridSize = 40;
         const divisions = 40;
-        this.grid = new THREE.GridHelper(gridSize, divisions, 0xD4BD9B, 0x1A3A40);
+        this.grid = new THREE.GridHelper(gridSize, divisions, 0xffd700, 0x0a1628);
         this.grid.position.y = -9;
         this.grid.material.transparent = true;
-        this.grid.material.opacity = 0.25;
+        this.grid.material.opacity = 0.3;
         this.scene.add(this.grid);
 
         // 2. Construction Zone Layout
@@ -82,7 +82,7 @@ class ThreeManager {
         sun.position.set(10, 20, 10);
         this.scene.add(sun);
 
-        const buildLight = new THREE.PointLight(0xD4BD9B, 3, 30);
+        const buildLight = new THREE.PointLight(0xffd700, 3, 30);
         this.scene.add(buildLight);
         this.buildLight = buildLight;
 
@@ -104,10 +104,10 @@ class ThreeManager {
         }
         starGeo.setAttribute('position', new THREE.BufferAttribute(starPos, 3));
         const starMat = new THREE.PointsMaterial({
-            color: 0xD4BD9B,
+            color: 0xffffff,
             size: 0.15,
             transparent: true,
-            opacity: 0.4
+            opacity: 0.5
         });
         this.stars = new THREE.Points(starGeo, starMat);
         this.scene.add(this.stars);
@@ -116,8 +116,8 @@ class ThreeManager {
         const worker = new THREE.Group();
         worker.position.set(x, y, z);
 
-        const skinMat = new THREE.MeshPhongMaterial({ color: 0xD4BD9B });
-        const vestMat = new THREE.MeshPhongMaterial({ color: 0xFF8C00 }); // Safety Orange
+        const skinMat = new THREE.MeshPhongMaterial({ color: 0xffe0bd });
+        const vestMat = new THREE.MeshPhongMaterial({ color: 0xffd700 }); // Theme Gold Vest
         const blueMat = new THREE.MeshPhongMaterial({ color: 0x1A3A40 });
         const hatMat = new THREE.MeshPhongMaterial({ color: 0xFFFF00 }); // Yellow Hat
 
@@ -160,7 +160,7 @@ class ThreeManager {
         const silverMat = new THREE.MeshStandardMaterial({ color: 0xFFFFFF, metalness: 0.8, roughness: 0.1 });
         const glassMat = new THREE.MeshStandardMaterial({ color: 0x88ccff, transparent: true, opacity: 0.4, metalness: 0.9, roughness: 0.05 });
         const coreMat = new THREE.MeshStandardMaterial({ color: 0x050505, roughness: 0.9 });
-        const goldMat = new THREE.MeshStandardMaterial({ color: 0xD4BD9B, metalness: 0.9, roughness: 0.1 });
+        const goldMat = new THREE.MeshStandardMaterial({ color: 0xffd700, metalness: 0.9, roughness: 0.1 });
         const neonColors = [0x00FFFF, 0xFF00FF, 0xFFFF00, 0x00FF00];
 
         for (let i = 0; i < floorCount; i++) {
@@ -274,7 +274,7 @@ class ThreeManager {
         const radius = 12;
         const theta = progress * Math.PI * 2;
         const geometry = new THREE.TorusGeometry(radius, 0.15, 16, 100, theta || 0.001);
-        const material = new THREE.MeshPhongMaterial({ color: 0xD4BD9B, emissive: 0xD4BD9B, emissiveIntensity: 0.8, transparent: true, opacity: 0.8 });
+        const material = new THREE.MeshPhongMaterial({ color: 0xffd700, emissive: 0xffd700, emissiveIntensity: 0.8, transparent: true, opacity: 0.8 });
         const ring = new THREE.Mesh(geometry, material);
         ring.rotation.x = Math.PI / 2;
         ring.rotation.z = -Math.PI / 2;

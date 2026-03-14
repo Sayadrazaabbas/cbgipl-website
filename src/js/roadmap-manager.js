@@ -9,7 +9,7 @@ class RoadmapManager {
         if (!this.container) return;
 
         this.scene = new THREE.Scene();
-        this.scene.fog = new THREE.FogExp2(0xf4f6f9, 0.05);
+        this.scene.fog = new THREE.FogExp2(0x0a1628, 0.05);
 
         this.camera = new THREE.PerspectiveCamera(60, this.container.clientWidth / this.container.clientHeight, 0.1, 1000);
         this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -51,11 +51,11 @@ class RoadmapManager {
         // 2. Glowing Path Mesh
         const pathGeo = new THREE.TubeGeometry(this.path, 100, 0.05, 8, false);
         const pathMat = new THREE.MeshStandardMaterial({
-            color: 0xD4BD9B,
-            emissive: 0xD4BD9B,
+            color: 0xffd700,
+            emissive: 0xffd700,
             emissiveIntensity: 0.8,
             transparent: true,
-            opacity: 0.7,
+            opacity: 0.8,
             metalness: 0.9,
             roughness: 0.1
         });
@@ -71,7 +71,7 @@ class RoadmapManager {
         }
         particlesGeo.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
         const particlesMat = new THREE.PointsMaterial({
-            color: 0xD4BD9B,
+            color: 0xffffff,
             size: 0.05,
             transparent: true,
             opacity: 0.4
@@ -83,8 +83,8 @@ class RoadmapManager {
         this.nodes = [];
         const nodeGeo = new THREE.SphereGeometry(0.3, 16, 16);
         const nodeMat = new THREE.MeshStandardMaterial({
-            color: 0xD4BD9B,
-            emissive: 0xD4BD9B,
+            color: 0xffffff,
+            emissive: 0xffd700,
             emissiveIntensity: 0.5,
             metalness: 0.9,
             roughness: 0.1

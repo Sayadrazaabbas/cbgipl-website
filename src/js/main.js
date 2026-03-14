@@ -35,7 +35,6 @@ function initPreloader() {
   const preloader = document.getElementById('preloader');
   if (!preloader) return;
 
-  // Continuous Smooth Construction Timing
   const totalFloors = 15;
   const initialDelay = 500;
   const floorInterval = 300;
@@ -45,13 +44,22 @@ function initPreloader() {
   const percentText = document.getElementById('preloaderPercent');
 
   let startTime;
-  let constructionFinished = false;
+  let dismissed = false;
+
+  function finishPreloader() {
+    if (dismissed) return;
+    dismissed = true;
+    setTimeout(() => {
+      if (threeManager) threeManager.fadeOut();
+      preloader.classList.add('loaded');
+      document.body.style.overflow = '';
+    }, 800);
+  }
 
   function updateSmoothProgress(timestamp) {
     if (!startTime) startTime = timestamp;
     const elapsed = timestamp - startTime;
 
-    // Progress calculation: 0 to 1 over totalDuration
     let progress = Math.min(elapsed / totalDuration, 1);
 
     // Update 3D Scene
@@ -69,10 +77,9 @@ function initPreloader() {
     const marketGro = document.getElementById('marketGrowth');
     if (marketVal && marketGro) {
       const startVal = 1.25;
-      const endVal = 48.8; // High appreciation for industrial/infra
+      const endVal = 48.8;
       const currentVal = (startVal + (endVal - startVal) * progress).toFixed(1);
       const growth = Math.round(((currentVal - startVal) / startVal) * 100);
-
       marketVal.textContent = `$${currentVal}B`;
       marketGro.textContent = `+${growth}%`;
     }
@@ -80,39 +87,19 @@ function initPreloader() {
     if (progress < 1) {
       requestAnimationFrame(updateSmoothProgress);
     } else {
-      constructionFinished = true;
-      if (document.readyState === 'complete') {
-        finishPreloader();
-      }
+      // Animation done — always dismiss after a short pause
+      finishPreloader();
     }
   }
 
-  // Wait 500ms before starting the smooth sequence
   setTimeout(() => {
     requestAnimationFrame(updateSmoothProgress);
   }, initialDelay);
 
-  function finishPreloader() {
-    setTimeout(() => {
-      if (threeManager) threeManager.fadeOut();
-      preloader.classList.add('loaded');
-      document.body.style.overflow = '';
-    }, 1200);
-  }
-
-  window.addEventListener('load', () => {
-    if (constructionFinished) {
-      finishPreloader();
-    }
-  });
-
-  // Fallback
+  // Hard fallback — never let preloader block for more than 8 seconds
   setTimeout(() => {
-    if (!preloader.classList.contains('loaded')) {
-      constructionFinished = true;
-      finishPreloader();
-    }
-  }, 10000);
+    finishPreloader();
+  }, 8000);
 }
 
 /* ── NAVBAR ── */
@@ -432,29 +419,38 @@ style.textContent = `
 document.head.appendChild(style);
 
 
-// --- Project Status Module ---
-// Populate Table
-        const tableBody = document.getElementById('status-table-body');
-        const totalProjectsEl = document.getElementById('total-projects');
+// --- Project Status Cards ---
+const statusGrid = document.getElementById('status-project-grid');
 
-        if (tableBody) {
-            projectStatusData.forEach(item => {
-                const tr = document.createElement('tr');
-                tr.innerHTML = `
-                    <td class="td-sn">${item.sn}</td>
-                    <td class="td-project">${item.project}</td>
-                    <td class="td-location"><i data-lucide="map-pin" class="table-icon"></i> ${item.location}</td>
-                    <td class="td-area">${item.area}</td>
-                    <td class="td-status"><span class="status-badge ${getStatusClass(item.status)}">${item.status}</span></td>
-                `;
-                tableBody.appendChild(tr);
-            });
-            lucide.createIcons();
-            totalProjectsEl.textContent = projectStatusData.length;
-        }
+if (statusGrid) {
+  projectStatusData.forEach(item => {
+    const isReady = item.status.includes("Ready");
+    const statusColor = isReady ? '#22C55E' : '#F59E0B';
+    const statusBg = isReady ? 'rgba(34, 197, 94, 0.1)' : 'rgba(245, 158, 11, 0.1)';
+    const statusBorder = isReady ? 'rgba(34, 197, 94, 0.3)' : 'rgba(245, 158, 11, 0.3)';
 
-        function getStatusClass(status) {
-            if (status.includes("Ready")) return "status-ready";
-            if (status.includes("Visited")) return "status-visited";
-            return "status-default";
-        }
+    const card = document.createElement('div');
+    card.className = 'glass-card';
+    card.style.cssText = 'padding: 28px; border-radius: var(--radius-md); transition: transform 0.3s ease, border-color 0.3s ease;';
+    card.onmouseover = function() { this.style.transform='translateY(-4px)'; this.style.borderColor='var(--gold-glimmer)'; };
+    card.onmouseout = function() { this.style.transform=''; this.style.borderColor=''; };
+
+    card.innerHTML = `
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px;">
+        <h4 style="color: var(--white); font-size: 1rem; font-weight: 600; line-height: 1.4; flex: 1; margin-right: 12px;">${item.project}</h4>
+        <span style="font-size: 0.65rem; padding: 4px 10px; border-radius: var(--radius-pill); background: ${statusBg}; color: ${statusColor}; border: 1px solid ${statusBorder}; white-space: nowrap; font-family: var(--font-accent); text-transform: uppercase; letter-spacing: 1px;">${isReady ? 'Ready' : 'Under DD'}</span>
+      </div>
+      <div style="display: flex; gap: 20px; align-items: center;">
+        <div style="display: flex; align-items: center; gap: 6px; color: var(--text-secondary); font-size: 0.85rem;">
+          <i data-lucide="map-pin" style="width: 14px; height: 14px; color: var(--gold);"></i>
+          ${item.location}
+        </div>
+        ${item.area !== 'To be estimated' ? `<div style="display: flex; align-items: center; gap: 6px; color: var(--text-secondary); font-size: 0.85rem;"><i data-lucide="maximize" style="width: 14px; height: 14px; color: var(--gold);"></i>${item.area}</div>` : ''}
+      </div>
+    `;
+    statusGrid.appendChild(card);
+  });
+
+  // Re-init Lucide icons for the new cards
+  if (window.lucide) lucide.createIcons();
+}
