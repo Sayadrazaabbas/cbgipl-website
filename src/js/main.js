@@ -76,12 +76,12 @@ function initPreloader() {
     const marketVal = document.getElementById('marketValue');
     const marketGro = document.getElementById('marketGrowth');
     if (marketVal && marketGro) {
-      const startVal = 1.25;
+      const startVal = 0;
       const endVal = 48.8;
       const currentVal = (startVal + (endVal - startVal) * progress).toFixed(1);
-      const growth = Math.round(((currentVal - startVal) / startVal) * 100);
+      const growth = currentVal > 0 ? Math.round(((currentVal - 1.25) / 1.25) * 100) : 0;
       marketVal.textContent = `$${currentVal}B`;
-      marketGro.textContent = `+${growth}%`;
+      marketGro.textContent = (growth >= 0 ? '+' : '') + growth + '%';
     }
 
     if (progress < 1) {
@@ -173,7 +173,7 @@ function initCounters() {
         }
       });
     },
-    { threshold: 0.5 }
+    { threshold: 0.1 }
   );
 
   counters.forEach(counter => observer.observe(counter));

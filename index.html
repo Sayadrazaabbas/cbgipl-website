@@ -185,7 +185,7 @@
           <!-- Using Generated Office Lobby Visual -->
           <img src="/images/about/corporate-office.png" alt="CBGIPL Corporate Core" style="width: 100%; height: 600px; object-fit: cover; border-radius: var(--radius-lg); box-shadow: var(--shadow-premium);">
           <div class="glass-card" style="position: absolute; bottom: -40px; right: -40px; padding: 40px; width: 280px; text-align: center;">
-            <span style="font-size: 3rem; font-weight: 700; color: var(--gold); display: block; line-height: 1;">30+</span>
+            <span style="font-size: 3rem; font-weight: 700; color: var(--gold); display: block; line-height: 1;"><span class="stat-number" data-count="30">0</span>+</span>
             <span style="font-family: var(--font-accent); font-size: 0.85rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 2px; margin-top: 12px; display: block;">Years of Global Expertise</span>
           </div>
         </div>
@@ -331,7 +331,7 @@
         <p class="section-desc" style="color: var(--text-secondary);">From SRA redevelopment to mega-township ecosystems, we deliver end-to-end urban solutions powered by international standards.</p>
       </div>
 
-      <div class="services-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 40px;">
+      <div class="services-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; width: 100%;">
         
         <!-- Service 1 -->
         <div class="service-card glass-card" data-animate="fade-up" style="padding: 48px; border-radius: var(--radius-lg);">
@@ -389,7 +389,7 @@
         <p class="section-desc" style="color: var(--text-secondary); max-width: 600px;">Our path toward global infrastructure leadership and sustainable urban development.</p>
       </div>
 
-      <div class="roadmap-timeline-new" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-top: 80px;">
+      <div class="roadmap-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 80px; width: 100%;">
         <div class="roadmap-item glass-card" data-animate="fade-up" style="padding: 48px; border-radius: var(--radius-lg); border-left: 4px solid var(--gold);">
           <div style="font-family: var(--font-accent); color: var(--gold); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 24px;">Phase 01</div>
           <h3 style="font-size: 1.5rem; margin-bottom: 20px; font-family: var(--font-heading);">Local Leadership</h3>
@@ -418,95 +418,99 @@
         <p class="section-desc" style="color: var(--text-secondary);">Leading CBGIPL with a unique blend of international techno-commercial expertise and deep-rooted Indian engineering excellence.</p>
       </div>
 
-      <div class="leadership-grid" style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 24px; width: 100%;">
+      <div class="leadership-hierarchy" style="display: flex; flex-direction: column; gap: 64px;">
         
-        <!-- Founder -->
-        <div class="leader-card" data-animate="fade-up">
-          <div class="leader-frame">
-            <div class="leader-image">
-              <img src="/images/team/nusrat-ali-khan.png" alt="M. Nusrat Ali Khan">
-              <div class="leader-info">
-                <span class="leader-role">Founder & Chairman</span>
-                <h3 style="color: var(--white); margin-bottom: 8px;">M. Nusrat Ali Khan</h3>
-                <p>Engineer & Techno-Commercial Specialist with 10+ years of international leadership across the Middle East, India, and China.</p>
+        <!-- Tier 1: Founder -->
+        <div style="display: flex; justify-content: center;">
+          <div class="leader-card" data-animate="fade-up" style="width: 420px;">
+            <div class="leader-frame">
+              <div class="leader-image" style="height: 520px;">
+                <img src="/images/team/nusrat-ali-khan.png" alt="M. Nusrat Ali Khan" style="object-position: center 5%;">
+                <div class="leader-info" style="padding: 40px;">
+                  <span class="leader-role" style="font-size: 0.85rem; letter-spacing: 3px;">Founder & Chairman</span>
+                  <h3 style="color: var(--white); margin-bottom: 12px; font-size: 1.8rem;">M. Nusrat Ali Khan</h3>
+                  <p style="font-size: 1rem; line-height: 1.6;">Engineer & Techno-Commercial Specialist with 10+ years of international leadership across the Middle East, India, and China.</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Co-Founder -->
-        <div class="leader-card" data-animate="fade-up" data-delay="100">
-          <div class="leader-frame">
-            <!-- Decorative Arc Overlay -->
-            <div style="position: absolute; top: -5px; left: 50%; transform: translateX(-50%); width: 220px; height: 110px; border: 1.5px solid rgba(255,255,255,0.15); border-bottom: 0; border-radius: 110px 110px 0 0; z-index: 10; pointer-events: none;"></div>
-            
-            <div class="leader-image">
-              <img src="/images/team/prahlad-tripathi.jpeg" alt="Prahlad Tripathi">
-              <div class="leader-info">
-                <span class="leader-role">Co-Founder</span>
-                <h3 style="color: var(--white); margin-bottom: 8px;">Prahlad Tripathi</h3>
-                <p>MSc Finance from LMU (UK) with vast experience across Infrastructure, Real Estate, and Global Investment Banking.</p>
+        <!-- Tier 2: The Board -->
+        <div class="leadership-grid" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; width: 100%;">
+          
+          <!-- Co-Founder -->
+          <div class="leader-card" data-animate="fade-up" data-delay="100">
+            <div class="leader-frame">
+              <div style="position: absolute; top: -5px; left: 50%; transform: translateX(-50%); width: 220px; height: 110px; border: 1.5px solid rgba(255,255,255,0.15); border-bottom: 0; border-radius: 110px 110px 0 0; z-index: 10; pointer-events: none;"></div>
+              <div class="leader-image">
+                <img src="/images/team/prahlad-tripathi.jpeg" alt="Prahlad Tripathi">
+                <div class="leader-info">
+                  <span class="leader-role">Co-Founder</span>
+                  <h3 style="color: var(--white); margin-bottom: 8px;">Prahlad Tripathi</h3>
+                  <p>MSc Finance from LMU (UK) with vast experience across Infrastructure, Real Estate, and Global Investment Banking.</p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- Director BD -->
-        <div class="leader-card" data-animate="fade-up" data-delay="200">
-          <div class="leader-frame">
-            <div class="leader-image">
-              <img src="/images/team/saifullah-kurlawala.jpeg" alt="Saifullah Kurlawala" style="object-position: center 15%;">
-              <div class="leader-info">
-                <span class="leader-role">VP — Strategic BD</span>
-                <h3 style="color: var(--white); margin-bottom: 8px;">Saifullah Kurlawala</h3>
-                <p>Spearheading CBGIPL's strategic expansion and institutional partnerships across India’s infrastructure landscape.</p>
+          <!-- Director BD -->
+          <div class="leader-card" data-animate="fade-up" data-delay="200">
+            <div class="leader-frame">
+              <div class="leader-image">
+                <img src="/images/team/saifullah-kurlawala.jpeg" alt="Saifullah Kurlawala" style="object-position: center 15%;">
+                <div class="leader-info">
+                  <span class="leader-role">VP — Strategic BD</span>
+                  <h3 style="color: var(--white); margin-bottom: 8px;">Saifullah Kurlawala</h3>
+                  <p>Spearheading CBGIPL's strategic expansion and institutional partnerships across India’s infrastructure landscape.</p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- Director Civil -->
-        <div class="leader-card" data-animate="fade-up" data-delay="300">
-          <div class="leader-frame">
-            <div class="leader-image">
-              <img src="/images/team/shalim-ali.png" alt="Shalim Ali">
-              <div class="leader-info">
-                <span class="leader-role">Director — Civil Infra Projects</span>
-                <h3 style="color: var(--white); margin-bottom: 8px;">Shalim Ali</h3>
-                <p>Project lead for large-scale civil infrastructure and EPC operations, bringing engineering precision to every build.</p>
+          <!-- Director Civil -->
+          <div class="leader-card" data-animate="fade-up" data-delay="300">
+            <div class="leader-frame">
+              <div class="leader-image">
+                <img src="/images/team/shalim-ali.png" alt="Shalim Ali">
+                <div class="leader-info">
+                  <span class="leader-role">Director — Civil Infra</span>
+                  <h3 style="color: var(--white); margin-bottom: 8px;">Shalim Ali</h3>
+                  <p>Project lead for large-scale civil infrastructure and EPC operations, bringing engineering precision to every build.</p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- Advisor 1 -->
-        <div class="leader-card" data-animate="fade-up" data-delay="400">
-          <div class="leader-frame">
-            <div class="leader-image">
-              <img src="/images/team/dinesh-brahambhatt.png" alt="Dr. Dinesh Brahmbhatt">
-              <div class="leader-info">
-                <span class="leader-role">Rtd. IAS — Independent Advisor</span>
-                <h3 style="color: var(--white); margin-bottom: 8px;">Dr. Dinesh Brahmbhatt</h3>
-                <p>Retired IAS and Former Secretary, Government of Gujarat. Providing strategic regulatory guidance and governance expertise.</p>
+          <!-- Advisor 1 -->
+          <div class="leader-card" data-animate="fade-up" data-delay="400">
+            <div class="leader-frame">
+              <div class="leader-image">
+                <img src="/images/team/dinesh-brahambhatt.png" alt="Dr. Dinesh Brahmbhatt">
+                <div class="leader-info">
+                  <span class="leader-role">Rtd. IAS — Independent Advisor</span>
+                  <h3 style="color: var(--white); margin-bottom: 8px;">Dr. Dinesh Brahmbhatt</h3>
+                  <p>Retired IAS and Former Secretary, Government of Gujarat. Providing strategic regulatory guidance.</p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- Advisor 2 -->
-        <div class="leader-card" data-animate="fade-up" data-delay="500">
-          <div class="leader-frame">
-            <div class="leader-image">
-              <img src="/images/team/zafar-iqbal.png" alt="Zafar Iqbal">
-              <div class="leader-info">
-                <span class="leader-role">Rtd. IAS — Independent Advisor</span>
-                <h3 style="color: var(--white); margin-bottom: 8px;">Zafar Iqbal</h3>
-                <p>Retired IAS officer and Supreme Court Lawyer; Advisor associated with the Shapoorji Pallonji Group.</p>
+          <!-- Advisor 2 -->
+          <div class="leader-card" data-animate="fade-up" data-delay="500">
+            <div class="leader-frame">
+              <div class="leader-image">
+                <img src="/images/team/zafar-iqbal.png" alt="Zafar Iqbal">
+                <div class="leader-info">
+                  <span class="leader-role">Rtd. IAS — Independent Advisor</span>
+                  <h3 style="color: var(--white); margin-bottom: 8px;">Zafar Iqbal</h3>
+                  <p>Retired IAS officer and Supreme Court Lawyer; Advisor associated with the Shapoorji Pallonji Group.</p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
+        </div>
       </div>
     </div>
   </section>
@@ -592,15 +596,15 @@
         <div class="presence-grid" style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; width: 100%; margin: 0 auto;">
           
           <!-- Mumbai (INDIA VIDEO) -->
-          <div class="presence-card" data-animate="fade-up" style="position: relative; height: 250px; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--glass-border); transition: all 0.5s var(--ease-out); cursor: pointer;" onmouseover="this.style.transform='translateY(-10px)'; this.style.borderColor='var(--gold-glimmer)';" onmouseout="this.style.transform='none'; this.style.borderColor='var(--glass-border)';" onclick="window.location.hash='contact'">
+          <div class="presence-card" data-animate="fade-up" style="position: relative; height: 350px; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--glass-border); transition: all 0.5s var(--ease-out); cursor: pointer;" onmouseover="this.style.transform='translateY(-10px)'; this.style.borderColor='var(--gold-glimmer)';" onmouseout="this.style.transform='none'; this.style.borderColor='var(--glass-border)';" onclick="window.location.hash='contact'">
             <video autoplay loop muted playsinline style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.6; transition: opacity 0.5s ease;">
               <source src="/videos/INDIA.mp4" type="video/mp4">
             </video>
             <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 0%, rgba(10, 22, 40, 0.98)); z-index: 1;"></div>
             <div class="presence-info" style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 10px; z-index: 2;">
               <div style="display: flex; align-items: center; gap: 4px; margin-bottom: 2px;">
-                <span style="font-size: 0.9rem;">🇮🇳</span>
-                <h3 style="font-size: 0.9rem; color: var(--white); font-family: var(--font-heading); margin: 0;">Mumbai</h3>
+                <span style="font-size: 1.1rem;">🇮🇳</span>
+                <h3 style="font-size: 1.1rem; color: var(--white); font-family: var(--font-heading); margin: 0;">Mumbai</h3>
               </div>
               <p style="color: var(--gold); font-family: var(--font-accent); font-size: 0.5rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 2px; font-weight: 700;">Headquarters</p>
               <p style="color: var(--text-secondary); font-size: 0.65rem; line-height: 1.2; margin: 0;">Corporate nerve center driving India's transformation.</p>
@@ -608,15 +612,15 @@
           </div>
 
           <!-- Dubai (UAE VIDEO) -->
-          <div class="presence-card" data-animate="fade-up" data-delay="100" style="position: relative; height: 250px; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--glass-border); transition: all 0.5s var(--ease-out); cursor: pointer;" onmouseover="this.style.transform='translateY(-10px)'; this.style.borderColor='var(--gold-glimmer)';" onmouseout="this.style.transform='none'; this.style.borderColor='var(--glass-border)';" onclick="window.location.hash='contact'">
+          <div class="presence-card" data-animate="fade-up" data-delay="100" style="position: relative; height: 350px; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--glass-border); transition: all 0.5s var(--ease-out); cursor: pointer;" onmouseover="this.style.transform='translateY(-10px)'; this.style.borderColor='var(--gold-glimmer)';" onmouseout="this.style.transform='none'; this.style.borderColor='var(--glass-border)';" onclick="window.location.hash='contact'">
             <video autoplay loop muted playsinline style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.6; transition: opacity 0.5s ease;">
               <source src="/videos/UAE.mp4" type="video/mp4">
             </video>
             <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 0%, rgba(10, 22, 40, 0.98)); z-index: 1;"></div>
             <div class="presence-info" style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 10px; z-index: 2;">
               <div style="display: flex; align-items: center; gap: 4px; margin-bottom: 2px;">
-                <span style="font-size: 0.9rem;">🇦🇪</span>
-                <h3 style="font-size: 0.9rem; color: var(--white); font-family: var(--font-heading); margin: 0;">Dubai</h3>
+                <span style="font-size: 1.1rem;">🇦🇪</span>
+                <h3 style="font-size: 1.1rem; color: var(--white); font-family: var(--font-heading); margin: 0;">Dubai</h3>
               </div>
               <p style="color: var(--gold); font-family: var(--font-accent); font-size: 0.5rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 2px; font-weight: 700;">Global Holding</p>
               <p style="color: var(--text-secondary); font-size: 0.65rem; line-height: 1.2; margin: 0;">Strategic gateway for MEA capital and standards.</p>
@@ -624,15 +628,15 @@
           </div>
 
           <!-- Riyadh (INDIA VIDEO FALLBACK) -->
-          <div class="presence-card" data-animate="fade-up" data-delay="200" style="position: relative; height: 250px; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--glass-border); transition: all 0.5s var(--ease-out); cursor: pointer;" onmouseover="this.style.transform='translateY(-10px)'; this.style.borderColor='var(--gold-glimmer)';" onmouseout="this.style.transform='none'; this.style.borderColor='var(--glass-border)';" onclick="window.location.hash='contact'">
+          <div class="presence-card" data-animate="fade-up" data-delay="200" style="position: relative; height: 350px; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--glass-border); transition: all 0.5s var(--ease-out); cursor: pointer;" onmouseover="this.style.transform='translateY(-10px)'; this.style.borderColor='var(--gold-glimmer)';" onmouseout="this.style.transform='none'; this.style.borderColor='var(--glass-border)';" onclick="window.location.hash='contact'">
             <video autoplay loop muted playsinline style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.6; transition: opacity 0.5s ease;">
               <source src="/videos/INDIA.mp4" type="video/mp4">
             </video>
             <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 0%, rgba(10, 22, 40, 0.98)); z-index: 1;"></div>
             <div class="presence-info" style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 10px; z-index: 2;">
               <div style="display: flex; align-items: center; gap: 4px; margin-bottom: 2px;">
-                <span style="font-size: 0.9rem;">🇸🇦</span>
-                <h3 style="font-size: 0.9rem; color: var(--white); font-family: var(--font-heading); margin: 0;">Riyadh</h3>
+                <span style="font-size: 1.1rem;">🇸🇦</span>
+                <h3 style="font-size: 1.1rem; color: var(--white); font-family: var(--font-heading); margin: 0;">Riyadh</h3>
               </div>
               <p style="color: var(--gold); font-family: var(--font-accent); font-size: 0.5rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 2px; font-weight: 700;">EPC Hub</p>
               <p style="color: var(--text-secondary); font-size: 0.65rem; line-height: 1.2; margin: 0;">Driving infrastructure and engineering collaborations.</p>
@@ -640,15 +644,15 @@
           </div>
 
           <!-- London (UK VIDEO) -->
-          <div class="presence-card" data-animate="fade-up" data-delay="300" style="position: relative; height: 250px; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--glass-border); transition: all 0.5s var(--ease-out); cursor: pointer;" onmouseover="this.style.transform='translateY(-10px)'; this.style.borderColor='var(--gold-glimmer)';" onmouseout="this.style.transform='none'; this.style.borderColor='var(--glass-border)';" onclick="window.location.hash='contact'">
+          <div class="presence-card" data-animate="fade-up" data-delay="300" style="position: relative; height: 350px; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--glass-border); transition: all 0.5s var(--ease-out); cursor: pointer;" onmouseover="this.style.transform='translateY(-10px)'; this.style.borderColor='var(--gold-glimmer)';" onmouseout="this.style.transform='none'; this.style.borderColor='var(--glass-border)';" onclick="window.location.hash='contact'">
             <video autoplay loop muted playsinline style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.6; transition: opacity 0.5s ease;">
               <source src="/videos/UK.mp4" type="video/mp4">
             </video>
             <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 0%, rgba(10, 22, 40, 0.98)); z-index: 1;"></div>
             <div class="presence-info" style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 10px; z-index: 2;">
               <div style="display: flex; align-items: center; gap: 4px; margin-bottom: 2px;">
-                <span style="font-size: 0.9rem;">🇬🇧</span>
-                <h3 style="font-size: 0.9rem; color: var(--white); font-family: var(--font-heading); margin: 0;">London</h3>
+                <span style="font-size: 1.1rem;">🇬🇧</span>
+                <h3 style="font-size: 1.1rem; color: var(--white); font-family: var(--font-heading); margin: 0;">London</h3>
               </div>
               <p style="color: var(--gold); font-family: var(--font-accent); font-size: 0.5rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 2px; font-weight: 700;">Advisory Hub</p>
               <p style="color: var(--text-secondary); font-size: 0.65rem; line-height: 1.2; margin: 0;">Bridging European investment with Indian assets.</p>
@@ -656,15 +660,15 @@
           </div>
 
           <!-- Hong Kong (INDIA VIDEO FALLBACK) -->
-          <div class="presence-card" data-animate="fade-up" data-delay="400" style="position: relative; height: 250px; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--glass-border); transition: all 0.5s var(--ease-out); cursor: pointer;" onmouseover="this.style.transform='translateY(-10px)'; this.style.borderColor='var(--gold-glimmer)';" onmouseout="this.style.transform='none'; this.style.borderColor='var(--glass-border)';" onclick="window.location.hash='contact'">
+          <div class="presence-card" data-animate="fade-up" data-delay="400" style="position: relative; height: 350px; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--glass-border); transition: all 0.5s var(--ease-out); cursor: pointer;" onmouseover="this.style.transform='translateY(-10px)'; this.style.borderColor='var(--gold-glimmer)';" onmouseout="this.style.transform='none'; this.style.borderColor='var(--glass-border)';" onclick="window.location.hash='contact'">
             <video autoplay loop muted playsinline style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.6; transition: opacity 0.5s ease;">
               <source src="/videos/INDIA.mp4" type="video/mp4">
             </video>
             <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 0%, rgba(10, 22, 40, 0.98)); z-index: 1;"></div>
             <div class="presence-info" style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 10px; z-index: 2;">
               <div style="display: flex; align-items: center; gap: 4px; margin-bottom: 2px;">
-                <span style="font-size: 0.9rem;">🇭🇰</span>
-                <h3 style="font-size: 0.9rem; color: var(--white); font-family: var(--font-heading); margin: 0;">Hong Kong</h3>
+                <span style="font-size: 1.1rem;">🇭🇰</span>
+                <h3 style="font-size: 1.1rem; color: var(--white); font-family: var(--font-heading); margin: 0;">Hong Kong</h3>
               </div>
               <p style="color: var(--gold); font-family: var(--font-accent); font-size: 0.5rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 2px; font-weight: 700;">Trading Ops</p>
               <p style="color: var(--text-secondary); font-size: 0.65rem; line-height: 1.2; margin: 0;">Managing global supply chains and procurement.</p>
@@ -672,15 +676,15 @@
           </div>
 
           <!-- Singapore (INDIA VIDEO FALLBACK) -->
-          <div class="presence-card" data-animate="fade-up" data-delay="500" style="position: relative; height: 250px; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--glass-border); transition: all 0.5s var(--ease-out); cursor: pointer;" onmouseover="this.style.transform='translateY(-10px)'; this.style.borderColor='var(--gold-glimmer)';" onmouseout="this.style.transform='none'; this.style.borderColor='var(--glass-border)';" onclick="window.location.hash='contact'">
+          <div class="presence-card" data-animate="fade-up" data-delay="500" style="position: relative; height: 350px; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--glass-border); transition: all 0.5s var(--ease-out); cursor: pointer;" onmouseover="this.style.transform='translateY(-10px)'; this.style.borderColor='var(--gold-glimmer)';" onmouseout="this.style.transform='none'; this.style.borderColor='var(--glass-border)';" onclick="window.location.hash='contact'">
             <video autoplay loop muted playsinline style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.6; transition: opacity 0.5s ease;">
               <source src="/videos/INDIA.mp4" type="video/mp4">
             </video>
             <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 0%, rgba(10, 22, 40, 0.98)); z-index: 1;"></div>
             <div class="presence-info" style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 10px; z-index: 2;">
               <div style="display: flex; align-items: center; gap: 4px; margin-bottom: 2px;">
-                <span style="font-size: 0.9rem;">🇸🇬</span>
-                <h3 style="font-size: 0.9rem; color: var(--white); font-family: var(--font-heading); margin: 0;">Singapore</h3>
+                <span style="font-size: 1.1rem;">🇸🇬</span>
+                <h3 style="font-size: 1.1rem; color: var(--white); font-family: var(--font-heading); margin: 0;">Singapore</h3>
               </div>
               <p style="color: var(--gold); font-family: var(--font-accent); font-size: 0.5rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 2px; font-weight: 700;">SE Asia Hub</p>
               <p style="color: var(--text-secondary); font-size: 0.65rem; line-height: 1.2; margin: 0;">Fueling expansion and technological partnerships.</p>
@@ -706,22 +710,22 @@
         <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; width: 100%;" data-animate="fade-up">
           <!-- Card 1 -->
           <div class="glass-card" style="padding: 48px 32px; text-align: center;">
-            <div style="font-size: 3rem; font-weight: 700; color: var(--gold); font-family: var(--font-heading); line-height: 1;">34</div>
+            <div style="font-size: 3rem; font-weight: 700; color: var(--gold); font-family: var(--font-heading); line-height: 1;"><span class="stat-number" data-count="34">0</span></div>
             <div style="font-size: 0.85rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 2px; margin-top: 16px; font-family: var(--font-accent); font-weight: 600;">Total Projects</div>
           </div>
           <!-- Card 2 -->
           <div class="glass-card" style="padding: 48px 32px; text-align: center;">
-            <div style="font-size: 3rem; font-weight: 700; color: var(--gold); font-family: var(--font-heading); line-height: 1;">3,000+</div>
+            <div style="font-size: 3rem; font-weight: 700; color: var(--gold); font-family: var(--font-heading); line-height: 1;"><span class="stat-number" data-count="3000">0</span><span style="font-size: 0.8em;">+</span></div>
             <div style="font-size: 0.85rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 2px; margin-top: 16px; font-family: var(--font-accent); font-weight: 600;">Total Acres</div>
           </div>
           <!-- Card 3 -->
           <div class="glass-card" style="padding: 48px 32px; text-align: center;">
-            <div style="font-size: 3rem; font-weight: 700; color: #22C55E; font-family: var(--font-heading); line-height: 1;">5</div>
+            <div style="font-size: 3rem; font-weight: 700; color: #22C55E; font-family: var(--font-heading); line-height: 1;"><span class="stat-number" data-count="5">0</span></div>
             <div style="font-size: 0.85rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 2px; margin-top: 16px; font-family: var(--font-accent); font-weight: 600;">Ready to Proceed</div>
           </div>
           <!-- Card 4 (Starts new row) -->
           <div class="glass-card" style="padding: 48px 32px; text-align: center;">
-            <div style="font-size: 3rem; font-weight: 700; color: #F59E0B; font-family: var(--font-heading); line-height: 1;">29</div>
+            <div style="font-size: 3rem; font-weight: 700; color: #F59E0B; font-family: var(--font-heading); line-height: 1;"><span class="stat-number" data-count="29">0</span></div>
             <div style="font-size: 0.85rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 2px; margin-top: 16px; font-family: var(--font-accent); font-weight: 600;">Under Due Diligence</div>
           </div>
         </div>
