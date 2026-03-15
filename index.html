@@ -46,7 +46,7 @@
 
       <!-- Market Value Ticker -->
       <div class="preloader-market-value">
-        <span class="value-label">Market Appreciation:</span>
+        <span class="value-label" style="color: var(--gold);">Fast Market Appreciation:</span>
         <span id="marketValue" class="value-amount">$1.2B</span>
         <span id="marketGrowth" class="value-growth">+0%</span>
       </div>
@@ -652,8 +652,7 @@
       </div>
 
       <div style="width: 100%; overflow-x: auto; padding-bottom: 20px; scrollbar-width: none; -ms-overflow-style: none;">
-        <style>.presence-grid::-webkit-scrollbar { display: none; }</style>
-        <div class="presence-grid" style="display: grid; grid-template-columns: repeat(6, 330px); gap: 24px; width: max-content; margin: 0 auto; padding: 20px 0;">
+        <div class="presence-grid">
           
           <!-- Mumbai (INDIA VIDEO) -->
           <div class="presence-card" data-animate="fade-up" style="position: relative; height: 350px; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--glass-border); transition: all 0.5s var(--ease-out); cursor: pointer;" onmouseover="this.style.transform='translateY(-10px)'; this.style.borderColor='var(--gold-glimmer)';" onmouseout="this.style.transform='none'; this.style.borderColor='var(--glass-border)';" onclick="window.location.hash='contact'">

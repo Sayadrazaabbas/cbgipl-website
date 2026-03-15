@@ -1901,8 +1901,9 @@ select {
 
 .presence-grid {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 16px;
+  grid-template-columns: repeat(2, 450px);
+  gap: 32px;
+  justify-content: center;
 }
 
 .section-light .presence-card {
@@ -2367,7 +2368,7 @@ select {
   }
 
   .presence-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .contact-grid {
