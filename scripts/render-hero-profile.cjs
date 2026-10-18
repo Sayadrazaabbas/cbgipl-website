@@ -24,12 +24,11 @@ const source = (relative) => path.join(root, relative);
 const output = path.resolve(process.argv[3] || source('public/videos/hero-bg.mp4'));
 const font = 'C\\:/Windows/Fonts/arialbd.ttf';
 
-function caption(label, title, bandOpacity = 0.75) {
+function caption(label, title) {
   return [
-    `drawbox=x=0:y=510:w=1280:h=210:color=0x071426@${bandOpacity}:t=fill`,
     'drawbox=x=608:y=564:w=64:h=4:color=0xD4AF37:t=fill',
-    `drawtext=fontfile='${font}':text='${label}':fontcolor=0xD4AF37:fontsize=20:x=(w-text_w)/2:y=590`,
-    `drawtext=fontfile='${font}':text='${title}':fontcolor=white:fontsize=38:x=(w-text_w)/2:y=625`,
+    `drawtext=fontfile='${font}':text='${label}':fontcolor=0xD4AF37:fontsize=20:x=(w-text_w)/2:y=590:borderw=2:bordercolor=black@0.85:shadowcolor=black@0.95:shadowx=2:shadowy=2`,
+    `drawtext=fontfile='${font}':text='${title}':fontcolor=white:fontsize=38:x=(w-text_w)/2:y=625:borderw=2:bordercolor=black@0.85:shadowcolor=black@0.95:shadowx=3:shadowy=3`,
   ].join(',');
 }
 
@@ -37,7 +36,7 @@ function still(input, crop, label, title, name, bandOpacity, duration) {
   const frames = Math.round(duration * 24);
   return `[${input}:v]trim=duration=${duration},setpts=PTS-STARTPTS,${crop}scale=1408:792,` +
     `crop=1280:720:x='(in_w-out_w)*n/${frames}':y='(in_h-out_h)/2',` +
-    `setsar=1,format=yuv420p,${caption(label, title, bandOpacity)},fps=24,settb=1/24[${name}]`;
+    `setsar=1,format=yuv420p,${caption(label, title)},fps=24,settb=1/24[${name}]`;
 }
 
 // Scene Durations synchronized with exact split dialogue pieces:
@@ -69,8 +68,7 @@ const totalDur = off10 + d10;            // 50.7s ~ 52.4s
 const filters = [
   // Scene 0: Authentic 3D Architectural intro
   `[0:v]trim=duration=${d0},setpts=PTS-STARTPTS,fps=24,scale=1280:720,setsar=1,format=yuv420p,` +
-    `drawbox=x=395:y=400:w=490:h=42:color=0x071426@0.94:t=fill:enable='gte(t,3.5)',` +
-    `drawtext=fontfile='${font}':text='Carter Brown Global Infra Private Limited':fontcolor=white:fontsize=22:x=(w-text_w)/2:y=408:enable='gte(t,3.5)',` +
+    `drawtext=fontfile='${font}':text='Carter Brown Global Infra Private Limited':fontcolor=white:fontsize=24:x=(w-text_w)/2:y=408:borderw=2:bordercolor=black@0.85:shadowcolor=black@0.95:shadowx=2:shadowy=2:enable='gte(t,3.5)',` +
     'settb=1/24[v0]',
   
   // Scene 1: Powering Industries

@@ -9,20 +9,25 @@ body { background: #07162f; }
 html { scroll-padding-top: 92px; }
 ::selection { background: #d8b35b; color: #081a34; }
 
-.navbar:not(.scrolled) {
-  background: transparent !important;
-  border-bottom: none !important;
-  box-shadow: none !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
+:root {
+  --nav-height: 88px;
 }
 
-.navbar.scrolled {
-  background: rgba(7, 22, 47, .95) !important;
+.navbar {
+  height: var(--nav-height) !important;
+  background: rgba(7, 22, 47, 0.98) !important;
   border-bottom: 1px solid rgba(231, 196, 125, .16) !important;
-  box-shadow: 0 12px 42px rgba(0, 0, 0, .2);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, .25) !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+#home {
+  margin-top: var(--nav-height) !important;
+  height: calc(100vh - var(--nav-height)) !important;
+  position: relative;
+  background: #000;
+  overflow: hidden;
 }
 .navbar-logo img { filter: drop-shadow(0 3px 14px rgba(212, 175, 55, .18)); }
 .navbar .nav-link { transition: color .25s ease, opacity .25s ease; }

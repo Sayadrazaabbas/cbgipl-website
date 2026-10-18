@@ -547,9 +547,13 @@ select {
   left: 0;
   right: 0;
   z-index: 1000;
-  padding: 15px 0;
-  background: transparent;
-  border-bottom: none;
+  height: 88px;
+  padding: 0;
+  background: rgba(7, 22, 47, 0.98);
+  border-bottom: 1px solid rgba(231, 196, 125, 0.16);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
   transition: all 0.4s var(--ease);
 }
 
@@ -2816,7 +2820,11 @@ select {
   .section-desc { font-size: 1rem; }
   .section-header { margin-bottom: 48px; }
 
+  .navbar {
+    height: 76px !important;
+  }
   #home {
+    margin-top: 76px !important;
     height: auto !important;
     min-height: 0;
     padding: 0 !important;

@@ -82,7 +82,7 @@
 
   <!-- ========== BREAKOUT HERO VIDEO ========== -->
   <div id="home"
-    style="display: block; width: 100%; height: 100vh; background: #000; overflow: hidden; position: relative; margin-top: 0;">
+    style="display: block; width: 100%; height: calc(100vh - 88px); background: #000; overflow: hidden; position: relative; margin-top: 88px;">
     <!-- The margin-top clears the navbar -->
 
     <!-- Instant First Appearance Image (Renders immediately, matches video frame 0 pixel-for-pixel) -->
@@ -93,8 +93,8 @@
     <!-- Video Element (Starts hidden, plays automatically only when fully loaded and buffered) -->
     <video id="heroVideo" loop muted playsinline preload="auto" poster="./images/hero-poster.jpg"
       style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 2; opacity: 0; transition: opacity 0.8s ease;">
-      <source src="https://github.com/Sayadrazaabbas/V5/releases/download/v1.0-media/hero-bg.mp4" type="video/mp4">
       <source src="./videos/hero-bg.mp4" type="video/mp4">
+      <source src="https://github.com/Sayadrazaabbas/V5/releases/download/v1.0-media/hero-bg.mp4" type="video/mp4">
     </video>
     <!-- Sound Toggle Button for Browser Autoplay Policy -->
     <button id="soundToggleBtn"
