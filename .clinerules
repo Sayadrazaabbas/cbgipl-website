@@ -1,0 +1,29 @@
+# CBGIPL Roo Code Project Rules & Best Practices
+
+## 1. Operating Mindset
+- **Act Smart & Decisive:** Analyze requirements deeply, implement the cleanest solution, and verify execution autonomously.
+- **Proactive Command Execution:** Automatically run terminal commands to inspect, test, and build without asking trivial permissions.
+- **Preserve Design Integrity:** This is a luxury corporate landing page for CBGIPL (Carter Brown Global Infra Pvt Ltd). Always preserve the luxury corporate palette (midnight blue `#07162f`, corporate gold accents `#e7c47d`, `#d4af37`), typography, and smooth micro-interactions.
+
+---
+
+## 2. Architecture & Tech Stack
+- **Framework:** Vanilla HTML5, Modern CSS3, Modular JavaScript.
+- **Bundler:** Vite with `vite-plugin-singlefile` generating an inlined `dist/index.html`.
+- **CSS Architecture:**
+  - `src/styles/main.css` — Core styles, grid systems, responsive media queries.
+  - `src/styles/premium.css` — Luxury elevation layer, glassmorphism, gold accents.
+- **Build Scripts:**
+  - `npm run build` — Runs `vite build` and copies referenced media assets to `dist/`.
+  - `npm run build:hostinger` — Prepares distribution bundle for Hostinger web root.
+- **Deployment Pipeline:**
+  - Production branch: `main` tracking `origin/main` (`https://github.com/Sayadrazaabbas/cbgipl-website.git`).
+  - Automated deployment via `.github/workflows/deploy.yml` directly to GitHub Pages.
+
+---
+
+## 3. Strict Development Rules
+1. **Always Verify Builds:** Run `npm run build` after modifying any CSS, JavaScript, or HTML to ensure the bundle builds with zero errors.
+2. **Never Break Layouts:** Maintain responsive grid layouts across desktop (5/3 columns), tablet (2 columns), and mobile (1 column).
+3. **Keep Branches Clean:** All work belongs directly on `main` branch. Never create redundant experimental branches unless explicitly requested.
+4. **Preserve Audio/Video Performance:** The hero video uses high-performance progressive streaming. Do not alter video layering or autoplay attributes without careful testing.
