@@ -81,3 +81,4 @@ For a corporate infrastructure and international trading firm:
    - An instant email notification is delivered to the business inbox.  
    - Zero recurring monthly fees, completely transparent, and no third-party branding.
 2. **Complementary Channel:** A direct **WhatsApp Inquiry Button** alongside the contact details for clients requiring immediate real-time communication.
+
